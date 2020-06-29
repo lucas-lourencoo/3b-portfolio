@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Index 3B</title>
+    <title>3B - Comércio e Importação</title>
     <meta content="" name="descriptison">
     <meta content="" name="keywords">
 

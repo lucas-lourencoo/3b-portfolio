@@ -20,4 +20,9 @@ class Controller extends BaseController
     {
         return view('contact');
     }
+
+    public function products()
+    {
+        return view('products');
+    }
 }
