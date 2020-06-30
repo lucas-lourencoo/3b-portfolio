@@ -10,8 +10,7 @@
 
                 <nav class="nav-menu nav-main d-none d-lg-block">
                     <ul>
-                        <li class="active"><a href="/">Início</a></li>
-                        <li><a href="/produtos">Produtos</a></li>
+                        <li><a href="/produtos">PRODUTOS</a></li>
                         <!-- <li class="drop-down"><a href="">Drop Down</a>
                                     <ul>
                                     <li><a href="#">Drop Down 1</a></li>
