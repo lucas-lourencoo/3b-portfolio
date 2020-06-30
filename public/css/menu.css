@@ -5,7 +5,8 @@
 
 /* Desktop Navigation */
 
-.nav-menu ul {
+.nav-menu ul,
+.nav-search ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -30,6 +31,61 @@
     padding: 25px 3px;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 900;
+}
+
+.nav-search ul .nav-search ul {
+    display: block;
+}
+
+.nav-search {
+    width: 100%;
+}
+
+.nav-search input::placeholder {
+    color: #02963880;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.nav-search input {
+    width: 100%;
+    margin: 20px 0px 0px 0px;
+    padding: 0px;
+    font-family: 'Roboto Condensed', sans-serif;
+    border: none;
+    border-radius: 0px;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 20px;
+    color: #02963880;
+    text-align: center;
+}
+
+.nav-search input:focus {
+    box-shadow: none;
+    outline: none;
+    color: #029638dc;
+}
+
+.nav-search .seach-options a {
+    background-color: #029638dc;
+    color: white;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    height: 35px;
+    width: 35px;
+    margin: 10px 5px 10px 0px
+}
+
+.nav-search .seach-options a:hover {
+    background-color: #ffc100;
+}
+
+.nav-search .seach-options {
+    text-align: center;
 }
 
 .nav-menu>ul>li>a:before {
@@ -129,8 +185,7 @@
 
 /* Get Startet Button */
 
-.get-started-btn {
-    margin-left: 25px;
+.bar-opt-btn {
     background: #009a4f;
     color: #fff;
     border-radius: 50px;
@@ -147,15 +202,21 @@
     font-weight: 900;
 }
 
-.get-started-btn:hover {
+.bar-opt-btn:hover {
     background: #fbca4d;
     color: #fff;
 }
 
 @media (max-width: 992px) {
-    .get-started-btn {
+    .bar-options {
         margin: 0 48px 0 0;
-        padding: 6px 18px;
+    }
+    .bar-opt-btn {
+        padding: 8px 25px 9px 25px;
+        font-size: 16px;
+    }
+    .nav-search input {
+        margin-top: 0px;
     }
 }
 
@@ -178,7 +239,8 @@
 }
 
 .mobile-nav-toggle i {
-    color: #fff;
+    color: #009a4f;
+    font-size: 30px;
 }
 
 .mobile-nav {
@@ -291,11 +353,7 @@
     transition: all 0.5s;
     z-index: 997;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#header.header-scrolled,
-#header.header-inner-pages {
-    background: #0f0f0fbd;
+    background-color: #fff;
 }
 
 #header .logo {

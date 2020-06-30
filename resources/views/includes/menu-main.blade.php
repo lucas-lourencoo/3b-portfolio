@@ -8,7 +8,7 @@
                     </a>
                 </h1>
 
-                <nav class="nav-menu d-none d-lg-block">
+                <nav class="nav-menu nav-main d-none d-lg-block">
                     <ul>
                         <li class="active"><a href="/">Início</a></li>
                         <li><a href="/produtos">Produtos</a></li>
@@ -31,8 +31,19 @@
                             </li> -->
                     </ul>
                 </nav>
+                <nav class="nav-search d-none">
+                    <ul>
+                        <li class="active"><input type="text" placeholder="Faça sua busca..." class="form-control"></li>
+                        <li class="seach-options"><a href="#" id="close"><i class="fas fa-times"></i></a><a id="go"
+                                href="#"><i class="fas fa-search"></i></a></li>
+                    </ul>
+                </nav>
                 <!-- .nav-menu -->
-                <a href="/contato" class="get-started-btn scrollto">Contato</a>
+                <div class="bar-options">
+                    <a class="bar-opt-btn" id="search-open" href="#"><i class="fas fa-search"></i></a>
+                    <a href="/contato" class="bar-opt-btn">Contato</a>
+                </div>
+
             </div>
         </div>
 

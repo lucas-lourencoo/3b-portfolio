@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
 
     <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('plugins/fontawesome-5.13.0/css/all.min.css') }}" rel="stylesheet">
@@ -53,8 +53,23 @@
 
 
     <script>
+    $('#search-open').click(function(e) {
+        e.preventDefault();
+        $('.nav-menu.nav-main').removeClass('d-lg-block');
+        $('.nav-search').removeClass('d-none');
+        $('.bar-options, .logo, .mobile-nav-toggle').addClass('d-none');
+        setTimeout(function() { $('.nav-search input').focus() }, 500);
+    });
+    $('a#close').click(function (e) { 
+        e.preventDefault();
+        $('.nav-menu.nav-main').addClass('d-lg-block');
+        $('.nav-search').addClass('d-none');
+        $('.bar-options , .logo, .mobile-nav-toggle').removeClass('d-none');
+    });
+
+
     $('.owl-carousel').owlCarousel({
-        loop: true,
+        loop: true, 
         margin: 10,
         autoplay: true,
         autoplayTimeout: 2500,
