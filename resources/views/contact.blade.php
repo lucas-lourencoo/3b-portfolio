@@ -28,10 +28,9 @@
         <section id="breadcrumbs" class="breadcrumbs">
             <div class="container">
                 <ol>
-                    <li><a href="/">Início</a></li>
+                    <li><a href="/" title="Voltar ao início do site">Início</a></li>
                     <li>Contato</li>
                 </ol>
-                <h2>Contato</h2>
             </div>
         </section>
 
@@ -75,27 +74,9 @@
 
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/contact.js') }}"></script>
     <script src="{{ asset('plugins/jquery.easing/jquery.easing.min.js') }}"></script>
 
-
-    <script>
-    $('#search-open').click(function(e) {
-        e.preventDefault();
-        $('.nav-menu.nav-main').removeClass('d-lg-block');
-        $('.nav-search').removeClass('d-none');
-        $('.bar-options, .logo, .mobile-nav-toggle').addClass('d-none');
-        setTimeout(function() {
-            $('.nav-search input').focus()
-        }, 500);
-    });
-    $('a#close').click(function(e) {
-        e.preventDefault();
-        $('.nav-menu.nav-main').addClass('d-lg-block');
-        $('.nav-search').addClass('d-none');
-        $('.bar-options , .logo, .mobile-nav-toggle').removeClass('d-none');
-    });
-    </script>
 </body>
 
 </html>

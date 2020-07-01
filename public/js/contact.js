@@ -28,21 +28,6 @@
         $('.bar-options , .logo, .mobile-nav-toggle').removeClass('d-none');
     });
 
-    // CAROUSEL MAIN
-    $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 2500,
-        autoplayHoverPause: true,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1
-            }
-        }
-    });
-
     // Smooth scroll for the navigation menu and links with .scrollto classes
     var scrolltoOffset = $('#header').outerHeight() - 2;
     $(document).on('click', '.nav-menu a, .mobile-nav a, .scrollto', function(e) {

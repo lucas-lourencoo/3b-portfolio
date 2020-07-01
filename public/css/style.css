@@ -154,8 +154,13 @@ h6 {
 */
 
 .main {
-    height: 2000px;
-    margin-top: 90px;
+    margin-top: 85px;
+}
+
+@media (max-width: 991px) {
+    .main {
+        margin-top: 70px;
+    }
 }
 
 .item {

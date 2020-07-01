@@ -27,9 +27,9 @@
     position: relative;
     color: #009e4f;
     transition: 0.3s;
-    font-size: 23px;
+    font-size: 17px;
     padding: 25px 3px;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 900;
 }
 
@@ -95,8 +95,8 @@
 .nav-menu>ul>li>a:before {
     content: "";
     position: absolute;
-    height: 6px;
-    bottom: -2px;
+    height: 4px;
+    bottom: -1px;
     left: 0;
     background-color: #ffc100;
     visibility: hidden;
@@ -130,7 +130,6 @@
     background: #fff;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
     transition: 0.3s;
-    border-top: 2px solid #009961;
 }
 
 .nav-menu .drop-down:hover>ul {
@@ -147,21 +146,16 @@
 .nav-menu .drop-down ul a {
     padding: 10px 20px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 300;
     text-transform: none;
-    color: #282828;
+    color: #5f5f5f;
 }
 
 .nav-menu .drop-down ul a:hover,
 .nav-menu .drop-down ul .active>a,
 .nav-menu .drop-down ul li:hover>a {
     color: #009961;
-}
-
-.nav-menu .drop-down>a:after {
-    content: "\ea99";
-    font-family: IcoFont;
-    padding-left: 5px;
+    letter-spacing: 0px;
 }
 
 .nav-menu .drop-down .drop-down ul {
@@ -180,10 +174,11 @@
 }
 
 .nav-menu .drop-down .drop-down>a:after {
-    content: "\eaa0";
-    font-family: IcoFont;
+    content: "\f105";
+    font-family: 'Font Awesome 5 Free';
     position: absolute;
     right: 15px;
+    font-weight: 900;
 }
 
 
@@ -272,10 +267,16 @@
 .mobile-nav a {
     display: block;
     position: relative;
-    color: #282828;
+    color: #009a4f;
     padding: 10px 20px;
-    font-weight: 500;
+    font-weight: 900;
     outline: none;
+    /*
+    text-align: center;
+    background: #009a4f;
+    border-radius: 50px;
+    margin: 10px 30px;
+    box-shadow: 2px 1px 5px #0000004a; */
 }
 
 .mobile-nav a:hover,
@@ -286,15 +287,15 @@
 }
 
 .mobile-nav .drop-down>a:after {
-    content: "\ea99";
-    font-family: IcoFont;
+    content: "\f105";
+    font-family: 'FontAwesome 5 Free';
     padding-left: 10px;
     position: absolute;
     right: 15px;
 }
 
 .mobile-nav .active.drop-down>a:after {
-    content: "\eaa1";
+    content: "\f054";
 }
 
 .mobile-nav .drop-down>a {
@@ -344,7 +345,7 @@
         left: -100%;
     }
     .nav-menu .drop-down .drop-down>a:after {
-        content: "\ea9d";
+        content: "\f104";
     }
 }
 
