@@ -37,7 +37,19 @@
                 <img src="{{ asset('img/banner_3b.png') }}" alt="Imagem do banner">
             </div>
         </div>
+        
+        <div class="logos">
+            <ul>
+                <li><img src="{{ asset('img/bayer.png') }}" alt="bayer"></li>
+                <li><img src="{{ asset('img/rosembusch.png') }}" alt="rosembusch"></li>
+                <li><img src="{{ asset('img/imeve.png') }}" alt="imeve"></li>
+                <li><img src="{{ asset('img/rogama.png') }}" alt="rogama"></li>
+                <li><img src="{{ asset('img/vithal.png') }}" alt="vithal"></li>
+                <li><img src="{{ asset('img/ucbvet.png') }}" alt="ucbvet"></li>
+            </ul>
+        </div>
     </div>
+
 
     @include('includes/footer')
 

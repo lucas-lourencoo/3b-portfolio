@@ -166,3 +166,19 @@ h6 {
 .item {
     background-color: #009961;
 }
+
+.logos {
+    list-style: none;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.logos ul li {
+    display: inline;
+}
+
+.logos ul li img {
+    height: 10%;
+    width: 10%;
+    padding-right: 30px;
+}
