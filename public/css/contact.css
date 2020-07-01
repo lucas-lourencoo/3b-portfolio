@@ -71,10 +71,10 @@ h6 {
     justify-content: center;
     text-align: center;
     width: 200px;
-    transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    -webkit-transition: all .2s ease-in-out;
+    transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.229);
 }
 

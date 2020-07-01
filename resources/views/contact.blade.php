@@ -45,9 +45,9 @@
                 <div class="col-md-6 social-d">
                     <h3 class="text-center">Nossas redes sociais</h3>
                     <div class="social-contact">
-                        <a href="#" class="btn-social instagram"><i class="fab fa-instagram"></i>Instagram</a>
-                        <a href="#" class="btn-social facebook"><i class="fab fa-facebook"></i>Facebook</a>
-                        <a href="#" class="btn-social whatsapp"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+                        <a href="#" class="btn-social instagram"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+                        <a href="#" class="btn-social facebook"><i class="fab fa-facebook"></i><span>Facebook</span></a>
+                        <a href="#" class="btn-social whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
                     </div>
                 </div>
             </div>
