@@ -27,6 +27,98 @@ h6 {
 
 
 /*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+
+.contact-container h3 {
+    margin: 35px 0px;
+    font-weight: bold;
+    padding: 6px 0px;
+    color: rgba(0, 0, 0, 0.632);
+}
+
+.contact-container h3::before {
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    content: "";
+    position: absolute;
+    height: 6px;
+    top: 80px;
+    background-color: #ffc100;
+    width: 40px;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.social-contact {
+    margin: 0 auto;
+    display: table;
+}
+
+.social-contact ul {
+    list-style: none;
+}
+
+.social-contact a {
+    margin: 5px;
+    padding: 10px 18px;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 200px;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.229);
+}
+
+.social-contact a i {
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+.social-contact a:hover {
+    color: white;
+    width: 300px;
+}
+
+.social-contact a.facebook {
+    background-color: #3b5998;
+}
+
+.social-contact a.instagram {
+    background-color: #d62976;
+}
+
+.social-contact a.whatsapp {
+    background-color: #00bfa5;
+}
+
+@media (max-width: 576px) {
+    .social-contact a {
+        width: 100%;
+    }
+}
+
+.info-contact {
+    display: table;
+    margin: 0 auto;
+}
+
+.info-d:hover h3::before,
+.social-d:hover h3::before,
+.local-d:hover h3::before {
+    width: 80px;
+}
+
+
+/*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
 
@@ -101,194 +193,59 @@ h6 {
 }
 
 .back-to-top i:hover {
-    background: #00b371;
+    background: #009a4f;
     color: #fff;
 }
 
 
 /*--------------------------------------------------------------
-# Header
+# Breadcrumbs
 --------------------------------------------------------------*/
 
-#header {
-    transition: all 0.5s;
-    z-index: 997;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#header.header-scrolled,
-#header.header-inner-pages {
-    background: rgba(40, 40, 40, 0.9);
-}
-
-#header .logo {
-    font-size: 28px;
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-#header .logo a {
-    color: #fff;
-}
-
-#header .logo img {
-    max-height: 40px;
+.breadcrumbs {
+    padding: 15px 0;
+    background: #f9f9f9;
+    min-height: 40px;
+    margin-top: 72px;
 }
 
 @media (max-width: 992px) {
-    #header {
-        border: 0;
-        padding: 15px 0;
+    .breadcrumbs {
+        margin-top: 63px;
     }
 }
 
-
-/*--------------------------------------------------------------
-# Contact
---------------------------------------------------------------*/
-
-.contact .info {
-    width: 100%;
-    background: #fff;
+.breadcrumbs h2 {
+    font-size: 26px;
+    font-weight: 500;
 }
 
-.contact .info i {
-    font-size: 32px;
-    color: #009961;
-    float: left;
-    line-height: 1;
-}
-
-.contact .info h4 {
-    padding: 0 0 0 60px;
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #282828;
-}
-
-.contact .info p {
-    padding: 0 0 0 60px;
-    margin-bottom: 0;
+.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0 0 10px 0;
+    margin: 0;
     font-size: 14px;
-    color: #5b5b5b;
 }
 
-.contact .info .email,
-.contact .info .phone {
-    margin-top: 40px;
+.breadcrumbs ol li+li {
+    padding-left: 10px;
 }
 
-.contact .php-email-form {
-    width: 100%;
-    background: #fff;
-}
-
-.contact .php-email-form .form-group {
-    padding-bottom: 8px;
-}
-
-.contact .php-email-form .validate {
-    display: none;
-    color: red;
-    margin: 0 0 15px 0;
-    font-weight: 400;
-    font-size: 13px;
-}
-
-.contact .php-email-form .error-message {
-    display: none;
-    color: #fff;
-    background: #ed3c0d;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
-}
-
-.contact .php-email-form .sent-message {
-    display: none;
-    color: #fff;
-    background: #18d26e;
-    text-align: left;
-    padding: 15px;
-    font-weight: 600;
-}
-
-.contact .php-email-form .sent-message br+br {
-    margin-top: 25px;
-}
-
-.contact .php-email-form .loading {
-    display: none;
-    background: #fff;
-    text-align: center;
-    padding: 15px;
-}
-
-.contact .php-email-form .loading:before {
-    content: "";
+.breadcrumbs ol li+li::before {
     display: inline-block;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    margin: 0 10px -6px 0;
-    border: 3px solid #18d26e;
-    border-top-color: #eee;
-    -webkit-animation: animate-loading 1s linear infinite;
-    animation: animate-loading 1s linear infinite;
+    padding-right: 10px;
+    color: #424242;
+    content: "/";
 }
 
-.contact .php-email-form input,
-.contact .php-email-form textarea {
-    border-radius: 0;
-    box-shadow: none;
-    font-size: 14px;
-    border-radius: 4px;
-}
 
-.contact .php-email-form input:focus,
-.contact .php-email-form textarea:focus {
-    border-color: #009961;
-}
+/*
+* MAIN
+*/
 
-.contact .php-email-form input {
-    height: 44px;
-}
-
-.contact .php-email-form textarea {
-    padding: 10px 12px;
-}
-
-.contact .php-email-form button[type="submit"] {
-    background: #009961;
-    border: 0;
-    padding: 10px 30px;
-    color: #fff;
-    transition: 0.4s;
-    border-radius: 50px;
-}
-
-.contact .php-email-form button[type="submit"]:hover {
-    background: #00b371;
-}
-
-@-webkit-keyframes animate-loading {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes animate-loading {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+.main {
+    height: 2000px;
+    margin-top: 90px;
 }

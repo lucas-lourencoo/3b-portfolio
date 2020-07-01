@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-xl-9 d-flex align-items-center justify-content-between">
                 <h1 class="logo">
-                    <a href="index.html">
+                    <a href="/">
                         <img src="{{ asset('img/logo.png') }}" alt="">
                     </a>
                 </h1>
