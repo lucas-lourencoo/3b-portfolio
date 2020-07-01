@@ -11,6 +11,7 @@
                 <nav class="nav-menu nav-main d-none d-lg-block">
                     <ul>
                         <li><a href="/produtos">PRODUTOS</a></li>
+                        <li><a href="/contato">CONTATO</a></li>
                         <!-- <li class="drop-down"><a href="">Drop Down</a>
                                     <ul>
                                     <li><a href="#">Drop Down 1</a></li>
@@ -40,7 +41,6 @@
                 <!-- .nav-menu -->
                 <div class="bar-options">
                     <a class="bar-opt-btn" id="search-open" href="#"><i class="fas fa-search"></i></a>
-                    <a href="/contato" class="bar-opt-btn">Contato</a>
                 </div>
 
             </div>
