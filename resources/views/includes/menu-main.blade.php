@@ -10,7 +10,49 @@
 
                 <nav class="nav-menu nav-main d-none d-lg-block">
                     <ul>
-                        <li class="drop-down"><a href="/produtos">PRODUTOS</a>
+                        <li class="drop-down"><a href="/produtos">VERMÍFUGOS</a>
+                            <ul>
+                                <li><a href="#">Produto 1</a></li>
+                                <li class="drop-down"><a href="#">Produto 2</a>
+                                    <ul>
+                                        <li><a href="#">Produto 2.1</a></li>
+                                        <li><a href="#">Produto 2.2</a></li>
+                                        <li><a href="#">Produto 2.3</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Produto 4</a></li>
+                                <li><a href="#">Produto 5</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down"><a href="/produtos">TERAPÊUTICOS</a>
+                            <ul>
+                                <li><a href="#">Produto 1</a></li>
+                                <li class="drop-down"><a href="#">Produto 2</a>
+                                    <ul>
+                                        <li><a href="#">Produto 2.1</a></li>
+                                        <li><a href="#">Produto 2.2</a></li>
+                                        <li><a href="#">Produto 2.3</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Produto 4</a></li>
+                                <li><a href="#">Produto 5</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down"><a href="/produtos">NUTRIÇÃO</a>
+                            <ul>
+                                <li><a href="#">Produto 1</a></li>
+                                <li class="drop-down"><a href="#">Produto 2</a>
+                                    <ul>
+                                        <li><a href="#">Produto 2.1</a></li>
+                                        <li><a href="#">Produto 2.2</a></li>
+                                        <li><a href="#">Produto 2.3</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Produto 4</a></li>
+                                <li><a href="#">Produto 5</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down"><a href="/produtos">DIVERSOS</a>
                             <ul>
                                 <li><a href="#">Produto 1</a></li>
                                 <li class="drop-down"><a href="#">Produto 2</a>
