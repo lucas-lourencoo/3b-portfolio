@@ -24,7 +24,7 @@
 
     @include('includes/menu-main')
 
-    <div class="main">
+    <div class="main" id="contato">
         <section id="breadcrumbs" class="breadcrumbs">
             <div class="container">
                 <ol>
