@@ -16,6 +16,11 @@ a:hover {
     text-decoration: none;
 }
 
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
 h1,
 h2,
 h3,
@@ -27,100 +32,81 @@ h6 {
 
 
 /*--------------------------------------------------------------
-# Contact
+# Sidebar
 --------------------------------------------------------------*/
 
-.contact-container h3 {
-    margin: 45px 0px;
-    font-weight: bold;
-    padding: 6px 0px;
-    color: rgba(0, 0, 0, 0.632);
-}
-
-.contact-container h3::before {
-    transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    -webkit-transition: all .2s ease-in-out;
-    content: "";
-    position: absolute;
-    height: 6px;
-    top: 85px;
-    background-color: #ffc100;
-    width: 40px;
-}
-
-.social-contact {
-    margin: 0 auto;
-    display: table;
-}
-
-.social-contact ul {
-    list-style: none;
-}
-
-.social-contact a {
-    transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    -webkit-transition: all .2s ease-in-out;
-    margin: 5px;
-    padding: 10px 18px;
-    color: white;
-    border-radius: 50px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.sidebar {
+    float: left;
     width: 200px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.229);
+    margin-top: 50px;
+    padding-right: 17px;
 }
 
-.social-contact a i {
-    margin-right: 10px;
-    font-size: 30px;
+.sidebar h3 {
+    color: rgba(34, 34, 34, 0.715);
+    font-size: 20px;
 }
 
-.social-contact a.facebook:hover {
-    background-color: #3b5998;
+.sidebar_section {
+    margin-top: 25px;
+}
+
+.sidebar li a {
+    cursor: pointer;
+    padding: 3px 10px;
+    margin: 3px 0px;
+    width: 100%;
+    display: inline-block;
+    transition: .2s ease-in-out;
+    border-left: 3px solid white;
+}
+
+.sidebar li a.active {
+    background-color: #009a4f;
     color: white;
+    border-radius: 0 50px 50px 0;
 }
 
-.social-contact a.whatsapp:hover {
-    background-color: #00bfa5;
+.sidebar li a.active::after {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    height: 12px;
+    width: 12px;
+    float: right;
+    margin-right: 5px;
+}
+
+.sidebar li:hover a.active::after {
+    content: '\f00d';
+}
+
+.sidebar li a:not(.active):hover {
+    border-color: #009a4f;
+    color: #009a4f;
+    letter-spacing: .3px;
+}
+
+.sidebar li a.active:hover {
     color: white;
+    letter-spacing: .3px;
 }
 
-.social-contact a.instagram:hover {
-    background-color: #d62976;
+.sidebar_categories {
+    margin-left: 5px;
+}
+
+.sidebar_title {
+    margin: 10px 0px;
+}
+
+.sidebar_title a {
+    font-weight: 600;
+    background-color: #009a4f;
     color: white;
-}
-
-.social-contact a.facebook {
-    border: solid 1px #3b5998;
-    color: #3b5998;
-}
-
-.social-contact a.instagram {
-    border: solid 1px #d62976;
-    color: #d62976;
-}
-
-.social-contact a.whatsapp {
-    border: solid 1px #00bfa5;
-    color: #00bfa5;
-}
-
-.info-contact {
-    display: table;
-    margin: 0 auto;
-}
-
-.info-d:hover h3::before,
-.social-d:hover h3::before,
-.local-d:hover h3::before {
-    width: 80px;
+    border-radius: 0 50px 50px 0;
+    padding: 8px 15px;
+    font-size: 18px;
 }
 
 
@@ -259,6 +245,7 @@ h6 {
 
 .main {
     margin-top: 85px;
+    height: 1200px;
 }
 
 @media (max-width: 991px) {

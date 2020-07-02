@@ -37,17 +37,44 @@
                 <img src="{{ asset('img/banner_3b.png') }}" alt="Imagem do banner">
             </div>
         </div>
-        
-        <div class="logos">
-            <ul>
-                <li><img src="{{ asset('img/bayer.png') }}" alt="bayer"></li>
-                <li><img src="{{ asset('img/rosembusch.png') }}" alt="rosembusch"></li>
-                <li><img src="{{ asset('img/imeve.png') }}" alt="imeve"></li>
-                <li><img src="{{ asset('img/rogama.png') }}" alt="rogama"></li>
-                <li><img src="{{ asset('img/vithal.png') }}" alt="vithal"></li>
-                <li><img src="{{ asset('img/ucbvet.png') }}" alt="ucbvet"></li>
-            </ul>
+
+        <div class="clients">
+            <div class="container">
+                <div class="row no-gutters clients-wrap clearfix">
+                    <div class="col-xs-4 col-lg-2">
+                        <div class="client-logo">
+                            <a href="#"><img src="{{ asset('img/bayer.png') }}" alt="bayer"></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-lg-2">
+                        <div class="client-logo">
+                            <a href="#"><img src="{{ asset('img/rosembusch.png') }}" alt="rosembusch"></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-lg-2">
+                        <div class="client-logo">
+                            <a href="#"><img src="{{ asset('img/imeve.png') }}" alt="imeve"></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-lg-2">
+                        <div class="client-logo">
+                            <a href="#"><img src="{{ asset('img/rogama.png') }}" alt="rogama"></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-lg-2">
+                        <div class="client-logo">
+                            <a href="#"><img src="{{ asset('img/vithal.png') }}" alt="vithal"></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-lg-2">
+                        <div class="client-logo">
+                            <a href="#"><img src="{{ asset('img/ucbvet.png') }}" alt="ucbvet"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 
 

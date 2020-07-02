@@ -287,8 +287,8 @@
 }
 
 .mobile-nav .drop-down>a:after {
-    content: "\f105";
-    font-family: 'FontAwesome 5 Free';
+    content: "\f078";
+    font-family: 'Font Awesome 5 Free';
     padding-left: 10px;
     position: absolute;
     right: 15px;

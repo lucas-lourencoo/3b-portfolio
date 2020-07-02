@@ -66,7 +66,6 @@
                                 <li><a href="#">Produto 5</a></li>
                             </ul>
                         </li>
-                        <li><a href="/contato">CONTATO</a></li>
                     </ul>
                 </nav>
                 <nav class="nav-search d-none">
@@ -79,6 +78,7 @@
                 <!-- .nav-menu -->
                 <div class="bar-options">
                     <a class="bar-opt-btn" id="search-open" href="#"><i class="fas fa-search"></i></a>
+                    <a class="bar-opt-btn" href="/contato">CONTATO</a>
                 </div>
 
             </div>
