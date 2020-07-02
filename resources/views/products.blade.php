@@ -34,38 +34,83 @@
             </div>
         </section>
 
-        <div class="container container-produtos">
-            <div class="sidebar">
-                <a class="show-filters d-block d-md-none" data-toggle="collapse" href="#filters" role="button"
-                    aria-expanded="false" aria-controls="filters">Filtrar</a>
+        <div class="container products-container">
+            <div class="row">
+                <div class="sidebar">
+                    <a class="show-filters d-block d-md-none" data-toggle="collapse" href="#filters" role="button"
+                        aria-expanded="false" aria-controls="filters">Filtrar</a>
 
-                <h3>Filtrar produtos</h3>
+                    <h3>Filtrar produtos</h3>
 
-                <div id="filters" class="">
-                    <div class="sidebar_section">
-                        <div class="sidebar_title">
-                            <a data-toggle="collapse" href="#category" role="button" aria-expanded="false"
-                                aria-controls="category">Categorias</a>
+                    <div id="filters" class="">
+                        <div class="sidebar_section">
+                            <div class="sidebar_title">
+                                <a data-toggle="collapse" href="#category" role="button" aria-expanded="false"
+                                    aria-controls="category">Categorias</a>
+                            </div>
+                            <ul class="sidebar_categories collapse show" id="category">
+                                <li data-category="Vermifúgos"><a class="active">Vermífugos</a></li>
+                                <li data-category="Terapêuticos"><a>Terapêuticos</a></li>
+                                <li data-category="Nutrição"><a>Nutrição</a></li>
+                            </ul>
                         </div>
-                        <ul class="sidebar_categories collapse show" id="category">
-                            <li data-category="Vermifúgos"><a class="active">Vermífugos</a></li>
-                            <li data-category="Terapêuticos"><a>Terapêuticos</a></li>
-                            <li data-category="Nutrição"><a>Nutrição</a></li>
-                        </ul>
-                    </div>
-                    <div class="sidebar_section">
-                        <div class="sidebar_title">
-                            <a data-toggle="collapse" href="#brand" role="button" aria-expanded="false"
-                                aria-controls="brand">Marca</a>
+                        <div class="sidebar_section">
+                            <div class="sidebar_title">
+                                <a data-toggle="collapse" href="#brand" role="button" aria-expanded="false"
+                                    aria-controls="brand">Marca</a>
+                            </div>
+                            <ul class="sidebar_categories collapse show" id="brand">
+                                <li data-brand="masculino"><a>Bayer</a></li>
+                            </ul>
                         </div>
-                        <ul class="sidebar_categories collapse show" id="brand">
-                            <li data-brand="masculino"><a>Bayer</a></li>
-                        </ul>
                     </div>
                 </div>
-            </div>
-            <div class="products">
-                
+                <div class="products-list">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-6 col-md-4 product-d">
+                                <div class="product-block">
+                                    <div class="product-img">
+                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
+                                    </div>
+                                    <div class="btn-show">
+                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 product-d">
+                                <div class="product-block">
+                                    <div class="product-img">
+                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
+                                    </div>
+                                    <div class="btn-show">
+                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 product-d">
+                                <div class="product-block">
+                                    <div class="product-img">
+                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
+                                    </div>
+                                    <div class="btn-show">
+                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 product-d">
+                                <div class="product-block">
+                                    <div class="product-img">
+                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
+                                    </div>
+                                    <div class="btn-show">
+                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

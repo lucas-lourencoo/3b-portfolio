@@ -117,12 +117,6 @@ h6 {
     margin-top: 72px;
 }
 
-@media (max-width: 992px) {
-    .breadcrumbs {
-        margin-top: 63px;
-    }
-}
-
 .breadcrumbs h2 {
     font-size: 26px;
     font-weight: 500;
@@ -157,12 +151,6 @@ h6 {
     margin-top: 85px;
 }
 
-@media (max-width: 991px) {
-    .main {
-        margin-top: 70px;
-    }
-}
-
 .item {
     background-color: #009961;
 }
@@ -195,7 +183,16 @@ h6 {
 
 .clients .client-logo img {
     max-width: 160px;
-    padding: 0 20px;
+    padding: 20px;
+    -webkit-transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
+    -moz-transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
+    -ms-transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
+    -o-transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
+    transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
+}
+
+.clients .client-logo a {
+    padding: 20px;
 }
 
 .clients .client-logo:hover img {
@@ -206,10 +203,18 @@ h6 {
     transform: scale(1.1);
 }
 
-.clients img {
-    -webkit-transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
-    -moz-transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
-    -ms-transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
-    -o-transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
-    transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
+@media (max-width: 991px) {
+    .main {
+        margin-top: 70px;
+    }
+    .breadcrumbs {
+        margin-top: 63px;
+    }
+}
+
+@media (max-width: 576px) {
+    .clients .client-logo img {
+        max-width: 160px;
+        padding: 20 20px;
+    }
 }
