@@ -73,15 +73,13 @@
                                     <div class="product-img">
                                         <img src="{{ asset('img/produto.jpg') }}" alt="">
                                     </div>
-                                    <div class="btn-show">
-                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 product-d">
-                                <div class="product-block">
-                                    <div class="product-img">
-                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
+                                    <div class="product-info">
+                                        <h3 class="p-name">
+                                            Nome do produto
+                                        </h3>
+                                        <p class="p-price">
+                                            R$ 200,00
+                                        </p>
                                     </div>
                                     <div class="btn-show">
                                         <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
@@ -93,6 +91,14 @@
                                     <div class="product-img">
                                         <img src="{{ asset('img/produto.jpg') }}" alt="">
                                     </div>
+                                    <div class="product-info">
+                                        <h3 class="p-name">
+                                            Nome do produto
+                                        </h3>
+                                        <p class="p-price">
+                                            R$ 200,00
+                                        </p>
+                                    </div>
                                     <div class="btn-show">
                                         <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
                                     </div>
@@ -102,6 +108,32 @@
                                 <div class="product-block">
                                     <div class="product-img">
                                         <img src="{{ asset('img/produto.jpg') }}" alt="">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3 class="p-name">
+                                            Nome do produto
+                                        </h3>
+                                        <p class="p-price">
+                                            R$ 200,00
+                                        </p>
+                                    </div>
+                                    <div class="btn-show">
+                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 product-d">
+                                <div class="product-block">
+                                    <div class="product-img">
+                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3 class="p-name">
+                                            Nome do produto
+                                        </h3>
+                                        <p class="p-price">
+                                            R$ 200,00
+                                        </p>
                                     </div>
                                     <div class="btn-show">
                                         <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
