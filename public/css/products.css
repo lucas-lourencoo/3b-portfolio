@@ -361,12 +361,44 @@ h6 {
     height: 1200px;
 }
 
-@media (max-width: 1200px) {
+
+/*
+* LARGE
+*/
+
+@media (max-width: 1199px) {
     .products-list .product-block {
         margin: 5px 0px;
-        height: 350px;
+        height: 322px;
+    }
+    .product-block .btn-show a {
+        height: 48px;
+        line-height: 48px;
+        font-size: 17px;
+    }
+    .product-block .btn-show i {
+        font-size: 21px;
+    }
+    .product-info {
+        height: 48px;
+    }
+    .product-info .p-name {
+        margin: 5px 0 0 0;
+        font-size: 16px;
+    }
+    .product-info .p-price {
+        margin: 5px 0;
+        font-size: 15px;
+    }
+    .product-block .product-img {
+        height: 212px;
     }
 }
+
+
+/*
+* MEDIUM
+*/
 
 @media (max-width: 991px) {
     .main {
@@ -382,10 +414,67 @@ h6 {
     .products-list {
         width: 100%;
     }
+    .products-list .product-block {
+        height: 305px;
+    }
+    .product-block .product-img {
+        height: 200px;
+    }
+    .product-info .p-price {
+        margin: 10px 0;
+    }
 }
 
-@media (max-width: 576px) {
+
+/*
+* SMALL
+*/
+
+@media (max-width: 767px) {
+    .products-list .product-block {
+        height: 360px;
+    }
+    .product-block .product-img {
+        height: 236px;
+    }
+}
+
+
+/*
+* EXTRA SMALL
+*/
+
+@media (max-width: 575px) {
     .products-list {
         padding: 0px
+    }
+    .products-list .product-block {
+        height: calc((50vw - 7px) * 1.413);
+    }
+    .product-block .btn-show {
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        visibility: visible;
+        opacity: 1;
+    }
+    .product-block .btn-show i {
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px);
+    }
+    .product-block .btn-show a {
+        height: 51px;
+        line-height: 51px;
+        font-size: 16px;
+    }
+    .product-info {
+        height: 48px;
+    }
+    .product-info .p-name {
+        margin: 10px 0 0 0;
+        font-size: 17px;
+    }
+    .product-info .p-price {
+        margin: 5px 0;
+        font-size: 16px;
     }
 }
