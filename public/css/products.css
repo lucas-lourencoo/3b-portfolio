@@ -102,9 +102,16 @@ h6 {
     font-weight: 600;
     background-color: #009a4f;
     color: white;
-    border-radius: 0 50px 50px 0;
+    border-radius: 50px;
     padding: 8px 15px;
     font-size: 18px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar_title a i {
+    margin-right: 6px;
 }
 
 
@@ -247,12 +254,19 @@ h6 {
 
 .product-block .product-img {
     height: calc(100% - 140px);
+    display: flex;
+    border-radius: 10px 10px 0 0;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .product-block .product-img img {
     object-fit: contain;
     height: 100%;
     width: 100%;
+    border-radius: 10px 10px 0 0;
     -webkit-transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
     -moz-transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
     -ms-transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
@@ -268,8 +282,8 @@ h6 {
     margin: 5px 0px;
     height: 410px;
     width: 100%;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.111);
-    border: solid 1px rgba(128, 128, 128, 0.069);
+    box-shadow: 3px 3px 6px rgba(0, 180, 51, 0.264);
+    border: solid 1px rgba(0, 180, 51, 0.264);
     border-radius: 10px;
     position: relative;
 }
@@ -383,15 +397,12 @@ h6 {
         height: 48px;
     }
     .product-info .p-name {
-        margin: 5px 0 0 0;
-        font-size: 16px;
+        margin: 15px 0 0 0;
+        font-size: 18px;
     }
     .product-info .p-price {
-        margin: 5px 0;
-        font-size: 15px;
-    }
-    .product-block .product-img {
-        height: 212px;
+        margin: 10px 0;
+        font-size: 17px;
     }
 }
 
@@ -417,9 +428,6 @@ h6 {
     .products-list .product-block {
         height: 305px;
     }
-    .product-block .product-img {
-        height: 200px;
-    }
     .product-info .p-price {
         margin: 10px 0;
     }
@@ -433,9 +441,6 @@ h6 {
 @media (max-width: 767px) {
     .products-list .product-block {
         height: 360px;
-    }
-    .product-block .product-img {
-        height: 236px;
     }
 }
 
@@ -460,21 +465,24 @@ h6 {
     .product-block .btn-show i {
         -webkit-transform: translateX(0px);
         transform: translateX(0px);
+        font-size: calc((50vw) / 11.5);
     }
     .product-block .btn-show a {
-        height: 51px;
-        line-height: 51px;
-        font-size: 16px;
+        height: calc((50vw - 14px) / 4.791);
+        font-size: calc((50vw) / 15.972);
     }
     .product-info {
-        height: 48px;
+        height: calc((50vw - 14px) / 4.107);
+    }
+    .product-block .product-img {
+        height: calc((50vw - 14px) / 1.07);
     }
     .product-info .p-name {
         margin: 10px 0 0 0;
-        font-size: 17px;
+        font-size: calc((50vw - 14px) / 15.131);
     }
     .product-info .p-price {
         margin: 5px 0;
-        font-size: 16px;
+        font-size: calc((50vw - 14px) / 15.131);
     }
 }

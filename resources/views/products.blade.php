@@ -46,7 +46,7 @@
                         <div class="sidebar_section">
                             <div class="sidebar_title">
                                 <a data-toggle="collapse" href="#category" role="button" aria-expanded="false"
-                                    aria-controls="category">Categorias</a>
+                                    aria-controls="category"><i class="fas fa-angle-down"></i> Categorias</a>
                             </div>
                             <ul class="sidebar_categories collapse show" id="category">
                                 <li data-category="Vermifúgos"><a class="active">Vermífugos</a></li>
@@ -57,7 +57,7 @@
                         <div class="sidebar_section">
                             <div class="sidebar_title">
                                 <a data-toggle="collapse" href="#brand" role="button" aria-expanded="false"
-                                    aria-controls="brand">Marca</a>
+                                    aria-controls="brand"><i class="fas fa-angle-down"></i>Marca</a>
                             </div>
                             <ul class="sidebar_categories collapse show" id="brand">
                                 <li data-brand="masculino"><a>Bayer</a></li>
@@ -149,7 +149,6 @@
 
     @include('includes/footer')
 
-
     <div id="preloader"></div>
     <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
@@ -158,6 +157,20 @@
     <script src="{{ asset('js/products.js') }}"></script>
     <script src="{{ asset('plugins/jquery.easing/jquery.easing.min.js') }}"></script>
 
+
+    <script>
+    /* CHANGE ICON WHEN SIDEBAR IS COLLAPSE */
+    $(document).ready(function() {
+        $('.sidebar_title a').click(function(e) {
+            var i = $(this).children();
+            if (i.hasClass('fa-angle-down')) {
+                i.addClass('fa-angle-right').removeClass('fa-angle-down');
+            } else {
+                i.addClass('fa-angle-down').removeClass('fa-angle-right');
+            }
+        });
+    });
+    </script>
 </body>
 
 </html>
