@@ -38,9 +38,7 @@
             <div class="row">
                 <div class="sidebar">
                     <a class="show-filters d-block d-md-none" data-toggle="collapse" href="#filters" role="button"
-                        aria-expanded="false" aria-controls="filters">Filtrar</a>
-
-                    <h3>Filtrar produtos</h3>
+                        aria-expanded="false" aria-controls="filters">Filtrar produtos</a>
 
                     <div id="filters" class="">
                         <div class="sidebar_section">
@@ -161,6 +159,10 @@
     <script>
     /* CHANGE ICON WHEN SIDEBAR IS COLLAPSE */
     $(document).ready(function() {
+        if ($(window).width() < 700) {
+            $('.sidebar_categories').removeClass("show");
+            $('.fa-angle-down').removeClass("fa-angle-down").addClass('fa-angle-right');
+        }
         $('.sidebar_title a').click(function(e) {
             var i = $(this).children();
             if (i.hasClass('fa-angle-down')) {
