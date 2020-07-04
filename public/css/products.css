@@ -72,6 +72,7 @@ h6 {
     width: 100%;
     display: inline-block;
     transition: .2s ease-in-out;
+    -webkit-transition: .2s ease-in-out;
     border-left: 3px solid white;
 }
 
@@ -125,6 +126,13 @@ h6 {
     font-weight: 600;
     text-transform: uppercase;
     font-size: 14px;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+}
+
+.filter-price:hover {
+    color: white;
+    background-color: #000000b0;
 }
 
 .sidebar_title a {
@@ -133,7 +141,7 @@ h6 {
     color: white;
     border-radius: 10px 10px 0 0;
     padding: 8px 15px;
-    font-size: 18px;
+    font-size: 16px;
     display: inline-block;
     width: 100%;
     text-align: center;
@@ -216,6 +224,7 @@ h6 {
     background: #009961;
     color: #fff;
     transition: all 0.4s;
+    -webkit-transition: all 0.4s;
 }
 
 .back-to-top i:hover {
@@ -324,6 +333,7 @@ h6 {
     flex-wrap: wrap;
     z-index: 9;
     transition: all .2s ease;
+    -webkit-transition: all .2s ease;
     border-radius: 0 0 10px 10px;
     box-shadow: 3px 3px 6px rgba(27, 149, 8, 0.43);
 }
@@ -332,18 +342,7 @@ h6 {
     font-size: 25px;
     margin-right: 10px;
     transition: all .2s ease;
-}
-
-.product-block:hover .btn-show {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    visibility: visible;
-    opacity: 1;
-}
-
-.product-block:hover .btn-show i {
-    -webkit-transform: translateX(0px);
-    transform: translateX(0px);
+    -webkit-transition: all .2s ease;
 }
 
 .product-block:hover .product-img img {

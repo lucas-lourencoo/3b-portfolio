@@ -72,10 +72,10 @@
                                 <p>
                                     <input type="text" class="js-range-price" id="range_price" value="" />
                                 </p>
+                                <button class="filter-price">
+                                    Filtrar
+                                </button>
                             </ul>
-                            <button class="filter-price">
-                                Filtrar
-                            </button>
                         </div>
                     </div>
                 </div>
