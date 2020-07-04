@@ -14,6 +14,8 @@
 
     <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('plugins/fontawesome-5.13.0/css/all.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('plugins/ion.rangeSlider-2.3.1/css/ion.rangeSlider.min.css') }}">
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <link href="{{ asset('css/products.css') }}" rel="stylesheet">
@@ -60,6 +62,20 @@
                             <ul class="sidebar_categories collapse show" id="brand">
                                 <li data-brand="masculino"><a>Bayer</a></li>
                             </ul>
+                        </div>
+                        <div class="sidebar_section">
+                            <div class="sidebar_title">
+                                <a data-toggle="collapse" href="#price" role="button" aria-expanded="false"
+                                    aria-controls="price">Filtrar por preço</a>
+                            </div>
+                            <ul class="sidebar_categories  collapse show" id="price">
+                                <p>
+                                    <input type="text" class="js-range-price" id="range_price" value="" />
+                                </p>
+                            </ul>
+                            <button class="filter-price">
+                                Filtrar
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -154,6 +170,7 @@
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/products.js') }}"></script>
     <script src="{{ asset('plugins/jquery.easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('plugins/ion.rangeSlider-2.3.1/js/ion.rangeSlider.min.js') }}"></script>
 
 
     <script>
@@ -171,6 +188,19 @@
                 i.addClass('fa-angle-down').removeClass('fa-angle-right');
             }
         });
+        /**
+         *      SLIDER PRICE
+         */
+        $("#range_price").ionRangeSlider({
+            skin: "round",
+            step: 5,
+            type: "double",
+            grid: true,
+            min: 1,
+            max: 800,
+            prefix: "R$ "
+        });
+
     });
     </script>
 </body>
