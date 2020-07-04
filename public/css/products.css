@@ -116,7 +116,7 @@ h6 {
     font-weight: 600;
     background-color: #009a4f;
     color: white;
-    border-radius: 15px 15px 0 0;
+    border-radius: 10px 10px 0 0;
     padding: 8px 15px;
     font-size: 18px;
     display: inline-block;
@@ -263,7 +263,6 @@ h6 {
 .products-list {
     float: left;
     width: calc(100% - 200px);
-    padding-left: 30px;
 }
 
 .product-block .product-img {
@@ -390,6 +389,9 @@ h6 {
 */
 
 @media (max-width: 1199px) {
+    .products-list {
+        padding-left: 30px;
+    }
     .products-list .product-block {
         margin: 5px 0px;
         height: 322px;
@@ -433,6 +435,7 @@ h6 {
     }
     .products-list {
         width: 100%;
+        padding-left: 0px;
     }
     .products-list .product-block {
         height: 305px;
