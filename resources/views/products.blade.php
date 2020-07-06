@@ -81,6 +81,27 @@
                 </div>
                 <div class="products-list">
                     <div class="container-fluid">
+                        <div class="row order-container">
+                            <div class="order">
+                                <label for="order-product">Ordenar por</label>
+                                <div class="select-wrapper">
+                                    <select id="order-product" class="select-order-product">
+                                        <option value="def">Padrão</option>
+                                        <option value="desc">Menor preço</option>
+                                        <option value="asc">Maior preço</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="order">
+                                <label for="order-product">Produtos por página</label>
+                                <div class="select-wrapper">
+                                    <select id="max-results" class="select-order-product">
+                                        <option value="18">18</option>
+                                        <option value="24">24</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-6 col-md-4 product-d">
                                 <div class="product-block">
@@ -177,6 +198,7 @@
     /* CHANGE ICON WHEN SIDEBAR IS COLLAPSE */
     $(document).ready(function() {
         if ($(window).width() < 700) {
+            $('.sidebar_title a').addClass('collapsed');
             $('.sidebar_categories').removeClass("show");
             $('.fa-angle-down').removeClass("fa-angle-down").addClass('fa-angle-right');
         }
