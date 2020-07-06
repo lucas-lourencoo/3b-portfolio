@@ -127,14 +127,14 @@
     // Toggle .header-scrolled class to #header when page is scrolled
     $(window).scroll(function() {
         if ($(this).scrollTop() > 100) {
-            $('#header').addClass('header-scrolled');
+            $('#header , .mobile-nav-toggle').addClass('header-scrolled');
         } else {
-            $('#header').removeClass('header-scrolled');
+            $('#header , .mobile-nav-toggle').removeClass('header-scrolled');
         }
     });
 
     if ($(window).scrollTop() > 50) {
-        $('#header').addClass('header-scrolled');
+        $('#header , .mobile-nav-toggle').addClass('header-scrolled');
     }
 
     // Back to top button

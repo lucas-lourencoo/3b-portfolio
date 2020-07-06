@@ -78,7 +78,7 @@
                 <!-- .nav-menu -->
                 <div class="bar-options">
                     <a class="bar-opt-btn" id="search-open" href="#"><i class="fas fa-search"></i></a>
-                    <a class="bar-opt-btn" href="/contato">CONTATO</a>
+                    <a class="bar-opt-btn d-none d-md-inline-block" href="/contato">CONTATO</a>
                 </div>
 
             </div>

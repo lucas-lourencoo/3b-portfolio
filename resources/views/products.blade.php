@@ -198,6 +198,7 @@
     /* CHANGE ICON WHEN SIDEBAR IS COLLAPSE */
     $(document).ready(function() {
         if ($(window).width() < 700) {
+            $('#filters').addClass('collapse');
             $('.sidebar_title a').addClass('collapsed');
             $('.sidebar_categories').removeClass("show");
             $('.fa-angle-down').removeClass("fa-angle-down").addClass('fa-angle-right');

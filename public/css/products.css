@@ -12,7 +12,7 @@ a {
 }
 
 a:hover {
-    color: #009a4f;
+    color: #007c76;
     text-decoration: none;
 }
 
@@ -34,6 +34,11 @@ h6 {
 *:before,
 *:after {
     box-sizing: border-box;
+}
+
+select {
+    border: 0px;
+    outline: 0px;
 }
 
 
@@ -99,13 +104,18 @@ h6 {
     font-size: 17px;
     font-weight: 400;
     text-align: center;
-    border: 1px solid #009a5055;
-    color: #009a4f;
+    color: white;
     padding: 8px;
     margin-bottom: 25px;
     display: inline-block;
     width: 100%;
     border-radius: 20px;
+    background-color: #006b77;
+}
+
+.show-filters:hover {
+    color: white;
+    background-color: #007c76;
 }
 
 .sidebar {
@@ -137,7 +147,7 @@ h6 {
 }
 
 .sidebar li a.active {
-    border-color: #ffc100;
+    border-color: #069771;
     background-color: #ffbf001e;
 }
 
@@ -149,7 +159,7 @@ h6 {
     width: 12px;
     float: right;
     margin-right: 5px;
-    color: #ffc100;
+    color: #069771;
 }
 
 .sidebar li:hover a.active::after {
@@ -157,8 +167,8 @@ h6 {
 }
 
 .sidebar li a:not(.active):hover {
-    border-color: #009a4f;
-    color: #009a4f;
+    border-color: #069771;
+    color: #069771;
     letter-spacing: .3px;
 }
 
@@ -177,11 +187,11 @@ h6 {
 }
 
 .filter-price {
-    border: 1px solid #000000b0;
+    border: 1px solid #069771;
     padding: 5px 10px;
     background-color: transparent;
     border-radius: 3px;
-    color: #000000b0;
+    color: #069771;
     width: 100%;
     font-weight: 500;
     text-transform: uppercase;
@@ -192,12 +202,12 @@ h6 {
 
 .filter-price:hover {
     color: white;
-    background-color: #000000b0;
+    background-color: #069771;
 }
 
 .sidebar_title a {
     font-weight: 400;
-    background-image: radial-gradient(circle, #009a4f, #049f53, #08a458, #0ca95c, #10ae61);
+    background-image: linear-gradient(to right top, #008c68, #02906c, #05946f, #079973, #0a9d77);
     color: white;
     border-radius: 10px 10px 0 0;
     padding: 8px 15px;
@@ -285,14 +295,14 @@ h6 {
     width: 40px;
     height: 40px;
     border-radius: 50px;
-    background: #009961;
+    background: #008c68;
     color: #fff;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
 }
 
 .back-to-top i:hover {
-    background: #009a4f;
+    background: #007c76;
     color: #fff;
 }
 
@@ -324,7 +334,7 @@ h6 {
 .breadcrumbs ol li a {
     padding: 5px 12px;
     border-radius: 50px;
-    background-color: #009a4f;
+    background-color: #006b77;
     color: white;
 }
 
@@ -400,7 +410,7 @@ h6 {
     -webkit-transition: all .2s ease;
     border: none;
     border-radius: 0 0 10px 10px;
-    box-shadow: 3px 3px 6px rgba(27, 149, 8, 0.43);
+    /*! box-shadow: 0px 0px 3px 4px rgba(27, 149, 8, 0.03); */
 }
 
 .product-block .btn-show i {
@@ -426,9 +436,9 @@ h6 {
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-color: #009a4f;
+    background-color: #008c68;
     color: white;
-    font-weight: 600;
+    font-weight: 300;
     font-size: 18px;
     border-radius: 0 0 10px 10px;
 }
@@ -464,29 +474,29 @@ h6 {
 .irs--round .irs-from,
 .irs--round .irs-to,
 .irs--round .irs-single {
-    background-color: #000000b0;
+    background-color: #006b77;
 }
 
 .irs--round .irs-bar {
-    background-color: #000000b0;
+    background-color: #006b77;
 }
 
 .irs--round .irs-from::before,
 .irs--round .irs-to::before,
 .irs--round .irs-single::before {
-    border-top-color: #000000b0;
+    border-top-color: #006b77;
 }
 
 .irs--round .irs-handle {
-    border: 4px solid #000000b0;
+    border: 4px solid #006b77;
 }
 
 .irs--round .irs-grid-text {
-    color: #000000b0;
+    color: #006b77;
 }
 
 .irs--round .irs-grid-pol {
-    background-color: #000000b0;
+    background-color: #006b77;
 }
 
 
@@ -578,6 +588,15 @@ h6 {
 */
 
 @media (max-width: 575px) {
+    .select-order-product {
+        padding: 8px;
+    }
+    .select-wrapper::after {
+        top: 5px;
+    }
+    .select-wrapper {
+        width: calc((50vw - 15px));
+    }
     .products-container {
         margin-top: 20px;
     }

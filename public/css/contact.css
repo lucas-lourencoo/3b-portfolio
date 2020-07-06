@@ -46,7 +46,7 @@ h6 {
     position: absolute;
     height: 6px;
     top: 85px;
-    background-color: #ffc100;
+    background-color: #006b77;
     width: 40px;
 }
 
@@ -214,12 +214,6 @@ h6 {
     margin-top: 72px;
 }
 
-@media (max-width: 991px) {
-    .breadcrumbs {
-        margin-top: 20px;
-    }
-}
-
 .breadcrumbs h2 {
     font-size: 26px;
     font-weight: 500;
@@ -237,7 +231,7 @@ h6 {
 .breadcrumbs ol li a {
     padding: 5px 12px;
     border-radius: 50px;
-    background-color: #009a4f;
+    background-color: #006b77;
     color: white;
 }
 
