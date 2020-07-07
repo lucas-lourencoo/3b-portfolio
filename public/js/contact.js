@@ -108,20 +108,6 @@
     } else if ($(".mobile-nav, .mobile-nav-toggle").length) {
         $(".mobile-nav, .mobile-nav-toggle").hide();
     }
-
-    // Toggle .header-scrolled class to #header when page is scrolled
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 100) {
-            $('#header , .mobile-nav-toggle').addClass('header-scrolled');
-        } else {
-            $('#header , .mobile-nav-toggle').removeClass('header-scrolled');
-        }
-    });
-
-    if ($(window).scrollTop() > 50) {
-        $('#header , .mobile-nav-toggle').addClass('header-scrolled');
-    }
-
     // Back to top button
     $(window).scroll(function() {
         if ($(this).scrollTop() > 100) {

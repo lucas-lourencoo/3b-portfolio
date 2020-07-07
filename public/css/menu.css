@@ -238,10 +238,6 @@
     font-size: 30px;
 }
 
-.header-scrolled .mobile-nav-toggle i {
-    color: white;
-}
-
 .mobile-nav {
     position: fixed;
     top: 55px;
