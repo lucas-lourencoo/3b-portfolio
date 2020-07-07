@@ -436,11 +436,12 @@ select {
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-color: #008c68;
+    background: #008c68;
     color: white;
     font-weight: 300;
     font-size: 18px;
     border-radius: 0 0 10px 10px;
+    transition: all 0.45s;
 }
 
 .product-info {

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>3B - Comércio e Importação</title>
+    <title>3B - Nome do produto</title>
 
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -16,7 +16,7 @@
     <link href="{{ asset('plugins/fontawesome-5.13.0/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/contact.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/single.css') }}" rel="stylesheet">
 
 </head>
 
@@ -25,22 +25,37 @@
     @include('includes/menu-main')
 
     <div class="main">
-        <div class="row">
-            <div class="col">
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+                <ol>
+                    <li><a href="/" title="Voltar ao início do site">Início</a></li>
+                    <li><a href="/produtos" title="Voltar a pagina de produtos">Produtos</a></li>
+                    <li>Nome do do produto</li>
+                </ol>
+            </div>
+        </section>
 
-                <section id="breadcrumbs" class="breadcrumbs">
-                    <div class="container">
-                        <ol>
-                            <li><a href="/" title="Voltar ao início do site">Início</a></li>
-                            <li>Produto</li>
-                        </ol>
+        <div class="container single-container">
+            <h3>
+                <hr>
+                 <span>Bayer |</span> Negobon + Asuntol Plus
+                <hr>
+            </h3>
+            <div class="row align-items-center">
+                <div class="single-image col-md-6">
+                    <img src="{{ asset('img/produto2.png') }}" alt="Imagem principal do produto">
+                </div>
+                <div class="single-info col-md-6">
+                    <div class="block-info">
+                        <p>Descrição e informações do produto</p>
                     </div>
-                </section>
+                </div>
 
-                
+                <div class="single-image col-md-6">
+                    <img src="{{ asset('img/produto2.png') }}" alt="Imagem principal do produto">
+                </div>
             </div>
         </div>
-
     </div>
 
     @include('includes/footer')
@@ -51,7 +66,7 @@
 
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/contact.js') }}"></script>
+    <script src="{{ asset('js/single.js') }}"></script>
     <script src="{{ asset('plugins/jquery.easing/jquery.easing.min.js') }}"></script>
 
 </body>

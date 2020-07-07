@@ -25,4 +25,8 @@ class Controller extends BaseController
     {
         return view('products');
     }
+    public function single()
+    {
+        return view('single');
+    }
 }

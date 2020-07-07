@@ -193,10 +193,6 @@
     margin: 0px 30px;
 }
 
-#header.header-scrolled .bar-opt-btn#search-open {
-    color: white;
-}
-
 .bar-opt-btn:hover {
     background: #007c76;
     color: #fff;
@@ -368,10 +364,6 @@
 
 #header .logo img {
     max-height: 40px;
-}
-
-#header.header-scrolled {
-    background-color: #08596c;
 }
 
 @media (max-width: 992px) {
