@@ -16,7 +16,7 @@ class Groups extends Migration
         Schema::create('groups', function (Blueprint $table){
             $table->increments('id');
             $table->string('name');
-            $table->unsignedBigInteger('sales');
+            $table->integer('sales')->unsigned();
             $table->foreign('sales')->references('id')->on('salespeople');
             $table->timestamps();
         });
