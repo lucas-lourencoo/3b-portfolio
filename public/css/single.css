@@ -74,6 +74,7 @@ h6 {
 
 .single-info .block-info {
     width: 80%;
+    height: auto;
     padding: 50px;
     background-image: linear-gradient(to right bottom, #006b77, #00747a, #007e79, #008775, #008f6f, #00926b, #009666, #009961, #009961, #009961, #009961, #009961);
     border-radius: 100px 0 100px 50px;
@@ -87,7 +88,7 @@ h6 {
 }
 
 .single-info .block-info:hover {
-    height: 200px;
+    height: calc(auto + 20px);
 }
 
 .single-info .block-info::after {
@@ -103,6 +104,81 @@ h6 {
 
 .single-info .block-info p {
     color: white;
+    font-weight: bold;
+}
+
+
+/*--------------------------------------------------------------
+# Product - profile
+--------------------------------------------------------------*/
+
+.card {
+    margin: 70px auto 200px;
+    width: 400px;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.cover-bg {
+    background-image: radial-gradient(circle, #006b77, #01717e, #017784, #027e8b, #038492, #048a98, #048f9e, #0595a4, #059bab, #06a1b2, #06a7b9, #07adc0);
+    width: 100%;
+    height: 120px;
+    background-size: 260%;
+    border-radius: 5px 5px 0 0;
+}
+
+.user-info {
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.user-info-wrap {
+    margin-top: -40px;
+    display: flex;
+    padding: 0 20px;
+}
+
+.user-name {
+    font-weight: 500;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.user-title {
+    font-size: 16px;
+    font-weight: 200;
+    color: #555453;
+    display: block;
+    margin-top: 10px;
+}
+
+.user-photo {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background: #fff url('/img/foto-vendedor.jpg') no-repeat center;
+    background-size: cover;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+}
+
+.user-bio {
+    padding: 20px;
+}
+
+.user-bio p {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.social {
+    display: flex;
+    justify-content: space-between;
 }
 
 

@@ -38,7 +38,7 @@
         <div class="container single-container">
             <h3>
                 <hr>
-                 <span>Bayer |</span> Negobon + Asuntol Plus
+                <span>Bayer |</span> Neguvon + Asuntol Plus
                 <hr>
             </h3>
             <div class="row align-items-center">
@@ -50,12 +50,27 @@
                         <p>Descrição e informações do produto</p>
                     </div>
                 </div>
-
-                <div class="single-image col-md-6">
-                    <img src="{{ asset('img/produto2.png') }}" alt="Imagem principal do produto">
-                </div>
             </div>
         </div>
+        <div class="row">
+                <div class="card">
+                    <div class="cover-bg"></div>
+                    <div class="user-info-wrap">
+                        <div class="user-photo"></div>
+                        <div class="user-info">
+                            <div class="user-name">Cristiano Haas</div>
+                            <div class="user-title">Vendedor</div>
+                        </div>
+                    </div>
+                    <div class="user-bio">
+                        <div class="social">
+                            <div class="social-icons">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
     </div>
 
     @include('includes/footer')
