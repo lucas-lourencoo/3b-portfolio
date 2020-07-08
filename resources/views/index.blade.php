@@ -28,6 +28,10 @@
 
     @include('includes/menu-main')
 
+    <div class="banner">
+
+    </div>
+
     <div class="main">
         <div class="owl-carousel owl-theme">
             <div class="item">

@@ -47,12 +47,13 @@
                 </div>
                 <div class="single-info col-md-6">
                     <div class="block-info">
-                        <p>Descrição e informações do produto</p>
+                        <p class="price">R$ 200,00</p>
+                        <p>Descrição, informações e características do produto</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row seller-container">
                 <div class="card">
                     <div class="cover-bg"></div>
                     <div class="user-info-wrap">
@@ -65,7 +66,8 @@
                     <div class="user-bio">
                         <div class="social">
                             <div class="social-icons">
-                                
+                                <a href="#" class="btn-phone"><i class="fas fa-phone"></i> (67) 99180-3949</a>
+                                <a href="#" class="btn-whats"><i class="fab fa-whatsapp"></i>Ir para chat</a>
                             </div>
                         </div>
                     </div>

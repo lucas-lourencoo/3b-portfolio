@@ -72,6 +72,10 @@ h6 {
     transform: scale(1.05);
 }
 
+.single-info {
+    width: 80%;
+}
+
 .single-info .block-info {
     width: 80%;
     height: auto;
@@ -85,25 +89,40 @@ h6 {
     position: relative;
     overflow: hidden;
     transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
 }
 
 .single-info .block-info:hover {
     height: calc(auto + 20px);
 }
 
-.single-info .block-info::after {
-    content: '\f75b';
+.single-info::after {
+    transform: rotate(15deg);
+    content: '\f559';
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    bottom: -60px;
-    left: 5;
-    font-size: 80px;
+    top: -5px;
+    right: 155px;
     color: white;
+    font-size: 60px;
     position: absolute;
+    transition: all .3s ease-in;
+}
+
+.single-info:hover::after {
+    transform: rotate(0deg);
+    top: 0px;
+    right: 170px;
+    font-size: 65px;
 }
 
 .single-info .block-info p {
     color: white;
+}
+
+.single-info .block-info p.price {
+    color: white;
+    font-size: 25px;
     font-weight: bold;
 }
 
@@ -111,6 +130,10 @@ h6 {
 /*--------------------------------------------------------------
 # Product - profile
 --------------------------------------------------------------*/
+
+.seller-container {
+    background-image: linear-gradient(to bottom, #ffffff, #cfe1f8, #cfe1f8a5, #ffffff);
+}
 
 .card {
     margin: 70px auto 200px;
@@ -120,14 +143,15 @@ h6 {
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 1;
+    border: none;
 }
 
 .cover-bg {
-    background-image: radial-gradient(circle, #006b77, #01717e, #017784, #027e8b, #038492, #048a98, #048f9e, #0595a4, #059bab, #06a1b2, #06a7b9, #07adc0);
+    background-image: linear-gradient(to right bottom, #006b77, #00747a, #007e79, #008775, #008f6f, #00926b, #009666, #009961, #009961, #009961, #009961, #009961);
     width: 100%;
-    height: 120px;
-    background-size: 260%;
-    border-radius: 5px 5px 0 0;
+    height: 100px;
+    background-size: 100%;
+    border-radius: 50px 50px 0 0;
 }
 
 .user-info {
@@ -178,7 +202,39 @@ h6 {
 
 .social {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.social-icons a {
+    padding: 5px 15px;
+    background-color: transparent;
+    border-radius: 50px;
+    color: #555453c5;
+    border: 1px solid #55545393;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.313);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease-in;
+}
+
+.social-icons a:hover {
+    transform: translateY(-2px);
+    color: #009961;
+    border: 1px solid #009961;
+    box-shadow: 2px 2px 4px rgba(0, 107, 119, 0.486)
+}
+
+.social-icons a i {
+    margin-right: 7px;
+}
+
+.social-icons a.btn-phone i {
+    font-size: 20px;
+}
+
+.social-icons a.btn-whats i {
+    font-size: 23px;
 }
 
 

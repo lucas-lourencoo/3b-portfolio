@@ -341,11 +341,15 @@
 # Header
 --------------------------------------------------------------*/
 
+#header.header-scrolled {
+    background-color: white;
+}
+
 #header {
     transition: all 0.5s;
     z-index: 997;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: #fff;
+    background-color: transparent;
     box-shadow: 0px 0px 10px #00000052;
 }
 
