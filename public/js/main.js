@@ -29,7 +29,7 @@
     });
 
     // CAROUSEL MAIN
-    $('.owl-carousel').owlCarousel({
+    $('.owl-banner').owlCarousel({
         loop: true,
         margin: 10,
         autoplay: true,
@@ -39,6 +39,24 @@
         responsive: {
             0: {
                 items: 1
+            }
+        }
+    });
+    $('.owl-products').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+        autoplay: true,
+        autoplayTimeout: 2500,
+        autoplayHoverPause: true,
+        responsiveClass: true,
+        responsive: {
+            1000: {
+                items: 4
+            },
+            0: {
+                items: 2
             }
         }
     });

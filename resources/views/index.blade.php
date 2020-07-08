@@ -33,17 +33,18 @@
     </div>
 
     <div class="main">
-        <div class="owl-carousel owl-theme">
+        <!--
+        <div class="owl-carousel owl-banner owl-theme">
             <div class="item">
                 <img src="{{ asset('img/banner_3b.png') }}" alt="Imagem do banner">
             </div>
             <div class="item">
                 <img src="{{ asset('img/banner_3b.png') }}" alt="Imagem do banner">
             </div>
-        </div>
-
+        </div> -->
         <div class="clients">
-            <div class="container">
+            <div class="container text-center">
+                <h3 class="brands">Marcas</h3>
                 <div class="row no-gutters clients-wrap clearfix">
                     <div class="col-xs-4 col-lg-2">
                         <div class="client-logo">
@@ -74,6 +75,21 @@
                         <div class="client-logo">
                             <a href="#"><img src="{{ asset('img/ucbvet.png') }}" alt="ucbvet"></a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container highlights-container text-center">
+            <h3 class="highlights">Destaques</h3>
+            <div class="owl-carousel owl-products">
+                <div class="item">
+                    <div class="img-car">
+                        <img src="{{ asset('img/produto.jpg') }}" alt="">
+                    </div>
+                    <div class="info-car">
+                        <p>Nome do produto</p>
+                        <span>R$ 200</span>
+                        <a href="#" class="go-shop"><i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>

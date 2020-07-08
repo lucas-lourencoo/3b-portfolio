@@ -28,6 +28,19 @@
         $('.bar-options , .logo, .mobile-nav-toggle').removeClass('d-none');
     });
 
+    // Toggle .header-scrolled class to #header when page is scrolled
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $('#header').addClass('header-scrolled');
+        } else {
+            $('#header').removeClass('header-scrolled');
+        }
+    });
+
+    if ($(window).scrollTop() > 100) {
+        $('#header').addClass('header-scrolled');
+    }
+
     // Smooth scroll for the navigation menu and links with .scrollto classes
     var scrolltoOffset = $('#header').outerHeight() - 2;
     $(document).on('click', '.nav-menu a, .mobile-nav a, .scrollto', function(e) {
