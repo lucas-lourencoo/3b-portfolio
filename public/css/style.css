@@ -16,6 +16,13 @@ a:hover {
     text-decoration: none;
 }
 
+hr {
+    margin-top: 5px;
+    border: 0;
+    height: 1px;
+    background-image: radial-gradient(circle, #009a5c96, #009a5c39, #009a5c39, #009a5c12, #ffffff00);
+}
+
 h1,
 h2,
 h3,
@@ -27,19 +34,19 @@ h6 {
 
 h3.brands,
 h3.highlights {
-    margin: 20px 0px;
     background: linear-gradient(to right, #009e4f 0%, #02b75ce8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
     position: relative;
     font-size: 35px;
+    line-height: 35px;
     z-index: 1;
     text-transform: uppercase;
     display: inline-block;
 }
 
-
+/
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -91,11 +98,10 @@ h3.highlights {
 
 /*--------------------------------------------------------------
 # Owl-carousel
----------
------------------------------------------------------*/
+--------------------------------------------------------------*/
 
 .highlights-container {
-    margin-top: 40px;
+    margin-top: 80px;
 }
 
 .owl-products {
@@ -118,10 +124,11 @@ h3.highlights {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    border-radius: 10px 10px 0 0;
 }
 
 .item .img-car img {
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0 0;
     object-fit: contain;
     -webkit-transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
     -moz-transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);

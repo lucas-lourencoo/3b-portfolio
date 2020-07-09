@@ -14,6 +14,7 @@
 
     <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('plugins/fontawesome-5.13.0/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/venobox/venobox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <link href="{{ asset('css/single.css') }}" rel="stylesheet">
@@ -30,7 +31,7 @@
                 <ol>
                     <li><a href="/" title="Voltar ao início do site">Início</a></li>
                     <li><a href="/produtos" title="Voltar a pagina de produtos">Produtos</a></li>
-                    <li>Nome do do produto</li>
+                    <li>{categoria...}</li>
                 </ol>
             </div>
         </section>
@@ -52,27 +53,31 @@
                     </div>
                 </div>
             </div>
+            <div class="row h-100">
+                <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
+                    data-autoplay="true"></a>
+            </div>
         </div>
-        <div class="row seller-container">
-                <div class="card">
-                    <div class="cover-bg"></div>
-                    <div class="user-info-wrap">
-                        <div class="user-photo"></div>
-                        <div class="user-info">
-                            <div class="user-name">Cristiano Haas</div>
-                            <div class="user-title">Vendedor</div>
-                        </div>
+        <div class="seller-container">
+            <div class="card">
+                <div class="cover-bg"></div>
+                <div class="user-info-wrap">
+                    <div class="user-photo"></div>
+                    <div class="user-info">
+                        <div class="user-name">Cristiano Haas</div>
+                        <div class="user-title">Vendedor</div>
                     </div>
-                    <div class="user-bio">
-                        <div class="social">
-                            <div class="social-icons">
-                                <a href="#" class="btn-phone"><i class="fas fa-phone"></i> (67) 99180-3949</a>
-                                <a href="#" class="btn-whats"><i class="fab fa-whatsapp"></i>Ir para chat</a>
-                            </div>
+                </div>
+                <div class="user-bio">
+                    <div class="social">
+                        <div class="social-icons">
+                            <a href="#" class="btn-phone"><i class="fas fa-phone"></i> (67) 99180-3949</a>
+                            <a href="#" class="btn-whats"><i class="fab fa-whatsapp"></i>Ir para chat</a>
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
+        </div>
     </div>
 
     @include('includes/footer')
@@ -83,6 +88,7 @@
 
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('plugins/venobox/venobox.min.js') }}"></script>
     <script src="{{ asset('js/single.js') }}"></script>
     <script src="{{ asset('plugins/jquery.easing/jquery.easing.min.js') }}"></script>
 

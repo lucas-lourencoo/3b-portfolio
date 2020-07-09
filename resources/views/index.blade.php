@@ -44,11 +44,13 @@
         </div> -->
         <div class="clients">
             <div class="container text-center">
+                <hr>
                 <h3 class="brands">Marcas</h3>
+                <hr>
                 <div class="row no-gutters clients-wrap clearfix">
                     <div class="col-xs-4 col-lg-2">
                         <div class="client-logo">
-                            <a href="#"><img src="{{ asset('img/bayer.png') }}" alt="bayer"></a>
+                            <a href="#"><img  class="p-5" src="{{ asset('img/bayer.png') }}" alt="bayer"></a>
                         </div>
                     </div>
                     <div class="col-xs-4 col-lg-2">
@@ -80,7 +82,9 @@
             </div>
         </div>
         <div class="container highlights-container text-center">
+            <hr>
             <h3 class="highlights">Destaques</h3>
+            <hr>
             <div class="owl-carousel owl-products">
                 <div class="item">
                     <div class="img-car">
