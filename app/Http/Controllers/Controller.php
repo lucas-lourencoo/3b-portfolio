@@ -29,4 +29,8 @@ class Controller extends BaseController
     {
         return view('single');
     }
+    public function admin()
+    {
+        return view('admin/index');
+    }
 }
