@@ -1,0 +1,261 @@
+@charset "utf-8";
+
+/***********
+1. Fonts
+***********/
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+
+/***********
+2. Generalizações
+***********/
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: white;
+    color: #1e1e27;
+}
+
+label {
+    font-weight: 400;
+}
+
+td {
+    vertical-align: middle !important;
+}
+
+#table-relationship td.tb-opt {
+    width: 10%;
+}
+
+h3.info img {
+    margin-right: 5px;
+    height: 45px;
+    width: 45px;
+}
+
+h3.info {
+    text-align: center;
+    background-color: #14202d;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 15px;
+    margin-top: 50px;
+    box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.174);
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+#table_stock_wrapper {
+    margin-top: 50px;
+}
+
+.brand-link img {
+    width: 50px;
+    height: auto;
+}
+
+.brand-link {
+    text-align: center;
+}
+
+tr.thead-dark,
+.btn-dark {
+    background-color: #14202d;
+}
+
+.title-stock {
+    text-align: center;
+    font-weight: 700;
+    color: #14202d;
+    margin-bottom: 30px;
+}
+
+.btn-outline-dark:hover,
+.btn-dark:hover {
+    background-color: #14202d;
+    border-color: #14202d;
+}
+
+.alert i {
+    margin-right: 5px;
+}
+
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+/*  UPLOAD  */
+
+.box {
+    display: block;
+    width: 380px;
+    height: 606px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+}
+
+.upload-options {
+    position: relative;
+    height: 75px;
+    background-color: #0069d9;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+    transition: background-color ease-in-out 150ms;
+}
+
+.upload-options h2 {
+    margin-top: 17px;
+    color: white;
+    font-weight: bold;
+}
+
+.upload-options:hover {
+    background-color: #0069d9e3;
+}
+
+.upload-options input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.upload-options label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.upload-options label::after {
+    content: '\f067';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    font-size: 2.5rem;
+    color: rgba(230, 230, 230, 1);
+    top: calc(50% - 2rem);
+    left: calc(50% - 1.25rem);
+    z-index: 0;
+}
+
+.upload-options label span {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.upload-options label span:hover i.material-icons {
+    color: lightgray;
+}
+
+.js--image-preview {
+    height: 456px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-image: url('');
+    background-color: white;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.js--image-preview::after {
+    content: '\f302';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: relative;
+    font-size: 4.5em;
+    color: rgba(230, 230, 230, 1);
+    top: calc(50% - 3rem);
+    left: calc(50% - 2.25rem);
+    z-index: 0;
+}
+
+.js--image-preview.js--no-default::after {
+    display: none;
+}
+
+.js--image-preview:nth-child(2) {
+    background-image: url('http://bastianandre.at/giphy.gif');
+}
+
+i.material-icons {
+    transition: color 100ms ease-in-out;
+    font-size: 2.25em;
+    line-height: 55px;
+    color: white;
+    display: block;
+}
+
+.drop {
+    display: block;
+    position: absolute;
+    background: rgba(95, 158, 160, 0.2);
+    border-radius: 100%;
+    transform: scale(0);
+}
+
+.animate {
+    animation: ripple 0.4s linear;
+}
+
+@keyframes ripple {
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}
+
+.img-error {
+    font-weight: 600;
+    text-align: center;
+    width: 420px;
+    margin-top: 10px;
+}
+
+.title {
+    color: white;
+    background-color: #14202d;
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.title span {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.title i {
+    margin-right: 10px;
+}
+
+.img-product img {
+    height: 330px;
+    width: 271px;
+    object-fit: cover;
+    border-radius: 5px;
+}

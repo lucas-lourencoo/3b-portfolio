@@ -1,57 +1,114 @@
-  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-      <div class="scrollbar-inner">
-          <div class="sidenav-header  align-items-center">
-              <a class="navbar-brand" href="javascript:void(0)">
-                  <img src="{{ asset('img/logo.png') }}" class="navbar-brand-img" alt="...">
-              </a>
-          </div>
-          <div class="navbar-inner">
-              <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-                  <ul class="navbar-nav">
-                      <li class="nav-item">
-                          <a class="nav-link active" href="examples/dashboard.html">
-                              <i class="fas fa-home text-default"></i>
-                              <span class="nav-link-text">Início</span>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('admin.group.adicionar') }}">
-                              <i class="fas fa-book text-default"></i>
-                              <span class="nav-link-text">Grupos</span>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('admin.category.adicionar') }}">
-                              <i class="fas fa-list-alt text-default"></i>
-                              <span class="nav-link-text">Categoria</span>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('admin.brand.adicionar') }}">
-                              <i class="fas fa-copyright text-default"></i>
-                              <span class="nav-link-text">Marca</span>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('admin.bull.adicionar') }}">
-                              <i class="far fa-file-alt text-default"></i>
-                              <span class="nav-link-text">Bulas</span>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('admin.product.adicionar') }}">
-                              <i class="fas fa-syringe	"></i>
-                              <span class="nav-link-text">Produtos</span>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('admin.salespeople.adicionar') }}">
-                              <i class="fas fa-users text-default"></i>
-                              <span class="nav-link-text">Vendedores</span>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </nav>
+<nav class="main-header navbar navbar-expand navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars fa-lg"></i></a>
+        </li>
+        <li class="nav-item">
+            <a href="/admin" class="nav-link">Painel de Administrativo</a>
+        </li>
+    </ul>
+
+</nav>
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="/admin" class="brand-link">
+        <img src="/img/logo.png" alt="Logo 3B">
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <nav class="mt-5">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="/admin" class="nav-link" id="admin-home">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>Inicio</p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>Usuário<i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-power-off"></i>
+                                <p>Sair</p>
+                            </a>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-header text-center">GERENCIAMENTO</li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link" id="groups">
+                        <i class="nav-icon fas fa-layer-group"></i>
+                        <p>Grupos<i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link" id="categories">
+                        <i class="nav-icon fas fa-paperclip"></i>
+                        <p>Categorias<i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link" id="brands">
+                        <i class="nav-icon fas fa-copyright"></i>
+                        <p>Marcas<i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" id="#">
+                                <i class="nav-icon fas fa-plus-circle"></i>
+                                <p>#</p>
+                            </a>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link" id="bull">
+                        <i class="nav-icon fas fa-th-list"></i>
+                        <p>Bulas<i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link" id="products">
+                        <i class="nav-icon fas fa-box-open"></i>
+                        <p>Produtos<i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link" id="seller">
+                        <i class="nav-icon fas fa-user-tie"></i>
+                        <p>Vendedores<i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+                </li>
+                <!--
+                <li class="nav-header">AVISOS</li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-times-circle text-danger"></i>
+                        <p class="text">Contas em atraso</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-exclamation-circle text-warning"></i>
+                        <p>Contas pendentes</p>
+                    </a>
+                </li>
+-->
+            </ul>
+        </nav>
+    </div>
+</aside>
