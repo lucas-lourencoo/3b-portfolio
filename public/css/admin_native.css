@@ -3452,10 +3452,12 @@ input[type=submit].btn-block {
 }
 
 .dropdown-divider {
-    height: 0;
-    margin: .5rem 0;
+    height: 1px;
+    /*! margin: .5rem 0; */
     overflow: hidden;
-    border-top: 1px solid #e9ecef
+    border-top: none;
+    background-image: radial-gradient(circle, #007e779c, #007e777d, #007e7769, #075b7000, #075b7000);
+    margin: 10px 0px;
 }
 
 .dropdown-item {
