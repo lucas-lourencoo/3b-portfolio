@@ -106,8 +106,7 @@
                         <i class="nav-icon fas fa-exclamation-circle text-warning"></i>
                         <p>Contas pendentes</p>
                     </a>
-                </li>
--->
+                </li>-->
             </ul>
         </nav>
     </div>
