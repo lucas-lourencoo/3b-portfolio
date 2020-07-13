@@ -29,6 +29,11 @@ class UserController extends Controller
     {
         return view('admin.login');
     }
+
+    public function index()
+    {
+        return view('admin.index');
+    }
     
     public function logout()
     {
