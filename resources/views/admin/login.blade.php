@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_native.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/fontawesome-5.13.0/css/all.min.css') }}">
-    <link rel="icon" type="imagem/png" href="{{ asset('images/icon.png') }}" />
+    <link rel="icon" type="imagem/png" href="{{ asset('img/icon.png') }}" />
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
@@ -25,19 +25,19 @@
                 @if (Request::get('r') != null && Request::get('r') == 1)
                     <div class="row mt-5 alert alert-danger">Usuário não autenticado</div>
                 @elseif(Request::get('r') != null && Request::get('r') == 2)
-                    <div class="row mt-5 alert alert-danger">Você não possui acesso a esta página!</div>
+                    <div class="row mt-5 alert alert-danger">Erro interno: {{ Request::get('error') }}</div>
                 @endif
 
                 <div class="login-logo">
-                    <img src="/images/logo.png" alt="">
+                    <img src="/img/logo.png" alt="">
                 </div>
 
-                <form method="POST" action="{{ route('admin.entrar') }}">
+                <form method="POST" action="{{ route('authenticate') }}">
                     @csrf
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <button type="button" class="btn btn-warning"><i class="fas fa-envelope"></i></button>
+                                <button type="button" class="btn btn-success"><i class="fas fa-envelope"></i></button>
                             </div>
                             <input type="text" placeholder="e-mail" class="form-control" name="email">
                         </div>
@@ -45,14 +45,14 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <button type="button" class="btn btn-warning"><i class="fas fa-key"></i></button>
+                                <button type="button" class="btn btn-success"><i class="fas fa-key"></i></button>
                             </div>
                             <input type="password" placeholder="senha" class="form-control" name="password">
                         </div>
                     </div>
                     <!--<a class="text-white" href="">Recuperar senha</a>-->
                     <div class="col-lg-12 mt-5 text-center">
-                        <button type="submit" class="btn btn-warning">Entrar</button>
+                        <button type="submit" class="btn btn-success">Entrar</button>
                     </div>
                 </form>
             </div>

@@ -28,7 +28,7 @@
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
-                        <p>Usuário<i class="right fas fa-angle-right"></i>
+                        <p>{{ Auth::user()->name }}<i class="right fas fa-angle-right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">

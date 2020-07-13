@@ -16,17 +16,23 @@ class UserController extends Controller
 
         try {
             if (Auth::attempt($data, false)) {
-                return redirect()->route('index');
-            } else {
-                return redirect()->route('login', ['result' => 1]);
+                return redirect()->route('admin.index');
+            }else{
+                return redirect()->route('login', ['r' => 1]);
             }
         } catch (\Exception $e) {
-            return redirect()->route('login', ['result' => 2]);
+            return redirect()->route('login', ['r' => 2, 'error' => $e->getMessage()]);
         }
     }
     
     public function login()
     {
         return view('admin.login');
+    }
+    
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('index');
     }
 }
