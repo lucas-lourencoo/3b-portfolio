@@ -26,7 +26,7 @@
             <section class="content">
                 <div class="container-fluid">
                     <h3 class="info"><img src="{{ asset('img/logo.png') }}" alt="Imagem do título da página"> Grupos |
-                        Adicionar</h3>
+                        Gerenciar</h3>
 
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
