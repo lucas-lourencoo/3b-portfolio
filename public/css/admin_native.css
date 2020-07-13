@@ -2573,15 +2573,15 @@ fieldset:disabled a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #009e4f;
+    border-color: #009e4f;
     box-shadow: none
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc
+    /*! background-color: #2f4858; */
+    border-color: #2f4858;
 }
 
 .btn-primary.focus,
@@ -12201,7 +12201,7 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 
 .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active,
 .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
-    background-color: #007e77;
+    background-color: #009e4f;
     color: #fff
 }
 

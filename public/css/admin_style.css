@@ -20,14 +20,11 @@ body {
 
 label {
     font-weight: 400;
+    color: #343434;
 }
 
 td {
     vertical-align: middle !important;
-}
-
-#table-relationship td.tb-opt {
-    width: 10%;
 }
 
 h3.info img {
@@ -38,7 +35,7 @@ h3.info img {
 
 h3.info {
     text-align: center;
-    background-color: #14202d;
+    background-image: radial-gradient(circle, #0e1c2a, #101f2e, #112233, #132537, #15283c);
     color: white;
     font-weight: 600;
     text-transform: uppercase;
@@ -50,10 +47,6 @@ h3.info {
     margin-bottom: 20px;
 }
 
-#table_stock_wrapper {
-    margin-top: 50px;
-}
-
 .brand-link img {
     width: 50px;
     height: auto;
@@ -61,28 +54,6 @@ h3.info {
 
 .brand-link {
     text-align: center;
-}
-
-tr.thead-dark,
-.btn-dark {
-    background-color: #14202d;
-}
-
-.title-stock {
-    text-align: center;
-    font-weight: 700;
-    color: #14202d;
-    margin-bottom: 30px;
-}
-
-.btn-outline-dark:hover,
-.btn-dark:hover {
-    background-color: #14202d;
-    border-color: #14202d;
-}
-
-.alert i {
-    margin-right: 5px;
 }
 
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
@@ -201,61 +172,30 @@ tr.thead-dark,
     background-image: url('http://bastianandre.at/giphy.gif');
 }
 
-i.material-icons {
-    transition: color 100ms ease-in-out;
-    font-size: 2.25em;
-    line-height: 55px;
+
+/*  BUTTON B3  */
+
+.row-form {
+    margin-top: 50px;
+}
+
+.btn-b3 {
+    background-color: #009e4f;
+    border-color: #009e4f;
     color: white;
-    display: block;
 }
 
-.drop {
-    display: block;
-    position: absolute;
-    background: rgba(95, 158, 160, 0.2);
-    border-radius: 100%;
-    transform: scale(0);
+.btn-b3-outline {
+    border-color: #009e4f;
+    color: #009e4f;
+    background-color: transparent;
 }
 
-.animate {
-    animation: ripple 0.4s linear;
-}
-
-@keyframes ripple {
-    100% {
-        opacity: 0;
-        transform: scale(2.5);
-    }
-}
-
-.img-error {
-    font-weight: 600;
-    text-align: center;
-    width: 420px;
-    margin-top: 10px;
-}
-
-.title {
+.btn-b3-outline:hover {
+    background-color: #009e4f;
     color: white;
-    background-color: #14202d;
-    border-radius: 5px;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
 }
 
-.title span {
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.title i {
-    margin-right: 10px;
-}
-
-.img-product img {
-    height: 330px;
-    width: 271px;
-    object-fit: cover;
-    border-radius: 5px;
+.btn-b3:hover {
+    color: white;
 }

@@ -60,14 +60,24 @@
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="{{ route('admin.category.adicionar') }}" class="nav-link" id="category-add">
+                    <a href="#" class="nav-link" id="category">
                         <i class="nav-icon fas fa-paperclip"></i>
                         <p>Categorias<i class="right fas fa-angle-right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.category.adicionar') }}" class="nav-link" id="category-add">
+                                <i class="nav-icon fas fa-plus"></i>
+                                <p>Adicionar</p>
+                            </a>
+                            </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                    </ul>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link" id="brands">
+                    <a href="#" class="nav-link" id="brand">
                         <i class="nav-icon fas fa-copyright"></i>
                         <p>Marcas<i class="right fas fa-angle-right"></i></p>
                     </a>
