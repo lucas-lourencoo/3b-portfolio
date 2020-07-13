@@ -25,13 +25,25 @@
         <div class="content-wrapper">
             <section class="content">
                 <div class="container-fluid">
-                    <h3 class="info"><img src="{{ asset('img/logo.png') }}" alt="Imagem do título da página"> Categorias
+                    <h3 class="info"><img src="{{ asset('img/logo.png') }}" alt="Imagem do título da página"> Marcas
                         |
                         Gerenciar</h3>
 
+                    <div class="col-mb-3">
+                        @if (Request::get('result') != null && Request::get('result') == 0)
+                        <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Marca cadastrada
+                            com sucesso!
+                        </div>
+                        @elseif(Request::get('result') != null && Request::get('result') == 1)
+                        <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
+                            marca, tente novamente!</div>
+                        @endif
+                    </div>
+
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
-                            <form action="" method="post">
+                            <form action="{{ route('admin.marca.add') }}" method="post">
+                                @csrf
                                 <div class="form-group">
                                     <label for="group">Nome da marca</label>
                                     <div class="input-group">

@@ -29,16 +29,44 @@
                         |
                         Gerenciar</h3>
 
+                        <div class="col-mb-3">
+                            @if (Request::get('result') != null && Request::get('result') == 0)
+                            <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Categoria cadastrada
+                                com sucesso!
+                            </div>
+                            @elseif(Request::get('result') != null && Request::get('result') == 1)
+                            <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
+                                categoria, tente novamente!</div>
+                            @endif
+                        </div>
+
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
-                            <form action="" method="post">
+                            <form action="{{ route('admin.categoria.add') }}" method="post">
+                                @csrf
                                 <div class="form-group">
                                     <label for="group">Nome da categoria</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button type="button" class="btn btn-b3"><i class="fas fa-ad"></i></button>
                                         </div>
-                                        <input type="text" class="form-control" name="category">
+                                        <input type="text" class="form-control" name="name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="seller">Grupo</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-b3"><i
+                                                    class="fas fa-ad"></i></button>
+                                        </div>
+                                        <select class="data-single form-control" name="group" placeholder="Selecione"
+                                            data-allow-clear="1">
+                                            <option value=""></option>
+                                            @foreach ($groups as $group)
+                                                <option value="{{ $group->id }}"><img src="{{ asset('img/logo.png') }}" alt=""> {{ $group->name }} </option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="btn-group mt-5">

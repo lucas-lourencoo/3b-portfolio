@@ -28,12 +28,12 @@
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
-                        <p>Usuário<i class="right fas fa-angle-right"></i>
+                        <p>{{ Auth::user()->name }}<i class="right fas fa-angle-right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-power-off"></i>
                                 <p>Sair</p>
                             </a>
@@ -50,7 +50,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.group.adicionar') }}" class="nav-link" id="group-add">
+                            <a href="{{ route('admin.grupo.gerenciar') }}" class="nav-link" id="group-add">
                                 <i class="nav-icon fas fa-plus"></i>
                                 <p>Adicionar</p>
                             </a>
@@ -67,7 +67,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.category.adicionar') }}" class="nav-link" id="category-add">
+                            <a href="{{ route('admin.categoria.gerenciar') }}" class="nav-link" id="category-add">
                                 <i class="nav-icon fas fa-plus"></i>
                                 <p>Adicionar</p>
                             </a>
@@ -83,7 +83,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.brand.adicionar') }}" class="nav-link" id="brand-add">
+                            <a href="{{ route('admin.marca.gerenciar') }}" class="nav-link" id="brand-add">
                                 <i class="nav-icon fas fa-plus"></i>
                                 <p>Adicionar</p>
                             </a>
@@ -92,21 +92,14 @@
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="{{ route('admin.bull.adicionar') }}" class="nav-link" id="bull">
-                        <i class="nav-icon fas fa-th-list"></i>
-                        <p>Bulas<i class="right fas fa-angle-right"></i>
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item has-treeview">
-                    <a href="{{ route('admin.product.adicionar') }}" class="nav-link" id="products">
+                    <a href="{{ route('admin.produto.gerenciar') }}" class="nav-link" id="products">
                         <i class="nav-icon fas fa-box-open"></i>
                         <p>Produtos<i class="right fas fa-angle-right"></i>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="{{ route('admin.salespeople.adicionar') }}" class="nav-link" id="seller">
+                    <a href="{{ route('admin.vendedor.gerenciar') }}" class="nav-link" id="seller">
                         <i class="nav-icon fas fa-user-tie"></i>
                         <p>Vendedores<i class="right fas fa-angle-right"></i>
                         </p>

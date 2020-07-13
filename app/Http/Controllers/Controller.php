@@ -6,31 +6,38 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\DB;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    
+
     public function index()
     {
-        return view('index');
+        $groups = DB::table('groups')->get();
+        $categories = DB::table('categories')->get();
+
+        return view('index', ['groups' => $groups, 'categories' => $categories]);
     }
-   
+
     public function contact()
     {
-        return view('contact');
+        $groups = DB::table('groups')->get();
+        $categories = DB::table('categories')->get();
+
+        return view('contact', ['groups' => $groups, 'categories' => $categories]);
     }
 
     public function products()
     {
-        return view('products');
+        $groups = DB::table('groups')->get();
+        $categories = DB::table('categories')->get();
+
+        return view('products', ['groups' => $groups, 'categories' => $categories]);
     }
+
     public function single()
     {
         return view('single');
-    }
-    public function admin()
-    {
-        return view('admin/index');
     }
 }
