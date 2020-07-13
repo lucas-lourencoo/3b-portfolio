@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\DB;
 
 class Controller extends BaseController
 {
@@ -13,17 +14,26 @@ class Controller extends BaseController
     
     public function index()
     {
-        return view('index');
+        $groups = DB::table('groups')->get();
+        $categories = DB::table('categories')->get();
+
+        return view('index', ['groups' => $groups, 'categories' => $categories]);
     }
    
     public function contact()
     {
-        return view('contact');
+        $groups = DB::table('groups')->get();
+        $categories = DB::table('categories')->get();
+
+        return view('contact', ['groups' => $groups, 'categories' => $categories]);
     }
 
     public function products()
     {
-        return view('products');
+        $groups = DB::table('groups')->get();
+        $categories = DB::table('categories')->get();
+
+        return view('products', ['groups' => $groups, 'categories' => $categories]);
     }
     public function single()
     {

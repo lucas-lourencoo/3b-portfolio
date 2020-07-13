@@ -12,7 +12,7 @@ Route::post('login', 'UserController@auth')->name('authenticate');
 /*--------------A PARTIR DESTE PONTO REQUER AUTENTICAÇÃO----------*/
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-        Route::get('index', 'Controller@admin')->name('index');
+        Route::get('/', 'Controller@admin')->name('index');
         Route::get('logout', 'Controller@logout')->name('logout');
 
         //Grupos
