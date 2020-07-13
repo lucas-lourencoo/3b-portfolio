@@ -20,7 +20,8 @@ class Products extends Migration
             $table->float('price');
             $table->float('gross_weight');
             $table->float('weight');
-            $table->string('details');
+            $table->string('description');
+            $table->string('recomend')->nullable();
             $table->string('segment');
             $table->string('image');
             $table->integer('brand')->unsigned();

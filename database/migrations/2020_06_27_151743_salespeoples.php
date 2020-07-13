@@ -13,10 +13,10 @@ class Salespeople extends Migration
      */
     public function up()
     {
-        Schema::create('salespeople', function (Blueprint $table){
+        Schema::create('salespeoples', function (Blueprint $table){
             $table->increments('id');
             $table->string('name');
-            $table->integer('celphone');
+            $table->string('celphone', 20);
             $table->string('email');
             $table->timestamps();
         });

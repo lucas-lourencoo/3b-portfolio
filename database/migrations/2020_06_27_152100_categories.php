@@ -16,6 +16,8 @@ class Categories extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->unsignedBigInteger('group_id');
+            $table->foreign('group_id')->references('id')->on('group');
             $table->timestamps();
         });
     }

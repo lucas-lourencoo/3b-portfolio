@@ -28,9 +28,22 @@
                     <h3 class="info"><img src="{{ asset('img/logo.png') }}" alt="Imagem do título da página"> Grupos |
                         Adicionar</h3>
 
+
+                        <div class="col-mb-3">
+                            @if (Request::get('result') != null && Request::get('result') == 0)
+                            <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Grupo cadastrada
+                                com sucesso!
+                            </div>
+                            @elseif(Request::get('result') != null && Request::get('result') == 1)
+                            <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
+                                grupo, tente novamente!</div>
+                            @endif
+                        </div>
+
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
-                            <form action="" method="post">
+                            <form action="{{ route('admin.grupo.add') }}" method="post">
+                                @csrf
                                 <div class="form-group">
                                     <label for="group">Nome do grupo</label>
                                     <div class="input-group">
@@ -48,11 +61,12 @@
                                             <button type="button" class="btn btn-b3"><i
                                                     class="fas fa-user-tie"></i></button>
                                         </div>
-                                        <select class="data-single form-control" name="seller" placeholder="Selecione"
+                                        <select class="data-single form-control" name="salesman" placeholder="Selecione"
                                             data-allow-clear="1">
                                             <option value=""></option>
-                                            <option value="1"><img src="{{ asset('img/logo.png') }}" alt=""> Cráudio
-                                            </option>
+                                            @foreach ($salespeople as $sale)
+                                                <option value="{{ $sale->id }}"><img src="{{ asset('img/logo.png') }}" alt=""> {{ $sale->name }} </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
