@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    
+
     public function index()
     {
         $groups = DB::table('groups')->get();
@@ -19,7 +19,7 @@ class Controller extends BaseController
 
         return view('index', ['groups' => $groups, 'categories' => $categories]);
     }
-   
+
     public function contact()
     {
         $groups = DB::table('groups')->get();
@@ -35,12 +35,9 @@ class Controller extends BaseController
 
         return view('products', ['groups' => $groups, 'categories' => $categories]);
     }
+
     public function single()
     {
         return view('single');
-    }
-    public function admin()
-    {
-        return view('admin/index');
     }
 }
