@@ -20,4 +20,17 @@ class Controller extends BaseController
     {
         return view('contact');
     }
+
+    public function products()
+    {
+        return view('products');
+    }
+    public function single()
+    {
+        return view('single');
+    }
+    public function admin()
+    {
+        return view('admin/index');
+    }
 }

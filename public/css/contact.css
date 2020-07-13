@@ -3,7 +3,7 @@
 --------------------------------------------------------------*/
 
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Raleway", sans-serif;
     color: #444444;
 }
 
@@ -23,6 +23,104 @@ h4,
 h5,
 h6 {
     font-family: "Raleway", sans-serif;
+}
+
+
+/*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+
+.contact-container h3 {
+    margin: 45px 0px;
+    font-weight: bold;
+    padding: 6px 0px;
+    color: rgba(0, 0, 0, 0.632);
+}
+
+.contact-container h3::before {
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    content: "";
+    position: absolute;
+    height: 6px;
+    top: 85px;
+    background-color: #006b77;
+    width: 40px;
+}
+
+.social-contact {
+    margin: 0 auto;
+    display: table;
+}
+
+.social-contact ul {
+    list-style: none;
+}
+
+.social-contact a {
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    margin: 5px;
+    padding: 10px 18px;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 200px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.229);
+}
+
+.social-contact a i {
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+.social-contact a.facebook:hover {
+    background-color: #3b5998;
+    color: white;
+}
+
+.social-contact a.whatsapp:hover {
+    background-color: #00bfa5;
+    color: white;
+}
+
+.social-contact a.instagram:hover {
+    background-color: #d62976;
+    color: white;
+}
+
+.social-contact a.facebook {
+    border: solid 1px #3b5998;
+    color: #3b5998;
+}
+
+.social-contact a.instagram {
+    border: solid 1px #d62976;
+    color: #d62976;
+}
+
+.social-contact a.whatsapp {
+    border: solid 1px #00bfa5;
+    color: #00bfa5;
+}
+
+.info-contact {
+    display: table;
+    margin: 0 auto;
+}
+
+.info-d:hover h3::before,
+.social-d:hover h3::before,
+.local-d:hover h3::before {
+    width: 80px;
 }
 
 
@@ -101,194 +199,64 @@ h6 {
 }
 
 .back-to-top i:hover {
-    background: #00b371;
+    background: #009a4f;
     color: #fff;
 }
 
 
 /*--------------------------------------------------------------
-# Header
+# Breadcrumbs
 --------------------------------------------------------------*/
 
-#header {
-    transition: all 0.5s;
-    z-index: 997;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.breadcrumbs {
+    padding: 25px 0;
+    min-height: 60px;
+    margin-top: 72px;
 }
 
-#header.header-scrolled,
-#header.header-inner-pages {
-    background: rgba(40, 40, 40, 0.9);
+.breadcrumbs h2 {
+    font-size: 26px;
+    font-weight: 500;
 }
 
-#header .logo {
-    font-size: 28px;
+.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0 0 10px 0;
     margin: 0;
-    padding: 0;
-    line-height: 1;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-#header .logo a {
-    color: #fff;
-}
-
-#header .logo img {
-    max-height: 40px;
-}
-
-@media (max-width: 992px) {
-    #header {
-        border: 0;
-        padding: 15px 0;
-    }
-}
-
-
-/*--------------------------------------------------------------
-# Contact
---------------------------------------------------------------*/
-
-.contact .info {
-    width: 100%;
-    background: #fff;
-}
-
-.contact .info i {
-    font-size: 32px;
-    color: #009961;
-    float: left;
-    line-height: 1;
-}
-
-.contact .info h4 {
-    padding: 0 0 0 60px;
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #282828;
-}
-
-.contact .info p {
-    padding: 0 0 0 60px;
-    margin-bottom: 0;
     font-size: 14px;
-    color: #5b5b5b;
 }
 
-.contact .info .email,
-.contact .info .phone {
-    margin-top: 40px;
-}
-
-.contact .php-email-form {
-    width: 100%;
-    background: #fff;
-}
-
-.contact .php-email-form .form-group {
-    padding-bottom: 8px;
-}
-
-.contact .php-email-form .validate {
-    display: none;
-    color: red;
-    margin: 0 0 15px 0;
-    font-weight: 400;
-    font-size: 13px;
-}
-
-.contact .php-email-form .error-message {
-    display: none;
-    color: #fff;
-    background: #ed3c0d;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
-}
-
-.contact .php-email-form .sent-message {
-    display: none;
-    color: #fff;
-    background: #18d26e;
-    text-align: left;
-    padding: 15px;
-    font-weight: 600;
-}
-
-.contact .php-email-form .sent-message br+br {
-    margin-top: 25px;
-}
-
-.contact .php-email-form .loading {
-    display: none;
-    background: #fff;
-    text-align: center;
-    padding: 15px;
-}
-
-.contact .php-email-form .loading:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    margin: 0 10px -6px 0;
-    border: 3px solid #18d26e;
-    border-top-color: #eee;
-    -webkit-animation: animate-loading 1s linear infinite;
-    animation: animate-loading 1s linear infinite;
-}
-
-.contact .php-email-form input,
-.contact .php-email-form textarea {
-    border-radius: 0;
-    box-shadow: none;
-    font-size: 14px;
-    border-radius: 4px;
-}
-
-.contact .php-email-form input:focus,
-.contact .php-email-form textarea:focus {
-    border-color: #009961;
-}
-
-.contact .php-email-form input {
-    height: 44px;
-}
-
-.contact .php-email-form textarea {
-    padding: 10px 12px;
-}
-
-.contact .php-email-form button[type="submit"] {
-    background: #009961;
-    border: 0;
-    padding: 10px 30px;
-    color: #fff;
-    transition: 0.4s;
+.breadcrumbs ol li a {
+    padding: 5px 12px;
     border-radius: 50px;
+    background-color: #006b77;
+    color: white;
 }
 
-.contact .php-email-form button[type="submit"]:hover {
-    background: #00b371;
+.breadcrumbs ol li+li {
+    padding-left: 10px;
 }
 
-@-webkit-keyframes animate-loading {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+.breadcrumbs ol li+li::before {
+    display: inline-block;
+    padding-right: 10px;
+    color: #424242;
+    content: "/";
 }
 
-@keyframes animate-loading {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
+
+/*
+* MAIN
+*/
+
+.main {
+    margin-top: 85px;
+}
+
+@media (max-width: 991px) {
+    .main {
+        margin-top: 70px;
     }
 }
