@@ -164,28 +164,43 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="box">
-                                    <div class="upload-options">
-                                        <h2>IMAGEM 1</h2>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="form-group col-lg-4 col-xl-3">
+                                <label for="img-n">Quant. de imagens</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button type="button" class="btn btn-b3"><i class="fas fa-image"></i></button>
                                     </div>
-                                    <div class="js--image-preview"></div>
-                                    <div class="upload-options">
-                                        <label>
-                                            <input name="image1" type="file" class="image-upload" />
-                                        </label>
-                                    </div>
+                                    <select class="custom-select" id="img-n">
+                                        <option value="0">Selecione</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
                                 </div>
-                                <div class="box">
-                                    <div class="upload-options">
-                                        <h2>IMAGEM 2</h2>
-                                    </div>
-                                    <div class="js--image-preview"></div>
-                                    <div class="upload-options">
-                                        <label>
-                                            <input name="image2" type="file" class="image-upload" />
-                                        </label>
-                                    </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4 justify-content-center">
+                            <div class="box img1 d-none">
+                                <div class="upload-options">
+                                    <h2>IMAGEM 1</h2>
+                                </div>
+                                <div class="js--image-preview"></div>
+                                <div class="upload-options">
+                                    <label>
+                                        <input name="image1" type="file" class="image-upload" />
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="box img2 d-none">
+                                <div class="upload-options">
+                                    <h2>IMAGEM 2</h2>
+                                </div>
+                                <div class="js--image-preview"></div>
+                                <div class="upload-options">
+                                    <label>
+                                        <input name="image2" type="file" class="image-upload" />
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -213,6 +228,96 @@
     <script>
     $(document).ready(function() {
         active_bar('#product', '#product-manage');
+
+        $('#img-n').change(function(e) {
+            if ($(this).val() == 1) {
+                $('.img1').removeClass('d-none');
+                $('.img2').removeClass('d-none').addClass('d-none');
+            } else if ($(this).val() == 2) {
+                $('.img1, .img2').removeClass('d-none');
+            } else {
+                $('.img1, .img2').removeClass('d-none').addClass('d-none');
+            }
+
+        });
+
+        /*  UPLOAD FUNCTIONS */
+        function initImageUpload(box) {
+            let uploadField = box.querySelector('.image-upload');
+
+            uploadField.addEventListener('change', getFile);
+
+            function getFile(e) {
+                let file = e.currentTarget.files[0];
+                checkType(file);
+            }
+
+            function previewImage(file) {
+                let thumb = box.querySelector('.js--image-preview'),
+                    reader = new FileReader();
+
+                reader.onload = function() {
+                    thumb.style.backgroundImage = 'url(' + reader.result + ')';
+                }
+                reader.readAsDataURL(file);
+                thumb.className += ' js--no-default';
+            }
+
+            function checkType(file) {
+                let imageType = /image.*/;
+                if (!file.type.match(imageType)) {
+                    throw 'ERRO 01';
+                } else if (!file) {
+                    throw 'ERRO 02';;
+                } else {
+                    previewImage(file);
+                }
+            }
+
+        }
+
+        var boxes = document.querySelectorAll('.box');
+        for (let i = 0; i < boxes.length; i++) {
+            let box = boxes[i];
+            initDropEffect(box);
+            initImageUpload(box);
+        }
+
+        function initDropEffect(box) {
+            let area, drop, areaWidth, areaHeight, maxDistance, dropWidth, dropHeight, x, y;
+            area = box.querySelector('.js--image-preview');
+            area.addEventListener('click', fireRipple);
+
+            function fireRipple(e) {
+                area = e.currentTarget
+                if (!drop) {
+                    drop = document.createElement('span');
+                    drop.className = 'drop';
+                    this.appendChild(drop);
+                }
+                drop.className = 'drop';
+                areaWidth = getComputedStyle(this, null).getPropertyValue("width");
+                areaHeight = getComputedStyle(this, null).getPropertyValue("height");
+                maxDistance = Math.max(parseInt(areaWidth, 10), parseInt(areaHeight, 10));
+
+                drop.style.width = maxDistance + 'px';
+                drop.style.height = maxDistance + 'px';
+
+                dropWidth = getComputedStyle(this, null).getPropertyValue("width");
+                dropHeight = getComputedStyle(this, null).getPropertyValue("height");
+
+                x = e.pageX - this.offsetLeft - (parseInt(dropWidth, 10) / 2);
+                y = e.pageY - this.offsetTop - (parseInt(dropHeight, 10) / 2) - 30;
+
+                drop.style.top = y + 'px';
+                drop.style.left = x + 'px';
+                drop.className += ' animate';
+                e.stopPropagation();
+            }
+            function includeBrand() {
+                window.open("" + secao + "", "_parent");
+            }
+        }
 
         /*  INITIALIZE INPUTS SELECT2 */
         $('.data-single').each(function() {
