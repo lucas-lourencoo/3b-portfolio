@@ -50,7 +50,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.grupo.gerenciar') }}" class="nav-link" id="group-add">
+                            <a href="{{ route('admin.grupo.gerenciar') }}" class="nav-link" id="group-manage">
                                 <i class="nav-icon fas fa-plus"></i>
                                 <p>Adicionar</p>
                             </a>
@@ -67,7 +67,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.categoria.gerenciar') }}" class="nav-link" id="category-add">
+                            <a href="{{ route('admin.categoria.gerenciar') }}" class="nav-link" id="category-manage">
                                 <i class="nav-icon fas fa-plus"></i>
                                 <p>Adicionar</p>
                             </a>
@@ -83,7 +83,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.marca.gerenciar') }}" class="nav-link" id="brand-add">
+                            <a href="{{ route('admin.marca.gerenciar') }}" class="nav-link" id="brand-manage">
                                 <i class="nav-icon fas fa-plus"></i>
                                 <p>Adicionar</p>
                             </a>
@@ -92,7 +92,7 @@
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="{{ route('admin.produto.gerenciar') }}" class="nav-link" id="products">
+                    <a href="{{ route('admin.produto.gerenciar') }}" class="nav-link" id="product">
                         <i class="nav-icon fas fa-box-open"></i>
                         <p>Produtos<i class="right fas fa-angle-right"></i>
                         </p>

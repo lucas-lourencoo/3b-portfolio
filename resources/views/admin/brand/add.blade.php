@@ -53,10 +53,12 @@
                                         <input type="text" class="form-control" name="brand">
                                     </div>
                                 </div>
-                                <div class="btn-group mt-5">
-                                    <button class="btn btn-b3-outline btn-lg" type="submit">CADASTRAR</button>
-                                    <button class="btn btn-b3-outline btn-lg" type="button">LIMPAR
-                                        CAMPO</button>
+                                <div class="row align-items-center">
+                                    <div class="btn-group mt-5">
+                                        <button class="btn btn-b3-outline" type="submit">CADASTRAR</button>
+                                        <button class="btn btn-b3-outline" type="button">LIMPAR
+                                            CAMPO</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -75,7 +77,7 @@
 
     <script>
     $(document).ready(function() {
-        active_bar('#brand', '#brand-add');
+        active_bar('#brand', '#brand-manage');
 
         /*  INITIALIZE INPUTS SELECT2 */
         $('.data-single').each(function() {

@@ -29,16 +29,16 @@
                         Gerenciar</h3>
 
 
-                        <div class="col-mb-3">
-                            @if (Request::get('result') != null && Request::get('result') == 0)
-                            <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Grupo cadastrada
-                                com sucesso!
-                            </div>
-                            @elseif(Request::get('result') != null && Request::get('result') == 1)
-                            <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
-                                grupo, tente novamente!</div>
-                            @endif
+                    <div class="col-mb-3">
+                        @if (Request::get('result') != null && Request::get('result') == 0)
+                        <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Grupo cadastrada
+                            com sucesso!
                         </div>
+                        @elseif(Request::get('result') != null && Request::get('result') == 1)
+                        <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
+                            grupo, tente novamente!</div>
+                        @endif
+                    </div>
 
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
@@ -48,8 +48,7 @@
                                     <label for="group">Nome do grupo</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button type="button" class="btn btn-b3"><i
-                                                    class="fas fa-ad"></i></button>
+                                            <button type="button" class="btn btn-b3"><i class="fas fa-ad"></i></button>
                                         </div>
                                         <input type="text" class="form-control" name="group">
                                     </div>
@@ -65,15 +64,18 @@
                                             data-allow-clear="1">
                                             <option value=""></option>
                                             @foreach ($salespeople as $sale)
-                                                <option value="{{ $sale->id }}"><img src="{{ asset('img/logo.png') }}" alt=""> {{ $sale->name }} </option>
+                                            <option value="{{ $sale->id }}"><img src="{{ asset('img/logo.png') }}"
+                                                    alt=""> {{ $sale->name }} </option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
-                                <div class="btn-group mt-5">
-                                    <button class="btn btn-b3-outline btn-lg" type="submit">CADASTRAR</button>
-                                    <button class="btn btn-b3-outline btn-lg" type="button">LIMPAR
-                                        CAMPOS</button>
+                                <div class="row align-items-center">
+                                    <div class="btn-group mt-5">
+                                        <button class="btn btn-b3-outline" type="submit">CADASTRAR</button>
+                                        <button class="btn btn-b3-outline" type="button">LIMPAR
+                                            CAMPOS</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -92,7 +94,7 @@
 
     <script>
     $(document).ready(function() {
-        active_bar('#group', '#group-add');
+        active_bar('#group', '#group-manage');
 
         /*  INITIALIZE INPUTS SELECT2 */
         $('.data-single').each(function() {

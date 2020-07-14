@@ -63,19 +63,20 @@ h3.info {
 
 .box {
     display: block;
-    width: 380px;
-    height: 606px;
+    width: 300px;
+    height: calc(100%);
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     overflow: hidden;
+    margin-right: 10px;
 }
 
 .upload-options {
     position: relative;
-    height: 75px;
-    background-color: #0069d9;
+    height: 50px;
+    background-color: #008f69;
     cursor: pointer;
     overflow: hidden;
     text-align: center;
@@ -83,13 +84,15 @@ h3.info {
 }
 
 .upload-options h2 {
-    margin-top: 17px;
+    margin-top: 15px;
     color: white;
     font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
 }
 
 .upload-options:hover {
-    background-color: #0069d9e3;
+    background-color: #008f69;
 }
 
 .upload-options input {
@@ -118,11 +121,16 @@ h3.info {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     position: absolute;
-    font-size: 2.5rem;
+    font-size: 30px;
     color: rgba(230, 230, 230, 1);
-    top: calc(50% - 2rem);
-    left: calc(50% - 1.25rem);
+    top: 0;
+    /*! left: 0; */
     z-index: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
 }
 
 .upload-options label span {
@@ -141,7 +149,7 @@ h3.info {
 }
 
 .js--image-preview {
-    height: 456px;
+    height: 270px;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -149,7 +157,7 @@ h3.info {
     background-color: white;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 .js--image-preview::after {
@@ -158,10 +166,13 @@ h3.info {
     font-weight: 900;
     position: relative;
     font-size: 4.5em;
-    color: rgba(230, 230, 230, 1);
-    top: calc(50% - 3rem);
-    left: calc(50% - 2.25rem);
+    color: #008f6991;
     z-index: 0;
+    height: 100%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .js--image-preview.js--no-default::after {
@@ -177,6 +188,10 @@ h3.info {
 
 .row-form {
     margin-top: 50px;
+}
+
+.btn-group {
+    margin: 80px auto;
 }
 
 .btn-b3 {

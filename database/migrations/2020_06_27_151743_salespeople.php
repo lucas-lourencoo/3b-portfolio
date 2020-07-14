@@ -13,7 +13,7 @@ class Salespeople extends Migration
      */
     public function up()
     {
-        Schema::create('salespeoples', function (Blueprint $table){
+        Schema::create('salespeople', function (Blueprint $table){
             $table->increments('id');
             $table->string('name');
             $table->string('celphone', 20);

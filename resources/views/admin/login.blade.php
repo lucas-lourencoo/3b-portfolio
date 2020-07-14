@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <button type="button" class="btn btn-success"><i class="fas fa-envelope"></i></button>
+                                <button type="button" class="btn btn-b3"><i class="fas fa-envelope"></i></button>
                             </div>
                             <input type="text" placeholder="e-mail" class="form-control" name="email">
                         </div>
@@ -45,14 +45,14 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <button type="button" class="btn btn-success"><i class="fas fa-key"></i></button>
+                                <button type="button" class="btn btn-b3"><i class="fas fa-key"></i></button>
                             </div>
                             <input type="password" placeholder="senha" class="form-control" name="password">
                         </div>
                     </div>
                     <!--<a class="text-white" href="">Recuperar senha</a>-->
                     <div class="col-lg-12 mt-5 text-center">
-                        <button type="submit" class="btn btn-success">Entrar</button>
+                        <button type="submit" class="btn btn-b3">Entrar</button>
                     </div>
                 </form>
             </div>

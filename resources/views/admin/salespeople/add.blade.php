@@ -25,19 +25,20 @@
         <div class="content-wrapper">
             <section class="content">
                 <div class="container-fluid">
-                    <h3 class="info"><img src="{{ asset('img/logo.png') }}" alt="Imagem do título da página"> Vendedores |
+                    <h3 class="info"><img src="{{ asset('img/logo.png') }}" alt="Imagem do título da página"> Vendedores
+                        |
                         Adicionar</h3>
 
-                        <div class="col-mb-3">
-                            @if (Request::get('result') != null && Request::get('result') == 0)
-                            <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Vendedor cadastrada
-                                com sucesso!
-                            </div>
-                            @elseif(Request::get('result') != null && Request::get('result') == 1)
-                            <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
-                                vendedor, tente novamente!</div>
-                            @endif
+                    <div class="col-mb-3">
+                        @if (Request::get('result') != null && Request::get('result') == 0)
+                        <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Vendedor cadastrada
+                            com sucesso!
                         </div>
+                        @elseif(Request::get('result') != null && Request::get('result') == 1)
+                        <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
+                            vendedor, tente novamente!</div>
+                        @endif
+                    </div>
 
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
@@ -48,7 +49,7 @@
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button type="button" class="btn btn-b3"><i
-                                                class="fas fa-user-tie"></i></button>
+                                                    class="fas fa-user-tie"></i></button>
                                         </div>
                                         <input type="text" class="form-control" name="salesman">
                                     </div>
@@ -57,8 +58,8 @@
                                     <label for="group">Telefone</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button type="button" class="btn btn-b3"><i
-                                                class="fa fa-phone fa-rotate-90" aria-hidden="true"></i></button>
+                                            <button type="button" class="btn btn-b3"><i class="fa fa-phone fa-rotate-90"
+                                                    aria-hidden="true"></i></button>
                                         </div>
                                         <input type="text" class="form-control" name="celphone">
                                     </div>
@@ -68,15 +69,17 @@
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button type="button" class="btn btn-b3"><i
-                                                class="fa fa-envelope"></i></button>
+                                                    class="fa fa-envelope"></i></button>
                                         </div>
                                         <input type="email" class="form-control" name="email">
                                     </div>
                                 </div>
-                                <div class="btn-group mt-5">
-                                    <button class="btn btn-b3-outline btn-lg" type="submit">CADASTRAR</button>
-                                    <button class="btn btn-b3-outline btn-lg" type="button">LIMPAR
-                                        CAMPOS</button>
+                                <div class="row align-items-center">
+                                    <div class="btn-group mt-5">
+                                        <button class="btn btn-b3-outline" type="submit">CADASTRAR</button>
+                                        <button class="btn btn-b3-outline" type="button">LIMPAR
+                                            CAMPOS</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -95,7 +98,7 @@
 
     <script>
     $(document).ready(function() {
-        active_bar('#group', '#group-add');
+        active_bar('#seller', '#seller-manage');
 
         /*  INITIALIZE INPUTS SELECT2 */
         $('.data-single').each(function() {
