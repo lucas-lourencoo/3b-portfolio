@@ -26,11 +26,22 @@
             <section class="content">
                 <div class="container-fluid">
                     <h3 class="info"><img src="{{ asset('img/logo.png') }}" alt="Imagem do título da página"> Produtos |
-                        Adicionar</h3>
+                        Gerenciar</h3>
+                    
+                    <div class="col-mb-3">
+                        @if (Request::get('result') != null && Request::get('result') == 0)
+                        <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Categoria cadastrada
+                            com sucesso!
+                        </div>
+                        @elseif(Request::get('result') != null && Request::get('result') == 1)
+                        <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
+                            categoria, tente novamente!</div>
+                        @endif
+                    </div>
 
-                    <form action="" method="post">
+                    <form action="{{ route('admin.produto.add') }}" method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="row row-form justify-content-center">
-
                             <div class="col-xl-3 col-lg-4">
                                 <div class="form-group">
                                     <label for="group">Título do produto</label>
@@ -48,7 +59,7 @@
                                             <button type="button" class="btn btn-b3"><i
                                                     class="fas fa-barcode"></i></button>
                                         </div>
-                                        <input type="text" class="form-control" name="barcode">
+                                        <input type="text" class="form-control" name="code">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -94,7 +105,9 @@
                                         <select class="data-single form-control" name="category" placeholder="Selecione"
                                             data-allow-clear="1">
                                             <option value=""></option>
-                                            <option value=""></option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -108,7 +121,9 @@
                                         <select class="data-single form-control" name="brand" placeholder="Selecione"
                                             data-allow-clear="1">
                                             <option value=""></option>
-                                            <option value=""></option>
+                                            @foreach ($brands as $brand)
+                                                <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -122,7 +137,9 @@
                                         <select class="data-single form-control" name="group" placeholder="Selecione"
                                             data-allow-clear="1">
                                             <option value=""></option>
-                                            <option value=""></option>
+                                            @foreach ($groups as $group)
+                                                <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -154,7 +171,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="category">Recomendações</label>
+                                    <label for="category">Recomendação de uso</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button type="button" class="btn btn-dark"><i
@@ -188,7 +205,7 @@
                                 <div class="js--image-preview"></div>
                                 <div class="upload-options">
                                     <label>
-                                        <input name="image1" type="file" class="image-upload" />
+                                        <input name="image" type="file" class="image-upload" />
                                     </label>
                                 </div>
                             </div>

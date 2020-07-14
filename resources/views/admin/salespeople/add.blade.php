@@ -27,7 +27,7 @@
                 <div class="container-fluid">
                     <h3 class="info"><img src="{{ asset('img/logo.png') }}" alt="Imagem do título da página"> Vendedores
                         |
-                        Adicionar</h3>
+                        Gerenciar</h3>
 
                     <div class="col-mb-3">
                         @if (Request::get('result') != null && Request::get('result') == 0)

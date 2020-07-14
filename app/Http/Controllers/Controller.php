@@ -38,6 +38,9 @@ class Controller extends BaseController
 
     public function single()
     {
-        return view('single');
+        $groups = DB::table('groups')->get();
+        $categories = DB::table('categories')->get();
+
+        return view('single', ['groups' => $groups, 'categories' => $categories]);
     }
 }

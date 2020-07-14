@@ -20,6 +20,7 @@ class SalespeopleController extends Controller
             $salespeople->name = $request->input('salesman');
             $salespeople->celphone = $request->input('celphone');
             $salespeople->email = $request->input('email');
+            $salespeople->photo = $request->input('photo');
             $salespeople->save();
 
             return redirect()->route('admin.vendedor.gerenciar', ['result' => 0]);

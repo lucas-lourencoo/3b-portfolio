@@ -21,13 +21,15 @@ class Products extends Migration
             $table->float('gross_weight');
             $table->float('weight');
             $table->string('description');
-            $table->string('recomend')->nullable();
+            $table->string('recommendation')->nullable();
             $table->string('segment');
             $table->string('image');
+            $table->string('image2')->nullable();
             $table->integer('brand')->unsigned();
             $table->integer('category')->unsigned();
             $table->foreign('brand')->references('id')->on('brands');
             $table->foreign('category')->references('id')->on('categories');
+            $table->timestamps();
         });
     }
 

@@ -11,7 +11,7 @@ class GroupController extends Controller
 {
     public function index()
     {
-        $salespeople = DB::table('salespeople')->get();
+        $salespeople = DB::table('salespeoples')->get();
         return view('admin.group.add', ['salespeople' => $salespeople]);
     }
 

@@ -18,6 +18,7 @@ class Salespeople extends Migration
             $table->string('name');
             $table->string('celphone', 20);
             $table->string('email');
+            $table->string('photo');
             $table->timestamps();
         });
     }
