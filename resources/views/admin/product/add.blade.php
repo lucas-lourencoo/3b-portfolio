@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/OverlayScrollbars.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2_4.0.13/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bs4-theme-select2/select2-bootstrap4.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/summernote-0.8.18/summernote.css') }}">
 
 </head>
 
@@ -26,22 +27,11 @@
             <section class="content">
                 <div class="container-fluid">
                     <h3 class="info"><img src="{{ asset('img/logo.png') }}" alt="Imagem do título da página"> Produtos |
-                        Gerenciar</h3>
-                    
-                    <div class="col-mb-3">
-                        @if (Request::get('result') != null && Request::get('result') == 0)
-                        <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Categoria cadastrada
-                            com sucesso!
-                        </div>
-                        @elseif(Request::get('result') != null && Request::get('result') == 1)
-                        <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
-                            categoria, tente novamente!</div>
-                        @endif
-                    </div>
+                        Adicionar</h3>
 
-                    <form action="{{ route('admin.produto.add') }}" method="post" enctype="multipart/form-data">
-                        @csrf
+                    <form action="" method="post">
                         <div class="row row-form justify-content-center">
+
                             <div class="col-xl-3 col-lg-4">
                                 <div class="form-group">
                                     <label for="group">Título do produto</label>
@@ -59,7 +49,7 @@
                                             <button type="button" class="btn btn-b3"><i
                                                     class="fas fa-barcode"></i></button>
                                         </div>
-                                        <input type="text" class="form-control" name="code">
+                                        <input type="text" class="form-control" name="barcode">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -105,9 +95,7 @@
                                         <select class="data-single form-control" name="category" placeholder="Selecione"
                                             data-allow-clear="1">
                                             <option value=""></option>
-                                            @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endforeach
+                                            <option value=""></option>
                                         </select>
                                     </div>
                                 </div>
@@ -121,9 +109,7 @@
                                         <select class="data-single form-control" name="brand" placeholder="Selecione"
                                             data-allow-clear="1">
                                             <option value=""></option>
-                                            @foreach ($brands as $brand)
-                                                <option value="{{ $brand->id }}">{{ $brand->name }}</option>
-                                            @endforeach
+                                            <option value=""></option>
                                         </select>
                                     </div>
                                 </div>
@@ -137,9 +123,7 @@
                                         <select class="data-single form-control" name="group" placeholder="Selecione"
                                             data-allow-clear="1">
                                             <option value=""></option>
-                                            @foreach ($groups as $group)
-                                                <option value="{{ $group->id }}">{{ $group->name }}</option>
-                                            @endforeach
+                                            <option value=""></option>
                                         </select>
                                     </div>
                                 </div>
@@ -159,7 +143,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-4">
+                            <div class="w-100"></div>
+                            <div class="col-xl-6 col-lg-8">
                                 <div class="form-group">
                                     <label for="category">Descrição</label>
                                     <div class="input-group">
@@ -171,14 +156,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="category">Recomendação de uso</label>
+                                    <label for="category">Recomendações</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button type="button" class="btn btn-dark"><i
                                                     class="fas fa-ad"></i></button>
                                         </div>
-                                        <textarea name="recommendation" class="form-control" rows="4"></textarea>
+                                        <textarea name="recomend" class="form-control" rows="4"></textarea>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bull">Bula</label>
+                                    <textarea name="bull" id="summernote"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -205,7 +194,7 @@
                                 <div class="js--image-preview"></div>
                                 <div class="upload-options">
                                     <label>
-                                        <input name="image" type="file" class="image-upload" />
+                                        <input name="image1" type="file" class="image-upload" />
                                     </label>
                                 </div>
                             </div>
@@ -241,10 +230,24 @@
     <script src="{{ asset('js/jquery.overlayScrollbars.min.js') }}"></script>
     <script src="{{ asset('plugins/select2_4.0.13/js/select2.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('plugins/summernote-0.8.18/summernote.js') }}"></script>
+    <script src="{{ asset('plugins/summernote-0.8.18/summernote-pt-BR.js') }}"></script>
 
     <script>
     $(document).ready(function() {
         active_bar('#product', '#product-manage');
+
+
+        $('#summernote').summernote({
+            placeholder: 'Insira a bula do produto aqui',
+            tabsize: 2,
+            height: 120,
+            lang: 'pt-BR',
+            toolbar: [
+                ['font', ['bold', 'underline', 'clear']],
+                ['para', ['ul', 'ol']],
+            ]
+        });
 
         $('#img-n').change(function(e) {
             if ($(this).val() == 1) {
@@ -331,6 +334,7 @@
                 drop.className += ' animate';
                 e.stopPropagation();
             }
+
             function includeBrand() {
                 window.open("" + secao + "", "_parent");
             }

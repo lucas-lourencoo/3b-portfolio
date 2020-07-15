@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/OverlayScrollbars.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2_4.0.13/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bs4-theme-select2/select2-bootstrap4.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/filepond/filepond.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/filepond/filepond-plugin-image-preview.css') }}">
 
 </head>
 
@@ -43,7 +45,11 @@
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
                             <form action="{{ route('admin.vendedor.add') }}" method="post">
-                                @csrf
+                                @csrf`
+                                <div class="form-group">
+                                    <input type="file" class="filepond" name="filepond"
+                                        accept="image/png, image/jpeg" hidden="" />
+                                </div>
                                 <div class="form-group">
                                     <label for="group">Nome do vendedor</label>
                                     <div class="input-group">
@@ -96,6 +102,15 @@
     <script src="{{ asset('plugins/select2_4.0.13/js/select2.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 
+    <script src="{{ asset('plugins/filepond/filepond-plugin-image-preview.js') }}"></script>
+    <script src="{{ asset('plugins/filepond/filepond-plugin-file-encode.js') }}"></script>
+    <script src="{{ asset('plugins/filepond/filepond-plugin-image-crop.js') }}"></script>
+    <script src="{{ asset('plugins/filepond/filepond-plugin-file-validate-type.js') }}"></script>
+    <script src="{{ asset('plugins/filepond/filepond-plugin-image-transform.js') }}"></script>
+    <script src="{{ asset('plugins/filepond/filepond-plugin-image-resize.js') }}"></script>
+    <script src="{{ asset('plugins/filepond/filepond-plugin-image-exif-orientation.js') }}"></script>
+    <script src="{{ asset('plugins/filepond/filepond.min.js') }}"></script>
+
     <script>
     $(document).ready(function() {
         active_bar('#seller', '#seller-manage');
@@ -136,16 +151,37 @@
                 $(element).removeClass('is-invalid');
             }
         });
-        /*
-        $('.color , .tags').each(function() {
-            $(this).select2({
-                theme: 'bootstrap4',
-                tags: true,
-                tokenSeparators: [',', ' '],
-                placeholder: $(this).attr('placeholder')
-            });
-        });*/
+
+
     });
+    </script>
+
+    <script>
+    /*
+We need to register the required plugins to do image manipulation and previewing.
+*/
+    FilePond.registerPlugin(
+        FilePondPluginFileEncode,
+        FilePondPluginFileValidateType,
+        FilePondPluginImageExifOrientation,
+        FilePondPluginImagePreview,
+        FilePondPluginImageCrop,
+        FilePondPluginImageResize,
+        FilePondPluginImageTransform
+    );
+
+    FilePond.create(
+        document.querySelector('input'), {
+            labelIdle: `Arraste e solte sua imagem aqui ou <span class="filepond--label-action">procure</span>`,
+            imagePreviewHeight: 100,
+            imageCropAspectRatio: '1:1',
+            imageResizeTargetWidth: 200,
+            imageResizeTargetHeight: 200,
+            stylePanelLayout: 'compact circle',
+            styleLoadIndicatorPosition: 'center bottom',
+            styleButtonRemoveItemPosition: 'center bottom'
+        }
+    );
     </script>
 </body>
 

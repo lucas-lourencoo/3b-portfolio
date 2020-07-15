@@ -20,7 +20,7 @@ body {
 
 label {
     font-weight: 400;
-    color: #343434;
+    color: #000000e3;
 }
 
 td {
@@ -213,4 +213,19 @@ h3.info {
 
 .btn-b3:hover {
     color: white;
+}
+
+
+/* IMAGE PROFILE */
+
+.filepond--drop-label {
+    color: #4c4e53;
+}
+
+.filepond--label-action {
+    text-decoration-color: #babdc0;
+}
+
+.filepond--panel-root {
+    background-color: #edf0f4;
 }
