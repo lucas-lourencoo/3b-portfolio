@@ -2,6 +2,9 @@ $(document).ready(function() {
     active_bar('#seller', '#seller-manage');
 
 
+    /* RESET INPUT UPLOAD */
+    $('input[name="profile"]').val('');
+
     /*  INITIALIZE MASK INPUT */
     $('#celphone').mask('(00) 00000-0000', {
         placeholder: "(__) _____-____"
@@ -30,7 +33,6 @@ $(document).ready(function() {
         var profile = $('input[name="profile"]').val().split('.').pop().toLowerCase();
         $('.box-profile span').remove();
         if (profile == "") {
-            alert('no image');
             $('.box-profile').append('<span class="error-img">Selecione uma imagem de perfil</span>');
         }
     }
@@ -106,6 +108,7 @@ $(document).ready(function() {
             } else {
                 previewImage(file);
             }
+            valid_images();
         }
 
     }

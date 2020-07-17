@@ -51,7 +51,7 @@
                                     <div class="upload-options">
                                         <label>
                                             Buscar foto
-                                            <input name="profile" type="file" class="image-upload" />
+                                            <input name="profile" type="file" class="image-upload"/>
                                         </label>
                                     </div>
                                 </div>
