@@ -23,7 +23,7 @@ $(document).ready(function() {
     /*  SUBMIT FORM  */
     $('form').submit(function(e) {
         valid_images();
-        if ($(this).valid()) {
+        if ($(this).valid() && valid_images()) {
             $(this).submit();
         }
     });
@@ -32,9 +32,7 @@ $(document).ready(function() {
     function valid_images() {
         var profile = $('input[name="profile"]').val().split('.').pop().toLowerCase();
         $('.box-profile span').remove();
-        if (profile == "") {
-            $('.box-profile').append('<span class="error-img">Selecione uma imagem de perfil</span>');
-        }
+        profile == "" ? $('.box-profile').append('<span class="error-img">Selecione uma imagem de perfil</span>') : true;
     }
 
     /*  VALIDATION FORM   */
@@ -50,6 +48,9 @@ $(document).ready(function() {
                 minlength: 15
             },
             email: {
+                required: true,
+            },
+            profile: {
                 required: true,
             }
         },
