@@ -63,7 +63,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="weight">Peso líquido</label>
+                                    <label for="weight">Peso líquido (g)</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button type="button" class="btn btn-b3"><i
@@ -73,7 +73,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="gross_weight">Peso bruto</label>
+                                    <label for="gross_weight">Peso bruto (g)<span>(opcional)</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button type="button" class="btn btn-b3"><i
@@ -166,7 +166,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="bull">Bula</label>
+                                    <label for="bull">Bula <span>(opcional)</span></label>
                                     <textarea name="bull" id="summernote"></textarea>
                                 </div>
                             </div>
@@ -213,9 +213,7 @@
                 </div>
                 <div class="row align-items-center">
                     <div class="btn-group mt-5">
-                        <button class="btn btn-b3-outline" type="submit">CADASTRAR</button>
-                        <button class="btn btn-b3-outline" type="button">LIMPAR
-                            CAMPOS</button>
+                        <button class="btn btn-b3" type="submit">CADASTRAR</button>
                     </div>
                 </div>
                 </form>

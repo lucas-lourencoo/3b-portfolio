@@ -18,7 +18,10 @@ $(document).ready(function() {
     /*  VALIDATION FORM   */
     $('form').validate({
         rules: {
-            category: {
+            name: {
+                required: true,
+            },
+            group: {
                 required: true,
             },
         },

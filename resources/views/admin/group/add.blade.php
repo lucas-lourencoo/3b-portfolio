@@ -72,9 +72,7 @@
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="btn-group mt-5">
-                                        <button class="btn btn-b3-outline" type="submit">CADASTRAR</button>
-                                        <button class="btn btn-b3-outline" type="button">LIMPAR
-                                            CAMPOS</button>
+                                        <button class="btn btn-b3" type="submit">CADASTRAR</button>
                                     </div>
                                 </div>
                             </form>

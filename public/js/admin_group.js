@@ -21,7 +21,7 @@ $(document).ready(function() {
             group: {
                 required: true,
             },
-            seller: {
+            salesman: {
                 required: true,
             }
         },

@@ -23,6 +23,10 @@ label {
     color: #000000e3;
 }
 
+label span {
+    font-size: 13px;
+}
+
 td {
     vertical-align: middle !important;
 }
