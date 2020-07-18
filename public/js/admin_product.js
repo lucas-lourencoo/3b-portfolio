@@ -2,8 +2,7 @@ $(document).ready(function() {
     active_bar('#product', '#product-manage');
 
     /* RESET INPUT UPLOAD */
-    $('input[name="profile"]').val('');
-    $('select[name="img_n"]').val('');
+    $('input[name="img1"] , input[name="img"] , select[name="img_n"]').val('');
 
     /*  MASK INPUT   */
     $('#price').mask("#.##0,00", { reverse: true });
@@ -49,14 +48,17 @@ $(document).ready(function() {
             img_n: {
                 required: true,
             },
+            img1: {
+                required: true,
+            },
+            img2: {
+                required: true,
+            },
         },
         messages: {
             name: {
                 minlength: 'Insira entre 5 e 30 caracteres',
                 maxlength: 'Insira entre 5 e 30 caracteres',
-            },
-            celphone: {
-                minlength: 'Insira um número válido'
             },
         },
         errorElement: 'span',
@@ -127,6 +129,7 @@ $(document).ready(function() {
                 throw 'ERRO 02';;
             } else {
                 previewImage(file);
+                valid_images();
             }
         }
     }
@@ -199,10 +202,10 @@ $(document).ready(function() {
         var img2 = $('input[name="img2"]').val().split('.').pop().toLowerCase();
         $('.box-img span').remove();
         if ($('#img-n').val() == 1) {
-            img1 == "" ? $('.img1').append('<span class="error-img">Selecione uma imagem de perfil</span>') : true;
-            img2 == "" ? $('.img2').append('<span class="error-img">Selecione uma imagem de perfil</span>') : true;
+            img1 == "" ? $('.img1').append('<span class="error-img">Selecione uma imagem</span>') : true;
         } else if ($('#img-n').val() == 2) {
-
+            img1 == "" ? $('.img1').append('<span class="error-img">Selecione uma imagem</span>') : true;
+            img2 == "" ? $('.img2').append('<span class="error-img">Selecione uma imagem</span>') : true;
         }
     }
 

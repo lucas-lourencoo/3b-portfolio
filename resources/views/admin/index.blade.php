@@ -13,7 +13,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_native.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/OverlayScrollbars.min.css') }}">
 
 </head>
 
@@ -60,7 +59,7 @@
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/admin_native.js') }}"></script>
-    <script src="{{ asset('js/jquery.overlayScrollbars.min.js') }}"></script>
+    
 
     <script>
     $(document).ready(function() {
