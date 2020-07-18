@@ -1,11 +1,12 @@
 $(document).ready(function() {
     active_bar('#product', '#product-manage');
 
-    $('#price').mask("#.##0,00", { reverse: true });
+    /* RESET INPUT UPLOAD */
+    $('input[name="profile"]').val('');
+    $('select[name="img_n"]').val('');
 
-    $('form').submit(function(e) {
-        $(this).valid();
-    });
+    /*  MASK INPUT   */
+    $('#price').mask("#.##0,00", { reverse: true });
 
     /*  VALIDATION FORM   */
     $('form').validate({
@@ -83,6 +84,7 @@ $(document).ready(function() {
         ]
     });
 
+    /*  SHOW IMAGE UPLOAD */
     $('#img-n').change(function(e) {
         if ($(this).val() == 1) {
             $('.img1').removeClass('d-none');
@@ -127,7 +129,6 @@ $(document).ready(function() {
                 previewImage(file);
             }
         }
-
     }
 
     var boxes = document.querySelectorAll('.box');
@@ -184,31 +185,25 @@ $(document).ready(function() {
         });
     });
 
+    /*  VALID AND SUBMIT FORM   */
     $('form').submit(function(e) {
-        $(this).valid();
-    });
-
-    /*  VALIDATION FORM   */
-    $('form').validate({
-        rules: {
-            group: {
-                required: true,
-            },
-            seller: {
-                required: true,
-            }
-        },
-        errorElement: 'span',
-        errorPlacement: function(error, element) {
-            error.addClass('invalid-feedback');
-            element.closest('.input-group').append(error);
-        },
-        highlight: function(element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-        },
-        unhighlight: function(element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
+        valid_images();
+        if ($(this).valid() && valid_images()) {
+            $(this).submit();
         }
     });
+
+    /*  VALID IMAGES */
+    function valid_images() {
+        var img1 = $('input[name="img1"]').val().split('.').pop().toLowerCase();
+        var img2 = $('input[name="img2"]').val().split('.').pop().toLowerCase();
+        $('.box-img span').remove();
+        if ($('#img-n').val() == 1) {
+            img1 == "" ? $('.img1').append('<span class="error-img">Selecione uma imagem de perfil</span>') : true;
+            img2 == "" ? $('.img2').append('<span class="error-img">Selecione uma imagem de perfil</span>') : true;
+        } else if ($('#img-n').val() == 2) {
+
+        }
+    }
 
 });

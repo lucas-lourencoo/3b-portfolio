@@ -5,6 +5,7 @@ $(document).ready(function() {
     /* RESET INPUT UPLOAD */
     $('input[name="profile"]').val('');
 
+
     /*  INITIALIZE MASK INPUT */
     $('#celphone').mask('(00) 00000-0000', {
         placeholder: "(__) _____-____"

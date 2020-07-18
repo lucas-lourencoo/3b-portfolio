@@ -187,26 +187,30 @@
                             </div>
                         </div>
                         <div class="row mt-4 justify-content-center">
-                            <div class="box img1 d-none">
-                                <div class="upload-options">
-                                    <h2>IMAGEM 1</h2>
-                                </div>
-                                <div class="js--image-preview"></div>
-                                <div class="upload-options">
-                                    <label>
-                                        <input name="image1" type="file" class="image-upload" />
-                                    </label>
+                            <div class="box-img img1 d-none">
+                                <div class="box">
+                                    <div class="upload-options">
+                                        <h2>IMAGEM 1</h2>
+                                    </div>
+                                    <div class="js--image-preview"></div>
+                                    <div class="upload-options">
+                                        <label>
+                                            <input name="img1" type="file" class="image-upload" />
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="box img2 d-none">
-                                <div class="upload-options">
-                                    <h2>IMAGEM 2</h2>
-                                </div>
-                                <div class="js--image-preview"></div>
-                                <div class="upload-options">
-                                    <label>
-                                        <input name="image2" type="file" class="image-upload" />
-                                    </label>
+                            <div class="box-img img2 d-none">
+                                <div class="box">
+                                    <div class="upload-options">
+                                        <h2>IMAGEM 2</h2>
+                                    </div>
+                                    <div class="js--image-preview"></div>
+                                    <div class="upload-options">
+                                        <label>
+                                            <input name="img2" type="file" class="image-upload" />
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
