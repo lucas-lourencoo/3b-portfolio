@@ -12,7 +12,9 @@ class GroupController extends Controller
     public function index()
     {
         $salespeople = DB::table('salespeoples')->get();
-        return view('admin.group.add', ['salespeople' => $salespeople]);
+        $groups = DB::table('groups')->paginate(2);
+
+        return view('admin.group.add', ['salespeople' => $salespeople, 'groups' => $groups]);
     }
 
     public function insert(Request $request)

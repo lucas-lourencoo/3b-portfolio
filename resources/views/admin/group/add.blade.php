@@ -39,6 +39,29 @@
                         @endif
                     </div>
 
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3">
+                            <table class="table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td>Nome</td>
+                                        <td>Editar</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($groups as $group)
+                                        <tr>
+                                            <td>{{ $group->name }}</td>
+                                            <td><a href="#" style="text-decoration: none; color: #000;"><i class="fas fa-pen"></i></a></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        
+                            {{ $groups->links() }}
+                        </div>
+                    </div>
+
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
                             <form action="{{ route('admin.grupo.add') }}" method="post">

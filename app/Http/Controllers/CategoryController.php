@@ -12,7 +12,9 @@ class CategoryController extends Controller
     public function index()
     {
         $groups = DB::table('groups')->get();
-        return view('admin.category.add', ['groups' => $groups]);
+        $categories = DB::table('categories')->paginate(2);
+
+        return view('admin.category.add', ['groups' => $groups, 'categories' => $categories]);
     }
 
     public function insert(Request $request)

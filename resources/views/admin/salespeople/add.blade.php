@@ -39,6 +39,33 @@
                         @endif
                     </div>
 
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3">
+                            <table class="table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td>Nome</td>
+                                        <td>Email</td>
+                                        <td>Telefone</td>
+                                        <td>Editar</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($salesman as $sale)
+                                        <tr>
+                                            <td>{{ $sale->name }}</td>
+                                            <td>{{ $sale->email }}</td>
+                                            <td>{{ $sale->celphone }}</td>
+                                            <td><a href="#" style="text-decoration: none; color: #000;"><i class="fas fa-pen"></i></a></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        
+                            {{ $salesman->links() }}
+                        </div>
+                    </div>
+
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
                             <form action="{{ route('admin.vendedor.add') }}" method="post" enctype="multipart/form-data">

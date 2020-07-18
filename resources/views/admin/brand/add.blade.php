@@ -39,6 +39,29 @@
                         @endif
                     </div>
 
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3">
+                            <table class="table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td>Nome</td>
+                                        <td>Editar</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($brands as $brand)
+                                        <tr>
+                                            <td>{{ $brand->name }}</td>
+                                            <td><a href="#" style="text-decoration: none; color: #000;"><i class="fas fa-pen"></i></a></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        
+                            {{ $brands->links() }}
+                        </div>
+                    </div>
+
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
                             <form action="{{ route('admin.marca.add') }}" method="post">

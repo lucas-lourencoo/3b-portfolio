@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use App\Entities\Brand;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BrandController extends Controller
 {
     
     public function index()
     {
-        return view('admin.brand.add');
+        $brands = DB::table('brands')->paginate(2);
+        
+        return view('admin.brand.add', ['brands' => $brands]);
     }
 
     public function insert(Request $request)

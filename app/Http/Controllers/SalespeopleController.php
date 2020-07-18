@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entities\Salespeople;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -12,12 +13,14 @@ class SalespeopleController extends Controller
 {
     public function index()
     {
-        return view('admin.salespeople.add');
+        $salesman = DB::table('salespeoples')->paginate(2);
+
+        return view('admin.salespeople.add', ['salesman' => $salesman]);
     }
 
     public function insert(Request $request)
     {
-        //try {
+        try {
             $salespeople = new Salespeople();
             $salespeople->name = $request->input('salesman');
             $salespeople->celphone = $request->input('celphone');
@@ -37,8 +40,8 @@ class SalespeopleController extends Controller
             $salespeople->save();
 
             return redirect()->route('admin.vendedor.gerenciar', ['result' => 0]);
-        //} catch (Exception $e) {
-            //return redirect()->route('admin.vendedor.gerenciar', ['result' => 1]);
-        //}
+        } catch (Exception $e) {
+            return redirect()->route('admin.vendedor.gerenciar', ['result' => 1]);
+        }
     }
 }
