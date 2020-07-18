@@ -31,7 +31,7 @@
                 <ol>
                     <li><a href="/" title="Voltar ao início do site">Início</a></li>
                     <li><a href="/produtos" title="Voltar a pagina de produtos">Produtos</a></li>
-                    <li>{categoria...}</li>
+                    <li>{{ $category->name }}</li>
                 </ol>
             </div>
         </section>
@@ -39,17 +39,17 @@
         <div class="container single-container">
             <h3>
                 <hr>
-                <span>Bayer |</span> Neguvon + Asuntol Plus
+                <span>{{ $brand->name }} |</span> {{ $product->name }}
                 <hr>
             </h3>
             <div class="row align-items-center">
                 <div class="single-image col-md-6">
-                    <img src="{{ asset('img/produto2.png') }}" alt="Imagem principal do produto">
+                    <img src="{{ asset('storage/products/'.$product->image) }}" alt="Imagem principal do produto">
                 </div>
                 <div class="single-info col-md-6">
                     <div class="block-info">
-                        <p class="price">R$ 200,00</p>
-                        <p>Descrição, informações e características do produto</p>
+                        <p class="price">{{ 'R$ ' . number_format($product->price, 2, ',', '.') }}</p>
+                        <p>{{ $product->description }}</p>
                     </div>
                 </div>
             </div>
@@ -64,14 +64,14 @@
                 <div class="user-info-wrap">
                     <div class="user-photo"></div>
                     <div class="user-info">
-                        <div class="user-name">Cristiano Haas</div>
+                        <div class="user-name">{{ $salesman->name }}</div>
                         <div class="user-title">Vendedor</div>
                     </div>
                 </div>
                 <div class="user-bio">
                     <div class="social">
                         <div class="social-icons">
-                            <a href="#" class="btn-phone"><i class="fas fa-phone"></i> (67) 99180-3949</a>
+                            <a href="#" class="btn-phone"><i class="fas fa-phone"></i> {{ $salesman->celphone }}</a>
                             <a href="#" class="btn-whats"><i class="fab fa-whatsapp"></i>Ir para chat</a>
                         </div>
                     </div>

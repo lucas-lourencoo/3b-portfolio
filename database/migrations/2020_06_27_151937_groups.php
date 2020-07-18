@@ -17,7 +17,7 @@ class Groups extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('sales')->unsigned();
-            $table->foreign('sales')->references('id')->on('salespeople');
+            $table->foreign('sales')->references('id')->on('salespeoples');
             $table->timestamps();
         });
     }

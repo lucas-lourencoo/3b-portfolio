@@ -17,15 +17,15 @@ class CategoryController extends Controller
 
     public function insert(Request $request)
     {
-        try {
+        //try {
             $category = new Category();
             $category->name = $request->get('name');
             $category->group_id = $request->get('group');
             $category->save();
 
             return redirect()->route('admin.categoria.gerenciar', ['result' => 0]);
-        } catch (Exception $e) {
-            return redirect()->route('admin.categoria.gerenciar', ['result' => 1]);
-        }
+        //} catch (Exception $e) {
+            //return redirect()->route('admin.categoria.gerenciar', ['result' => 1]);
+        //}
     }
 }

@@ -40,7 +40,24 @@ class Controller extends BaseController
     {
         $groups = DB::table('groups')->get();
         $categories = DB::table('categories')->get();
+        $product = DB::table('products')->where('id', 5283)->get()->first();
+        $category = DB::table('categories')->where('id', $product->category)->get()->first();
+        $brand = DB::table('brands')->where('id', $product->brand)->get()->first();
+        $salesman = DB::table('products')
+            ->join('categories', 'products.category', '=', 'categories.id')
+            ->join('groups', 'groups.id', '=', 'categories.group_id')
+            ->join('salespeoples', 'groups.sales', '=', 'salespeoples.id')
+            ->where('products.id', $product->id)
+            ->get('salespeoples.*')
+            ->first();
 
-        return view('single', ['groups' => $groups, 'categories' => $categories]);
+        return view('single', [
+            'groups' => $groups,
+            'categories' => $categories,
+            'product' => $product,
+            'category' => $category,
+            'brand' => $brand,
+            'salesman' => $salesman
+        ]);
     }
 }

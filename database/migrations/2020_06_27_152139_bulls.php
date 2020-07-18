@@ -15,8 +15,7 @@ class Bulls extends Migration
     {
         Schema::create('bulls', function (Blueprint $table) {
             $table->unsignedBigInteger('product_id');
-            $table->string('title');
-            $table->string('description');
+            $table->string('description', 2000);
             $table->foreign('product_id')->references('id')->on('products');
         });
     }

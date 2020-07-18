@@ -41,7 +41,7 @@
 
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
-                            <form action="{{ route('admin.vendedor.add') }}" method="post">
+                            <form action="{{ route('admin.vendedor.add') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="box-profile form-group">
                                     <div class="box">

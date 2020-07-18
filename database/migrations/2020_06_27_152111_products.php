@@ -18,7 +18,7 @@ class Products extends Migration
             $table->string('name');
             $table->integer('code');
             $table->float('price');
-            $table->float('gross_weight');
+            $table->float('gross_weight')->nullable();
             $table->float('weight');
             $table->string('description');
             $table->string('recommendation')->nullable();
