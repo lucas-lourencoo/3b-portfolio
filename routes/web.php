@@ -25,9 +25,10 @@ Route::group(['middleware' => 'auth'], function () {
         //Categorias
         Route::group(['prefix' => 'categoria', 'as' => 'categoria.'], function () {
             Route::get('gerenciar', 'CategoryController@index')->name('gerenciar');
+            Route::get('listar', 'CategoryController@list')->name('listar');
             Route::post('add', 'CategoryController@insert')->name('add');
             Route::get('editar', 'CategoryController@update')->name('editar');
-        });
+            });
 
         //Marcas
         Route::group(['prefix' => 'marca', 'as' => 'marca.'], function () {

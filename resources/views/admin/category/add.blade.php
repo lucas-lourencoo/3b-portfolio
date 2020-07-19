@@ -15,6 +15,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2_4.0.13/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bs4-theme-select2/select2-bootstrap4.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('plugins/DataTables-1.10.20/css/dataTables.bootstrap4.min.css') }}">
 
 </head>
 
@@ -41,24 +43,14 @@
 
                     <div class="row justify-content-center">
                         <div class="col-lg-3">
-                            <table class="table-bordered">
+                            <table class="table">
                                 <thead>
                                     <tr>
-                                        <td>Nome</td>
-                                        <td>Editar</td>
+                                        <th>Nome</th>
+                                        <th width="17%">Ação</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @foreach ($categories as $category)
-                                        <tr>
-                                            <td>{{ $category->name }}</td>
-                                            <td><a href="#" style="text-decoration: none; color: #000;"><i class="fas fa-pen"></i></a></td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
                             </table>
-                        
-                            {{ $categories->links() }}
                         </div>
                     </div>
 
@@ -107,11 +99,39 @@
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/admin_native.js') }}"></script>
-    
+    <script src="{{ asset('plugins/DataTables-1.10.20/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/DataTables-1.10.20/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('plugins/select2_4.0.13/js/select2.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('js/admin_category.js') }}"></script>
 
+    <script>
+    $('.table').DataTable({
+        destroy: true,
+        lengthMenu: [5, 10, 15, 25, 50, 100, 'Todas'],
+        responsive: true,
+        processing: true,
+        serverSide: true,
+        ajax: "{!! route('admin.categoria.listar') !!}",
+        columns: [{
+                data: 'name',
+                name: 'name'
+            },
+            {
+                "data": "action",
+                "render": function(data, type, row, meta) {
+                    return '<a href="' + $('link[rel="base"]').attr('href') + '/editar/' + row.id +
+                        '" class="btn btn-xs btn-info" title="Editar Pessoa"> <i class="fa fa-edit"></i></a> <a href="' +
+                        $('link[rel="base"]').attr('href') + '/excluir/' + row.id + '" id="person-' +
+                        row.id +
+                        '" class="btn btn-xs btn-danger" data-toggle="confirmation" data-btn-ok-label="Sim" data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="" data-btn-cancel-label="Não" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="" data-title="Tem certeza que deseja excluir o cadastro de ' +
+                        row.name +
+                        '?" data-content="Esta ação não poderá ser desfeita." title="Excluir Pessoa"> <i class="fa fa-trash"></i></a>';
+                }
+            }
+        ],
+    });
+    </script>
 </body>
 
 </html>

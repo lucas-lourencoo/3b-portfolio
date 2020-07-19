@@ -6,15 +6,22 @@ use App\Entities\Category;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class CategoryController extends Controller
 {
     public function index()
     {
         $groups = DB::table('groups')->get();
-        $categories = DB::table('categories')->paginate(2);
+        $datatable = Datatables::of($groups);
+        return view('admin.category.add', ['groups' => $groups, 'categories' => $datatable->blacklist(['action'])->make(true)]);
+    }
 
-        return view('admin.category.add', ['groups' => $groups, 'categories' => $categories]);
+    public function list()
+    {
+        $groups = DB::table('groups')->get();
+        $datatable = Datatables::of($groups);
+        return $datatable->blacklist(['action'])->make(true); 
     }
 
     public function insert(Request $request)

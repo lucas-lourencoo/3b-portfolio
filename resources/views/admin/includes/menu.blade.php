@@ -43,65 +43,36 @@
                 </li>
                 <li class="nav-header text-center">GERENCIAMENTO</li>
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link" id="group">
+                    <a href="{{ route('admin.grupo.gerenciar') }}" class="nav-link" id="group">
                         <i class="nav-icon fas fa-layer-group"></i>
-                        <p>Grupos<i class="right fas fa-angle-right"></i>
+                        <p>Grupos</i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.grupo.gerenciar') }}" class="nav-link" id="group-manage">
-                                <i class="nav-icon fas fa-plus"></i>
-                                <p>Adicionar</p>
-                            </a>
-                            </a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                    </ul>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link" id="category">
+                    <a href="{{ route('admin.categoria.gerenciar') }}" class="nav-link" id="category">
                         <i class="nav-icon fas fa-paperclip"></i>
-                        <p>Categorias<i class="right fas fa-angle-right"></i>
+                        <p>Categorias</i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.categoria.gerenciar') }}" class="nav-link" id="category-manage">
-                                <i class="nav-icon fas fa-plus"></i>
-                                <p>Adicionar</p>
-                            </a>
-                            </a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                    </ul>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link" id="brand">
+                    <a href="{{ route('admin.marca.gerenciar') }}" class="nav-link" id="brand">
                         <i class="nav-icon fas fa-copyright"></i>
-                        <p>Marcas<i class="right fas fa-angle-right"></i></p>
+                        <p>Marcas</i></p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.marca.gerenciar') }}" class="nav-link" id="brand-manage">
-                                <i class="nav-icon fas fa-plus"></i>
-                                <p>Adicionar</p>
-                            </a>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="{{ route('admin.produto.gerenciar') }}" class="nav-link" id="product">
                         <i class="nav-icon fas fa-box-open"></i>
-                        <p>Produtos<i class="right fas fa-angle-right"></i>
+                        <p>Produtos</i>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="{{ route('admin.vendedor.gerenciar') }}" class="nav-link" id="seller">
                         <i class="nav-icon fas fa-user-tie"></i>
-                        <p>Vendedores<i class="right fas fa-angle-right"></i>
+                        <p>Vendedores</i>
                         </p>
                     </a>
                 </li>
