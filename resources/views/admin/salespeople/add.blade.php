@@ -111,6 +111,22 @@
                                         <input type="email" class="form-control" name="email">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="brand">Regional</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-b3"><i
+                                                    class="fas fa-copyright"></i></button>
+                                        </div>
+                                        <select class="data-single form-control" name="regional" placeholder="Selecione"
+                                            data-allow-clear="1">
+                                            <option value=""></option>
+                                            @foreach ($regionals as $regional)
+                                                <option value="{{ $regional->id }}">{{ $regional->name }}</option>                                                
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="row align-items-center">
                                     <div class="btn-group mt-5">
                                         <button class="btn btn-b3" type="submit">CADASTRAR</button>

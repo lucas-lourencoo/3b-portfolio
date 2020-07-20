@@ -14,8 +14,9 @@ class SalespeopleController extends Controller
     public function index()
     {
         $salesman = DB::table('salespeoples')->paginate(2);
+        $regionals = DB::table('regionals')->get();
 
-        return view('admin.salespeople.add', ['salesman' => $salesman]);
+        return view('admin.salespeople.add', ['salesman' => $salesman, 'regionals' => $regionals]);
     }
 
     public function insert(Request $request)
@@ -25,6 +26,7 @@ class SalespeopleController extends Controller
             $salespeople->name = $request->input('salesman');
             $salespeople->celphone = $request->input('celphone');
             $salespeople->email = $request->input('email');
+            $salespeople->regional = $request->input('regional');
 
             if ($request->hasFile('profile') && $request->file('profile')->isValid()) {
                 $image = $request->file('profile');

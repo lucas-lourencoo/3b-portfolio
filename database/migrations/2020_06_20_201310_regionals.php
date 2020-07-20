@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Salespeople extends Migration
+class Regionals extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class Salespeople extends Migration
      */
     public function up()
     {
-        Schema::create('salespeoples', function (Blueprint $table){
+        Schema::create('regionals', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('celphone', 20);
-            $table->string('email');
-            $table->string('photo');
-            $table->integer('regional')->unsigned();
-            $table->foreign('regional')->references('id')->on('regionals');
+            $table->string('city');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class Salespeople extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salespeople');
+        //
     }
 }
