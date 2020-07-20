@@ -24,7 +24,7 @@
         <div class="content-wrapper">
             <section class="content">
                 <div class="container-fluid">
-                    <h3 class="info"><img src="{{ asset('img/logo.png') }}" alt="Imagem do título da página"> Grupos |
+                    <h3 class="info"><img src="{{ asset('img/logo.png') }}" alt="Imagem do título da página"> Regional |
                         Gerenciar</h3>
 
 
@@ -49,30 +49,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($groups as $group)
+                                    @foreach ($regionals as $regional)
                                         <tr>
-                                            <td>{{ $group->name }}</td>
+                                            <td>{{ $regional->name }}</td>
                                             <td><a href="#" style="text-decoration: none; color: #000;"><i class="fas fa-pen"></i></a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         
-                            {{ $groups->links() }}
+                            {{ $regionals->links() }}
                         </div>
                     </div>
 
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
-                            <form action="{{ route('admin.grupo.add') }}" method="post">
+                            <form action="{{ route('admin.regional.add') }}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="group">Nome do grupo</label>
+                                    <label for="group">Nome da regional</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button type="button" class="btn btn-b3"><i class="fas fa-ad"></i></button>
                                         </div>
-                                        <input type="text" class="form-control" name="group">
+                                        <input type="text" class="form-control" name="name">
                                     </div>
                                 </div>
                                 <div class="row align-items-center">

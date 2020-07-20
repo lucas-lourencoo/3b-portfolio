@@ -43,12 +43,8 @@ class Controller extends BaseController
         $product = DB::table('products')->where('id', 5283)->get()->first();
         $category = DB::table('categories')->where('id', $product->category)->get()->first();
         $brand = DB::table('brands')->where('id', $product->brand)->get()->first();
-        $salesman = DB::table('products')
-            ->join('categories', 'products.category', '=', 'categories.id')
-            ->join('groups', 'groups.id', '=', 'categories.group_id')
-            ->join('salespeoples', 'groups.sales', '=', 'salespeoples.id')
-            ->where('products.id', $product->id)
-            ->get('salespeoples.*')
+        $salesman = DB::table('salespeoples')
+            ->get()
             ->first();
 
         return view('single', [

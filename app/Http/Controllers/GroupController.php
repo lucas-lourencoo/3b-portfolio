@@ -22,7 +22,6 @@ class GroupController extends Controller
         try {
             $group = new Group();
             $group->name = $request->input('group');
-            $group->sales = $request->get('salesman');
             $group->save();
 
             return redirect()->route('admin.grupo.gerenciar', ['result' => 0]);

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Groups extends Migration
+class Regionals extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class Groups extends Migration
      */
     public function up()
     {
-        Schema::create('groups', function (Blueprint $table){
+        Schema::create('regionals', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('city');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class Groups extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groups');
+        //
     }
 }

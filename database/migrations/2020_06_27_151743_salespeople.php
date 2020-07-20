@@ -19,6 +19,8 @@ class Salespeople extends Migration
             $table->string('celphone', 20);
             $table->string('email');
             $table->string('photo');
+            $table->integer('regional')->unsigned();
+            $table->foreign('regional')->references('id')->on('regionals');
             $table->timestamps();
         });
     }

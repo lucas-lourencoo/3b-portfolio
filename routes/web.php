@@ -57,5 +57,12 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('add', 'UserController@insert')->name('add');
             Route::get('editar', 'UserController@update')->name('editar');
         });
+        
+        //Regionais
+        Route::group(['prefix' => 'regional', 'as' => 'regional.'], function () {
+            Route::get('gerenciar', 'RegionalsController@index')->name('gerenciar');
+            Route::post('add', 'RegionalsController@insert')->name('add');
+            Route::get('editar', 'RegionalsController@update')->name('editar');
+        });
     });
 });
