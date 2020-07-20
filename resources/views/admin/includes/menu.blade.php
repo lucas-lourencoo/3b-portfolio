@@ -99,6 +99,13 @@
                     </a>
                 </li>
                 <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link" id="regional">
+                        <i class="nav-icon fas fa-arrows-alt"></i>
+                        <p>Regional<i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
                     <a href="{{ route('admin.vendedor.gerenciar') }}" class="nav-link" id="seller">
                         <i class="nav-icon fas fa-user-tie"></i>
                         <p>Vendedores<i class="right fas fa-angle-right"></i>

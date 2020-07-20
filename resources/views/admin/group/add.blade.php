@@ -75,23 +75,6 @@
                                         <input type="text" class="form-control" name="group">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="seller">Vendedor</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button type="button" class="btn btn-b3"><i
-                                                    class="fas fa-user-tie"></i></button>
-                                        </div>
-                                        <select class="data-single form-control" name="salesman" placeholder="Selecione"
-                                            data-allow-clear="1">
-                                            <option value=""></option>
-                                            @foreach ($salespeople as $sale)
-                                            <option value="{{ $sale->id }}"><img src="{{ asset('img/logo.png') }}"
-                                                    alt=""> {{ $sale->name }} </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="row align-items-center">
                                     <div class="btn-group mt-5">
                                         <button class="btn btn-b3" type="submit">CADASTRAR</button>

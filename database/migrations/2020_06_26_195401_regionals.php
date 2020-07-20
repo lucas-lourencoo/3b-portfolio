@@ -2,11 +2,12 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 /**
- * Class CreateBullsTable.
+ * Class CreateRegionalsTable.
  */
-class CreateBullsTable extends Migration
+class CreateRegionalsTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -15,9 +16,10 @@ class CreateBullsTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('bulls', function(Blueprint $table) {
+		Schema::create('regionals', function(Blueprint $table) {
             $table->increments('id');
-
+			$table->string('name');
+			$table->string('city');
             $table->timestamps();
 		});
 	}
@@ -29,6 +31,6 @@ class CreateBullsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('bulls');
+		Schema::drop('regionals');
 	}
 }
