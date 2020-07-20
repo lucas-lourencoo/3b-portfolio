@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css"
         href="{{ asset('plugins/DataTables-1.10.20/css/dataTables.bootstrap4.min.css') }}">
 
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -42,7 +43,7 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <div class="col-lg-3">
+                        <div class="col-lg-12">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -107,11 +108,14 @@
 
     <script>
     $('.table').DataTable({
-        destroy: true,
         lengthMenu: [5, 10, 15, 25, 50, 100, 'Todas'],
         responsive: true,
         processing: true,
         serverSide: true,
+        "iDisplayLength": 5,
+        "language": {
+            "url": "/js/datatable_ptbr.json"
+        },
         ajax: "{!! route('admin.categoria.listar') !!}",
         columns: [{
                 data: 'name',

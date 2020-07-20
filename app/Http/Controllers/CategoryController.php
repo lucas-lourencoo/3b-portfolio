@@ -14,7 +14,7 @@ class CategoryController extends Controller
     {
         $groups = DB::table('groups')->get();
         $datatable = Datatables::of($groups);
-        return view('admin.category.add', ['groups' => $groups, 'categories' => $datatable->blacklist(['action'])->make(true)]);
+        return view('admin.category.add', ['groups' => $groups]);
     }
 
     public function list()
