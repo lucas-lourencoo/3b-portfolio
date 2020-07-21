@@ -19,7 +19,7 @@ class CategoryController extends Controller
 
     public function list()
     {
-        $groups = DB::table('groups')->get();
+        $groups = DB::table('categories')->get();
         $datatable = Datatables::of($groups);
         return $datatable->blacklist(['action'])->make(true); 
     }

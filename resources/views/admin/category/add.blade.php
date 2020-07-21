@@ -48,6 +48,7 @@
                                 <thead>
                                     <tr>
                                         <th>Nome</th>
+                                        <th>Grupo</th>
                                         <th width="17%">Ação</th>
                                     </tr>
                                 </thead>
@@ -122,15 +123,18 @@
                 name: 'name'
             },
             {
+                data: 'group_id',
+                name: 'group_id'
+            },
+            {
                 "data": "action",
                 "render": function(data, type, row, meta) {
-                    return '<a href="' + $('link[rel="base"]').attr('href') + '/editar/' + row.id +
-                        '" class="btn btn-xs btn-info" title="Editar Pessoa"> <i class="fa fa-edit"></i></a> <a href="' +
-                        $('link[rel="base"]').attr('href') + '/excluir/' + row.id + '" id="person-' +
+                    return '<a href="/editar/' + row.id +
+                        '" class="btn btn btn-b3" title="Editar"> <i class="fa fa-edit"></i></a> <a href="' + '/excluir/' + row.id + '" id="person-' +
                         row.id +
-                        '" class="btn btn-xs btn-danger" data-toggle="confirmation" data-btn-ok-label="Sim" data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="" data-btn-cancel-label="Não" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="" data-title="Tem certeza que deseja excluir o cadastro de ' +
+                        '" class="btn btn-danger" data-toggle="confirmation" data-btn-ok-label="Sim" data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="" data-btn-cancel-label="Não" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="" data-title="Tem certeza que deseja excluir o cadastro de ' +
                         row.name +
-                        '?" data-content="Esta ação não poderá ser desfeita." title="Excluir Pessoa"> <i class="fa fa-trash"></i></a>';
+                        '?" data-content="Esta ação não poderá ser desfeita." title="Excluir"> <i class="fa fa-trash"></i></a>';
                 }
             }
         ],
