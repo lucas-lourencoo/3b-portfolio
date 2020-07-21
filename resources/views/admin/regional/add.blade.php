@@ -72,6 +72,19 @@
                                         <input type="text" value="{{ $regional->name }}" class="form-control" name="name">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label>Cidades</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-b3"><i class="fas fa-ad"></i></button>
+                                        </div>
+                                        <select class="form-control cities" multiple="multiple" name="cities[]" placeholder="Selecione">
+                                            @foreach ($cities as $city)
+                                                <option selected value="{{ $city->name }}">{{ $city->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="row align-items-center">
                                     <div class="btn-group mt-5">
                                         <button class="btn btn-b3" type="submit">ATUALIZAR</button>
@@ -100,8 +113,8 @@
                                         <div class="input-group-prepend">
                                             <button type="button" class="btn btn-b3"><i class="fas fa-ad"></i></button>
                                         </div>
-                                        <select class="form-control cities" name="cities[]" placeholder="Selecione"
-                                            multiple="multiple">
+                                        <select class="form-control cities" multiple="multiple" name="cities[]" placeholder="Selecione">
+                                           
                                         </select>
                                     </div>
                                 </div>
@@ -127,7 +140,6 @@
     <script src="{{ asset('plugins/select2_4.0.13/js/select2.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('js/admin_regional.js') }}"></script>
-
     <script>
         $('.table').DataTable({
             lengthMenu: [5, 10, 15, 25, 50, 100, 'Todas'],
@@ -157,7 +169,14 @@
             ],
         });
 
-        
+        $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/MS/municipios", function(resultado){
+            let inst = resultado
+            //$(".cities").empty();
+            for(let i in inst){
+                $(".cities").append("<option value='" + inst[i].nome + "'>" + inst[i].nome + "</option>");
+            }
+        })
+
         </script>
 
 </body>

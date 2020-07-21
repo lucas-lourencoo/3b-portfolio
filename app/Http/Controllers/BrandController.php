@@ -36,7 +36,7 @@ class BrandController extends Controller
             return redirect()->route('admin.marca.gerenciar', ['result' => 1]);
         }
     }
-    
+
     public function update($id, Request $request)
     {
         try {

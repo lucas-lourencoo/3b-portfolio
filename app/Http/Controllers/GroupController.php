@@ -48,7 +48,7 @@ class GroupController extends Controller
             return redirect()->route('admin.grupo.gerenciar', ['result' => 1]);
         }
     }
-    
+
     public function update($id, Request $request)
     {
         try {
