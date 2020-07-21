@@ -6,15 +6,22 @@ use App\Entities\Brand;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\Facades\DataTables;
 
 class BrandController extends Controller
 {
-    
+
     public function index()
     {
-        $brands = DB::table('brands')->paginate(2);
-        
-        return view('admin.brand.add', ['brands' => $brands]);
+        return view('admin.brand.add', ['update' => false]);
+    }
+
+    public function list()
+    {
+        $brands = DB::table('brands')->get();
+        $datatable = DataTables::of($brands);
+
+        return $datatable->blacklist(['action'])->make(true);
     }
 
     public function insert(Request $request)
@@ -28,5 +35,31 @@ class BrandController extends Controller
         } catch (Exception $e) {
             return redirect()->route('admin.marca.gerenciar', ['result' => 1]);
         }
+    }
+    
+    public function update($id, Request $request)
+    {
+        try {
+            $brand = Brand::find($id);
+            $brand->name = $request->input('brand');
+            $brand->save();
+
+            return redirect()->route('admin.marca.gerenciar', ['result' => 0]);
+        } catch (Exception $e) {
+            return redirect()->route('admin.marca.gerenciar', ['result' => 1]);
+        }
+    }
+
+    public function editar($id)
+    {
+        $brand = DB::table('brands')
+            ->where('id', $id)
+            ->get()
+            ->first();
+
+        return view('admin.brand.add', [
+            'brand' => $brand,
+            'update' => true
+        ]);
     }
 }

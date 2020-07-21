@@ -12,7 +12,9 @@ use App\Http\Requests\RegionalCreateRequest;
 use App\Http\Requests\RegionalUpdateRequest;
 use App\Repositories\RegionalRepository;
 use App\Validators\RegionalValidator;
+use Exception;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\Facades\DataTables;
 
 /**
  * Class RegionalsController.
@@ -23,18 +25,64 @@ class RegionalsController extends Controller
 {
     public function index()
     {
-        $regionals = DB::table('regionals')->paginate(5);
+        return view('admin.regional.add', ['update' => false]);
+    }
 
-        return view('admin.regional.add', ['regionals' => $regionals]);
+    public function editar($id)
+    {
+        $regional = DB::table('regionals')
+            ->where('id', $id)
+            ->get()
+            ->first();
+
+        return view('admin.regional.add', [
+            'regional' => $regional,
+            'update' => true
+        ]);
+    }
+
+    public function list()
+    {
+        $regionals = DB::table('regionals')->get();
+        $datatable = DataTables::of($regionals);
+
+        return $datatable->blacklist(['action'])->make(true);
+    }
+
+    private function saveCity($regional_id, Request $request){
+        DB::table('cities')->insert([
+            'name' => $request->city,
+            'regional' => $regional_id
+        ]);
     }
 
     public function insert(Request $request)
     {
-        $regional = new Regional();
-        $regional->name = $request->input('name');
-        $regional->city = 'Campo Grande';
-        $regional->save();
+        try {
+            $regional_id = rand(10, 99);
+            $regional = new Regional();
+            $regional->id = $regional_id;
+            $regional->name = $request->input('name');
+            $regional->save();
+            $this->saveCity($regional_id, $request);
 
-        return redirect()->route('admin.regional.gerenciar');
+            return redirect()->route('admin.regional.gerenciar', ['result' => 0]);
+        } catch (Exception $e) {
+            return redirect()->route('admin.regional.gerenciar', ['result' => 1]);
+        }
+    }
+
+    public function update($id, Request $request)
+    {
+        try {
+            $regional = Regional::find($id);
+            $regional->name = $request->input('name');
+            $regional->save();
+            $this->saveCity($id, $request);
+
+            return redirect()->route('admin.regional.gerenciar', ['result' => 0]);
+        } catch (Exception $e) {
+            return redirect()->route('admin.regional.gerenciar', ['result' => 1]);
+        }
     }
 }

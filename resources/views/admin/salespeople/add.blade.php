@@ -40,32 +40,92 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <div class="col-lg-3">
-                            <table class="table-bordered">
+                        <div class="col-lg-12">
+                            <table class="table">
                                 <thead>
                                     <tr>
-                                        <td>Nome</td>
-                                        <td>Email</td>
-                                        <td>Telefone</td>
-                                        <td>Editar</td>
+                                        <th>Nome</th>
+                                        <th>Celular</th>
+                                        <th>Email</th>
+                                        <th>Regional</th>
+                                        <th width="17%">Ação</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @foreach ($salesman as $sale)
-                                        <tr>
-                                            <td>{{ $sale->name }}</td>
-                                            <td>{{ $sale->email }}</td>
-                                            <td>{{ $sale->celphone }}</td>
-                                            <td><a href="#" style="text-decoration: none; color: #000;"><i class="fas fa-pen"></i></a></td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
                             </table>
-                        
-                            {{ $salesman->links() }}
                         </div>
                     </div>
 
+                    @if ($update)
+                    <div class="row row-form justify-content-center">
+                        <div class="col-lg-3">
+                            <form action="{{ route('admin.vendedor.update', ['id' => $salesman->id]) }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <div class="box-profile form-group">
+                                    <div class="box">
+                                        <div class="js--image-preview"></div>
+                                    </div>
+                                    <div class="upload-options">
+                                        <label>
+                                            Buscar foto
+                                            <input name="profile" type="file" class="image-upload"/>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="group">Nome do vendedor</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-b3"><i
+                                                    class="fas fa-user-tie"></i></button>
+                                        </div>
+                                        <input type="text" value="{{ $salesman->name }}" class="form-control" name="salesman">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="group">Telefone</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-b3"><i class="fa fa-phone fa-rotate-90"
+                                                    aria-hidden="true"></i></button>
+                                        </div>
+                                        <input type="text" value="{{ $salesman->celphone }}" class="form-control" id="celphone" name="celphone">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="group">Email</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-b3"><i
+                                                    class="fa fa-envelope"></i></button>
+                                        </div>
+                                        <input type="email" value="{{ $salesman->email }}" class="form-control" name="email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">Regional</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-b3"><i
+                                                    class="fas fa-copyright"></i></button>
+                                        </div>
+                                        <select class="data-single form-control" name="regional" placeholder="Selecione"
+                                            data-allow-clear="1">
+                                            <option value=""></option>
+                                            @foreach ($regionals as $regional)
+                                                <option value="{{ $regional->id }}">{{ $regional->name }}</option>                                                
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center">
+                                    <div class="btn-group mt-5">
+                                        <button class="btn btn-b3" type="submit">CADASTRAR</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div> 
+                    @else
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
                             <form action="{{ route('admin.vendedor.add') }}" method="post" enctype="multipart/form-data">
@@ -134,7 +194,8 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> 
+                    @endif
                 </div>
             </section>
         </div>
@@ -142,13 +203,54 @@
 
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
-
+    <script src="{{ asset('plugins/DataTables-1.10.20/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/DataTables-1.10.20/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/admin_native.js') }}"></script>
-    
     <script src="{{ asset('plugins/select2_4.0.13/js/select2.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('js/admin_seller.js') }}"></script>
+    <script>
+        $('.table').DataTable({
+            lengthMenu: [5, 10, 15, 25, 50, 100, 'Todas'],
+            responsive: true,
+            processing: true,
+            serverSide: true,
+            "iDisplayLength": 5,
+            "language": {
+                "url": "/js/datatable_ptbr.json"
+            },
+            ajax: "{!! route('admin.vendedor.listar') !!}",
+            columns: [{
+                    data: 'name',
+                    name: 'name'
+                },
+                {
+                    data: 'celphone',
+                    name: 'celphone'
+                },
+                {
+                    data: 'email',
+                    name: 'email'
+                },
+                {
+                    data: 'regional',
+                    name: 'regional'
+                },
+                {
+                    "data": "action",
+                    "render": function(data, type, row, meta) {
+                        return '<a href="../../admin/vendedor/editar/' + row.id +
+                            '" class="btn btn btn-b3" title="Editar"> <i class="fa fa-edit"></i></a> <a href="' + '/excluir/' + row.id + '" id="person-' +
+                            row.id +
+                            '" class="btn btn-danger" data-toggle="confirmation" data-btn-ok-label="Sim" data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="" data-btn-cancel-label="Não" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="" data-title="Tem certeza que deseja excluir o cadastro de ' +
+                            row.name +
+                            '?" data-content="Esta ação não poderá ser desfeita." title="Excluir"> <i class="fa fa-trash"></i></a>';
+                    }
+                }
+            ],
+        });
+    </script>
 
 </body>
 

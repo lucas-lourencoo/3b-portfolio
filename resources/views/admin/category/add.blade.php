@@ -56,6 +56,45 @@
                         </div>
                     </div>
 
+                    @if($update)
+                    <div class="row row-form justify-content-center">
+                        <div class="col-lg-3">
+                            <form action="{{ route('admin.categoria.update',['id' => $category->id]) }}" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="group">Nome da categoria</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-b3"><i class="fas fa-ad"></i></button>
+                                        </div>
+                                        <input type="text" class="form-control" value="{{ $category->name }}" name="name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="seller">Grupo</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-b3"><i class="fas fa-ad"></i></button>
+                                        </div>
+                                        <select class="data-single form-control" name="group" placeholder="Selecione"
+                                            data-allow-clear="1">
+                                            <option value=""></option>
+                                            @foreach ($groups as $group)
+                                            <option value="{{ $group->id }}"><img src="{{ asset('img/logo.png') }}"
+                                                    alt=""> {{ $group->name }} </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center">
+                                    <div class="btn-group mt-5">
+                                        <button class="btn btn-b3" type="submit">ATUALIZAR</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>    
+                    @else
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
                             <form action="{{ route('admin.categoria.add') }}" method="post">
@@ -93,6 +132,7 @@
                             </form>
                         </div>
                     </div>
+                    @endif
                 </div>
             </section>
         </div>
@@ -129,7 +169,7 @@
             {
                 "data": "action",
                 "render": function(data, type, row, meta) {
-                    return '<a href="/editar/' + row.id +
+                    return '<a href="../../admin/categoria/editar/' + row.id +
                         '" class="btn btn btn-b3" title="Editar"> <i class="fa fa-edit"></i></a> <a href="' + '/excluir/' + row.id + '" id="person-' +
                         row.id +
                         '" class="btn btn-danger" data-toggle="confirmation" data-btn-ok-label="Sim" data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="" data-btn-cancel-label="Não" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="" data-title="Tem certeza que deseja excluir o cadastro de ' +

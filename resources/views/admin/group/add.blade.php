@@ -40,28 +40,41 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <div class="col-lg-3">
-                            <table class="table-bordered">
+                        <div class="col-lg-12">
+                            <table class="table">
                                 <thead>
                                     <tr>
-                                        <td>Nome</td>
-                                        <td>Editar</td>
+                                        <th>Nome</th>
+                                        <th width="17%">Ação</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @foreach ($groups as $group)
-                                        <tr>
-                                            <td>{{ $group->name }}</td>
-                                            <td><a href="#" style="text-decoration: none; color: #000;"><i class="fas fa-pen"></i></a></td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
                             </table>
-                        
-                            {{ $groups->links() }}
                         </div>
                     </div>
 
+                    @if ($update)
+                    <div class="row row-form justify-content-center">
+                        <div class="col-lg-3">
+                            <form action="{{ route('admin.grupo.update', ['id' => $group->id]) }}" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="group">Nome do grupo</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-b3"><i class="fas fa-ad"></i></button>
+                                        </div>
+                                        <input type="text" value="{{ $group->name }}" class="form-control" name="group">
+                                    </div>
+                                </div>
+                                <div class="row align-items-center">
+                                    <div class="btn-group mt-5">
+                                        <button class="btn btn-b3" type="submit">ATUALIZAR</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    @else
                     <div class="row row-form justify-content-center">
                         <div class="col-lg-3">
                             <form action="{{ route('admin.grupo.add') }}" method="post">
@@ -83,6 +96,7 @@
                             </form>
                         </div>
                     </div>
+                    @endif
                 </div>
             </section>
         </div>
@@ -91,10 +105,41 @@
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/admin_native.js') }}"></script>
-    
+    <script src="{{ asset('plugins/DataTables-1.10.20/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/DataTables-1.10.20/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('plugins/select2_4.0.13/js/select2.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('js/admin_group.js') }}"></script>
+
+    <script src="{{ asset('js/admin_brand.js') }}"></script>
+    <script>
+        $('.table').DataTable({
+            lengthMenu: [5, 10, 15, 25, 50, 100, 'Todas'],
+            responsive: true,
+            processing: true,
+            serverSide: true,
+            "iDisplayLength": 5,
+            "language": {
+                "url": "/js/datatable_ptbr.json"
+            },
+            ajax: "{!! route('admin.grupo.listar') !!}",
+            columns: [{
+                    data: 'name',
+                    name: 'name'
+                },
+                {
+                    "data": "action",
+                    "render": function(data, type, row, meta) {
+                        return '<a href="../../admin/grupo/editar/' + row.id +
+                            '" class="btn btn btn-b3" title="Editar"> <i class="fa fa-edit"></i></a> <a href="' + '/excluir/' + row.id + '" id="person-' +
+                            row.id +
+                            '" class="btn btn-danger" data-toggle="confirmation" data-btn-ok-label="Sim" data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="" data-btn-cancel-label="Não" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="" data-title="Tem certeza que deseja excluir o cadastro de ' +
+                            row.name +
+                            '?" data-content="Esta ação não poderá ser desfeita." title="Excluir"> <i class="fa fa-trash"></i></a>';
+                    }
+                }
+            ],
+        });
+        </script>
 
 </body>
 
