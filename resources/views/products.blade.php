@@ -49,9 +49,9 @@
                                     aria-controls="category"><i class="fas fa-angle-down"></i> Categorias</a>
                             </div>
                             <ul class="sidebar_categories collapse show" id="category">
-                                <li data-category="Vermifúgos"><a class="active">Vermífugos</a></li>
-                                <li data-category="Terapêuticos"><a>Terapêuticos</a></li>
-                                <li data-category="Nutrição"><a>Nutrição</a></li>
+                                @foreach ($categories as $category)
+                                    <li data-category="{{ $category->id }}"><a>{{ ucfirst($category->name) }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="sidebar_section">
@@ -60,7 +60,9 @@
                                     aria-controls="brand"><i class="fas fa-angle-down"></i>Marca</a>
                             </div>
                             <ul class="sidebar_categories collapse show" id="brand">
-                                <li data-brand="masculino"><a>Bayer</a></li>
+                                @foreach ($brands as $brand)
+                                    <li data-brand="{{ $brand->id }}"><a>{{ ucfirst($brand->name) }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="sidebar_section">
@@ -103,60 +105,6 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6 col-md-4 product-d">
-                                <div class="product-block">
-                                    <div class="product-img">
-                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="p-name">
-                                            Nome do produto
-                                        </h3>
-                                        <p class="p-price">
-                                            R$ 200,00
-                                        </p>
-                                    </div>
-                                    <div class="btn-show">
-                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 product-d">
-                                <div class="product-block">
-                                    <div class="product-img">
-                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="p-name">
-                                            Nome do produto
-                                        </h3>
-                                        <p class="p-price">
-                                            R$ 200,00
-                                        </p>
-                                    </div>
-                                    <div class="btn-show">
-                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 product-d">
-                                <div class="product-block">
-                                    <div class="product-img">
-                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="p-name">
-                                            Nome do produto
-                                        </h3>
-                                        <p class="p-price">
-                                            R$ 200,00
-                                        </p>
-                                    </div>
-                                    <div class="btn-show">
-                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-6 col-md-4 product-d">
                                 <div class="product-block">
                                     <div class="product-img">
