@@ -13,28 +13,80 @@ class CategoryController extends Controller
     public function index()
     {
         $groups = DB::table('groups')->get();
-        $datatable = Datatables::of($groups);
-        return view('admin.category.add', ['groups' => $groups]);
+
+        return view('admin.category.add', ['groups' => $groups, 'update' => false]);
     }
 
     public function list()
     {
-        $groups = DB::table('categories')->get();
-        $datatable = Datatables::of($groups);
-        return $datatable->blacklist(['action'])->make(true); 
+        $categories = DB::table('categories')
+            ->join('groups', 'categories.group_id', '=', 'groups.id')
+            ->get([
+                'groups.name as group_id',
+                'categories.id',
+                'categories.name'
+            ]);
+
+        $datatable = Datatables::of($categories);
+        return $datatable->blacklist(['action'])->make(true);
     }
 
     public function insert(Request $request)
     {
-        //try {
+        try {
             $category = new Category();
             $category->name = $request->get('name');
             $category->group_id = $request->get('group');
             $category->save();
 
             return redirect()->route('admin.categoria.gerenciar', ['result' => 0]);
-        //} catch (Exception $e) {
-            //return redirect()->route('admin.categoria.gerenciar', ['result' => 1]);
-        //}
+        } catch (Exception $e) {
+            return redirect()->route('admin.categoria.gerenciar', ['result' => 1]);
+        }
+    }
+
+    public function editar($id)
+    {
+        $category = DB::table('categories')->where('id', $id)->get()->first();
+        $groups = DB::table('groups')->get();
+
+        return view('admin.category.add', [
+            'groups' => $groups,
+            'category' => $category,
+            'update' => true
+        ]);
+    }
+
+    public function update($id, Request $request)
+    {
+        try {
+
+            $category = Category::find($id);
+            $category->name = $request->input('name');
+            $category->group_id = $request->get('group');
+            $category->save();
+
+            return redirect()->route('admin.categoria.gerenciar', ['result' => 0]);;
+        } catch (Exception $e) {
+            return redirect()->route('admin.categoria.gerenciar', ['result' => 1]);
+        }
+    }
+
+    public function excluir($id)
+    {
+        try {
+            $categories = DB::table('products')
+                ->where('category', $id)
+                ->get()
+                ->first();
+            if (!$categories) {
+                DB::table('categories')->delete($id);
+                return redirect()->route('admin.categoria.gerenciar', ['result' => 2]);
+            } else {
+                return redirect()->route('admin.categoria.gerenciar', ['result' => 3]);
+            }
+        } catch (Exception $e) {
+            return redirect()->route('admin.categoria.gerenciar', ['result' => 1]);
+        }
     }
 }

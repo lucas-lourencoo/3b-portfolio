@@ -72,8 +72,12 @@
                 <li class="nav-item has-treeview">
                     <a href="{{ route('admin.regional.gerenciar') }}" class="nav-link" id="regional">
                         <i class="nav-icon fas fa-arrows-alt"></i>
+<<<<<<< HEAD
                         <p>Regional</i>
                         </p>
+=======
+                        <p>Regional</p>
+>>>>>>> ffa60eede77f721a73a9e3eede4375eb46bffe89
                     </a>
                 </li>
                 <li class="nav-item has-treeview">

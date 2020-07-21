@@ -17,9 +17,12 @@ Route::group(['middleware' => 'auth'], function () {
 
         //Grupos
         Route::group(['prefix' => 'grupo', 'as' => 'grupo.'], function () {
-            Route::get('adicionar', 'GroupController@index')->name('gerenciar');
+            Route::get('gerenciar', 'GroupController@index')->name('gerenciar');
             Route::post('add', 'GroupController@insert')->name('add');
-            Route::get('editar', 'GroupController@update')->name('editar');
+            Route::get('listar', 'GroupController@list')->name('listar');
+            Route::get('editar/{id}', 'GroupController@editar')->name('editar');
+            Route::post('update/{id}', 'GroupController@update')->name('update');
+            Route::get('excluir/{id}', 'GroupController@excluir')->name('excluir');
         });
 
         //Categorias
@@ -27,21 +30,29 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('gerenciar', 'CategoryController@index')->name('gerenciar');
             Route::get('listar', 'CategoryController@list')->name('listar');
             Route::post('add', 'CategoryController@insert')->name('add');
-            Route::get('editar', 'CategoryController@update')->name('editar');
-            });
+            Route::get('editar/{id}', 'CategoryController@editar')->name('editar');
+            Route::post('update/{id}', 'CategoryController@update')->name('update');
+            Route::get('excluir/{id}', 'CategoryController@excluir')->name('excluir');
+        });
 
         //Marcas
         Route::group(['prefix' => 'marca', 'as' => 'marca.'], function () {
             Route::get('gerenciar', 'BrandController@index')->name('gerenciar');
+            Route::get('listar', 'BrandController@list')->name('listar');
             Route::post('add', 'BrandController@insert')->name('add');
-            Route::get('editar', 'BrandController@update')->name('editar');
+            Route::get('editar/{id}', 'BrandController@editar')->name('editar');
+            Route::post('update/{id}', 'BrandController@update')->name('update');
+            Route::get('excluir/{id}', 'BrandController@excluir')->name('excluir');
         });
-
+        
         //Vendedores
         Route::group(['prefix' => 'vendedor', 'as' => 'vendedor.'], function () {
             Route::get('gerenciar', 'SalespeopleController@index')->name('gerenciar');
             Route::post('add', 'SalespeopleController@insert')->name('add');
-            Route::get('editar', 'SalespeopleController@update')->name('editar');
+            Route::get('listar', 'SalespeopleController@list')->name('listar');
+            Route::get('editar/{id}', 'SalespeopleController@editar')->name('editar');
+            Route::post('update/{id}', 'SalespeopleController@update')->name('update');
+            Route::get('excluir/{id}', 'SalespeopleController@excluir')->name('excluir');
         });
 
         //Produtos
@@ -57,12 +68,15 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('add', 'UserController@insert')->name('add');
             Route::get('editar', 'UserController@update')->name('editar');
         });
-        
+
         //Regionais
         Route::group(['prefix' => 'regional', 'as' => 'regional.'], function () {
             Route::get('gerenciar', 'RegionalsController@index')->name('gerenciar');
             Route::post('add', 'RegionalsController@insert')->name('add');
-            Route::get('editar', 'RegionalsController@update')->name('editar');
+            Route::get('listar', 'RegionalsController@list')->name('listar');
+            Route::get('editar/{id}', 'RegionalsController@editar')->name('editar');
+            Route::post('update/{id}', 'RegionalsController@update')->name('update');
+            Route::get('excluir/{id}', 'RegionalsController@excluir')->name('excluir');
         });
     });
 });

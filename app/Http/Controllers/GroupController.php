@@ -6,15 +6,34 @@ use App\Entities\Group;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\Facades\DataTables;
 
 class GroupController extends Controller
 {
     public function index()
     {
-        $salespeople = DB::table('salespeoples')->get();
-        $groups = DB::table('groups')->paginate(2);
+        return view('admin.group.add', ['update' => false]);
+    }
 
-        return view('admin.group.add', ['salespeople' => $salespeople, 'groups' => $groups]);
+    public function editar($id)
+    {
+        $group = DB::table('groups')
+            ->where('id', $id)
+            ->get()
+            ->first();
+
+        return view('admin.group.add', [
+            'update' => true,
+            'group' => $group
+        ]);
+    }
+
+    public function list()
+    {
+        $groups = DB::table('groups')->get();
+        $datatable = DataTables::of($groups);
+
+        return $datatable->blacklist(['action'])->make(true);
     }
 
     public function insert(Request $request)
@@ -25,6 +44,38 @@ class GroupController extends Controller
             $group->save();
 
             return redirect()->route('admin.grupo.gerenciar', ['result' => 0]);
+        } catch (Exception $e) {
+            return redirect()->route('admin.grupo.gerenciar', ['result' => 1]);
+        }
+    }
+    
+    public function update($id, Request $request)
+    {
+        try {
+            $group = Group::find($id);
+            $group->name = $request->input('group');
+            $group->save();
+
+            return redirect()->route('admin.grupo.gerenciar', ['result' => 0]);
+        } catch (Exception $e) {
+            return redirect()->route('admin.grupo.gerenciar', ['result' => 1]);
+        }
+    }
+
+    public function excluir($id)
+    {
+        try {
+            $groups = DB::table('categories')
+                ->where('group_id', $id)
+                ->get()
+                ->first();
+
+            if (!$groups) {
+                DB::table('groups')->delete($id);
+                return redirect()->route('admin.grupo.gerenciar', ['result' => 2]);
+            } else {
+                return redirect()->route('admin.grupo.gerenciar', ['result' => 3]);
+            }
         } catch (Exception $e) {
             return redirect()->route('admin.grupo.gerenciar', ['result' => 1]);
         }

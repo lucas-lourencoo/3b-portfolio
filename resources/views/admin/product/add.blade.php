@@ -143,6 +143,25 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="segment">Categoria animal (opcional)</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-dark"><i
+                                                    class="fas fa-paw"></i></button>
+                                        </div>
+                                        <select class="data-single form-control" name="segment" placeholder="Selecione"
+                                            data-allow-clear="1">
+                                            <option value=""></option>
+                                            <option value="Aves">Aves</option>
+                                            <option value="Bovino">Bovino</option>
+                                            <option value="Equino">Equino</option>
+                                            <option value="Ovino">Ovino</option>
+                                            <option value="Peixes">Peixes</option>
+                                            <option value="Suíno">Suíno</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                             <div class="w-100"></div>
                             <div class="col-xl-6 col-lg-8">

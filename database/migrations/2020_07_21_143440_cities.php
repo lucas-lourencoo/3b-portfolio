@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Regionals extends Migration
+class Cities extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class Regionals extends Migration
      */
     public function up()
     {
-        Schema::create('regionals', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('regional')->unsigned();
+            $table->foreign('regional')->references('id')->on('regionals');
             $table->timestamps();
         });
     }
