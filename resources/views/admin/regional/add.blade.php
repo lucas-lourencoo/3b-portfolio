@@ -94,7 +94,7 @@
     
     <script src="{{ asset('plugins/select2_4.0.13/js/select2.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('js/admin_group.js') }}"></script>
+    <script src="{{ asset('js/admin_regional.js') }}"></script>
 
 </body>
 
