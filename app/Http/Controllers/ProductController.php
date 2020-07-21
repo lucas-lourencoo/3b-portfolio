@@ -49,7 +49,7 @@ class ProductController extends Controller
 
     public function insert(Request $request)
     {
-        //try {
+        try {
             $product = new Product();
             $product->id = rand(1000, 9999);
             $product_id = $product->id;
@@ -64,7 +64,6 @@ class ProductController extends Controller
             $product->recommendation = $request->get('recommendation');
             $product->description = $request->get('description');
 
-            //Salvar a bula
             if ($request->hasFile('img1') && $request->file('img1')->isValid()) {
                 $image = $request->file('img1');
                 $product->image = $this->add_img($image, $product_id);
@@ -74,12 +73,13 @@ class ProductController extends Controller
                 $product->image2 = $this->add_img($image, $product_id);
             }
             $product->save();
-
+            
+            //Salvar a bula
             $this->save_bull($request->get('bull'), $product_id);
 
             return redirect()->route('admin.produto.gerenciar', ['result' => 0]);
-       // } catch (Exception $e) {
-         //   return redirect()->route('admin.produto.gerenciar', ['result' => 1]);
-        //}
+        } catch (Exception $e) {
+            return redirect()->route('admin.produto.gerenciar', ['result' => 1]);
+        }
     }
 }
