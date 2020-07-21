@@ -147,7 +147,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="segment">Categoria animal (opcional)</label>
+                                    <label for="segment">Categoria animal <span>(opcional)</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button type="button" class="btn btn-dark"><i
@@ -248,6 +248,8 @@
         </section>
     </div>
     </div>
+
+    <div id="preloader"><img src="{{ asset('img/logo.png') }}" alt="Logo 3B"></div>
 
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('js/jquery.mask.min.js') }}"></script>

@@ -1,3 +1,11 @@
+// Preloader
+$(window).on('load', function() {
+    if ($('#preloader').length) {
+        $('#preloader').delay(100).fadeOut('slow', function() {
+            $(this).remove();
+        });
+    }
+});
 $(document).ready(function() {
     active_bar('#product', '#product-manage');
 
@@ -15,7 +23,7 @@ $(document).ready(function() {
                 minlength: 5,
                 maxlength: 30
             },
-            barcode: {
+            code: {
                 required: true,
             },
             price: {

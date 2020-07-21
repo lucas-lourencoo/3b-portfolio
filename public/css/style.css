@@ -51,6 +51,13 @@ h3.highlights {
 # Preloader
 --------------------------------------------------------------*/
 
+#preloader img {
+    height: 40px;
+    position: fixed;
+    top: calc(50% + 50px);
+    left: calc(50% - 20px);
+}
+
 #preloader {
     position: fixed;
     top: 0;

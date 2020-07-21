@@ -30,21 +30,22 @@
                         Gerenciar</h3>
 
 
-                        <div class="col-mb-3">
-                            @if (Request::get('result') != null && Request::get('result') == 0)
-                            <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Grupo cadastrado
-                                com sucesso!
-                            </div>
-                            @elseif(Request::get('result') != null && Request::get('result') == 1)
-                            <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
-                                Grupo, tente novamente!</div>
-                            @elseif(Request::get('result') != null && Request::get('result') == 2)
-                                <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Grupo excluído!</div>
-                            @elseif(Request::get('result') != null && Request::get('result') == 3)
-                                <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Impossível exluir, Grupo
-                                    em uso!</div>
-                            @endif
+                    <div class="col-mb-3">
+                        @if (Request::get('result') != null && Request::get('result') == 0)
+                        <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Grupo cadastrado
+                            com sucesso!
                         </div>
+                        @elseif(Request::get('result') != null && Request::get('result') == 1)
+                        <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
+                            Grupo, tente novamente!</div>
+                        @elseif(Request::get('result') != null && Request::get('result') == 2)
+                        <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Grupo excluído!</div>
+                        @elseif(Request::get('result') != null && Request::get('result') == 3)
+                        <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Impossível exluir,
+                            Grupo
+                            em uso!</div>
+                        @endif
+                    </div>
 
                     <div class="row justify-content-center">
                         <div class="col-lg-12">
@@ -109,6 +110,8 @@
         </div>
     </div>
 
+    <div id="preloader"><img src="{{ asset('img/logo.png') }}" alt="Logo 3B"></div>
+
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/admin_native.js') }}"></script>
@@ -117,36 +120,37 @@
     <script src="{{ asset('plugins/select2_4.0.13/js/select2.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('js/admin_group.js') }}"></script>
-    
+
     <script>
-        $('.table').DataTable({
-            lengthMenu: [5, 10, 15, 25, 50, 100, 'Todas'],
-            responsive: true,
-            processing: true,
-            serverSide: true,
-            "iDisplayLength": 5,
-            "language": {
-                "url": "/js/datatable_ptbr.json"
+    $('.table').DataTable({
+        lengthMenu: [5, 10, 15, 25, 50, 100, 'Todas'],
+        responsive: true,
+        processing: true,
+        serverSide: true,
+        "iDisplayLength": 5,
+        "language": {
+            "url": "/js/datatable_ptbr.json"
+        },
+        ajax: "{!! route('admin.grupo.listar') !!}",
+        columns: [{
+                data: 'name',
+                name: 'name'
             },
-            ajax: "{!! route('admin.grupo.listar') !!}",
-            columns: [{
-                    data: 'name',
-                    name: 'name'
-                },
-                {
-                    "data": "action",
-                    "render": function(data, type, row, meta) {
-                        return '<a href="../../admin/grupo/editar/' + row.id +
-                            '" class="btn btn btn-b3" title="Editar"> <i class="fa fa-edit"></i></a> <a href="' + '../../admin/grupo/excluir/' + row.id + '" id="person-' +
-                            row.id +
-                            '" class="btn btn-danger" data-toggle="confirmation" data-btn-ok-label="Sim" data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="" data-btn-cancel-label="Não" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="" data-title="Tem certeza que deseja excluir o cadastro de ' +
-                            row.name +
-                            '?" data-content="Esta ação não poderá ser desfeita." title="Excluir"> <i class="fa fa-trash"></i></a>';
-                    }
+            {
+                "data": "action",
+                "render": function(data, type, row, meta) {
+                    return '<a href="../../admin/grupo/editar/' + row.id +
+                        '" class="btn btn btn-b3" title="Editar"> <i class="fa fa-edit"></i></a> <a href="' +
+                        '../../admin/grupo/excluir/' + row.id + '" id="person-' +
+                        row.id +
+                        '" class="btn btn-danger" data-toggle="confirmation" data-btn-ok-label="Sim" data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="" data-btn-cancel-label="Não" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="" data-title="Tem certeza que deseja excluir o cadastro de ' +
+                        row.name +
+                        '?" data-content="Esta ação não poderá ser desfeita." title="Excluir"> <i class="fa fa-trash"></i></a>';
                 }
-            ],
-        });
-        </script>
+            }
+        ],
+    });
+    </script>
 
 </body>
 

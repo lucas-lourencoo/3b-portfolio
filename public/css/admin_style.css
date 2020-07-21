@@ -190,6 +190,62 @@ h3.info {
 }
 
 
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+
+#preloader img {
+    height: 40px;
+    position: fixed;
+    top: calc(50% + 50px);
+    left: calc(50% - 20px);
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background: #fff;
+}
+
+#preloader:before {
+    content: "";
+    position: fixed;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    border: 6px solid #009961;
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: animate-preloader 1s linear infinite;
+    animation: animate-preloader 1s linear infinite;
+}
+
+@-webkit-keyframes animate-preloader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate-preloader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
 /*  BUTTON B3  */
 
 .row-form {
@@ -204,21 +260,12 @@ h3.info {
     background-color: #009e4f;
     border-color: #009e4f;
     color: white;
-}
-
-.btn-b3-outline {
-    border-color: #009e4f;
-    color: #009e4f;
-    background-color: transparent;
-}
-
-.btn-b3-outline:hover {
-    background-color: #009e4f;
-    color: white;
+    font-weight: 600;
 }
 
 .btn-b3:hover {
     color: white;
+    background-color: #008f69;
 }
 
 
@@ -239,7 +286,7 @@ h3.info {
 }
 
 .box-profile .js--image-preview {
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.28);
     border-radius: 50%;
     width: calc(15vw);
     height: calc(15vw);

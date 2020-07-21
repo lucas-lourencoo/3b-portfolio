@@ -1,3 +1,12 @@
+// Preloader
+$(window).on('load', function() {
+    if ($('#preloader').length) {
+        $('#preloader').delay(100).fadeOut('slow', function() {
+            $(this).remove();
+        });
+    }
+});
+
 $(document).ready(function() {
     active_bar('#seller', '#seller-manage');
 
@@ -52,6 +61,9 @@ $(document).ready(function() {
                 required: true,
             },
             profile: {
+                required: true,
+            },
+            regional: {
                 required: true,
             }
         },

@@ -205,6 +205,9 @@
         </div>
     </div>
 
+    <div id="preloader"><img src="{{ asset('img/logo.png') }}" alt="Logo 3B"></div>
+
+    
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
     <script src="{{ asset('plugins/DataTables-1.10.20/js/jquery.dataTables.min.js') }}"></script>

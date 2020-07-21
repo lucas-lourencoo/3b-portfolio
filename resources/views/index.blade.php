@@ -105,7 +105,7 @@
     @include('includes/footer')
 
 
-    <div id="preloader"></div>
+    <div id="preloader"><img src="{{ asset('img/logo.png') }}" alt="Logo 3B"></div>
     <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>

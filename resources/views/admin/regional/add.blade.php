@@ -137,6 +137,9 @@
         </div>
     </div>
 
+    <div id="preloader"><img src="{{ asset('img/logo.png') }}" alt="Logo 3B"></div>
+
+
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/admin_native.js') }}"></script>
