@@ -11,6 +11,9 @@ $(document).ready(function() {
             name: {
                 required: true,
             },
+            'cities[]': {
+                required: true,
+            },
         },
         errorElement: 'span',
         errorPlacement: function(error, element) {
@@ -28,9 +31,8 @@ $(document).ready(function() {
     $('.cities').each(function() {
         $(this).select2({
             theme: 'bootstrap4',
-            tags: true,
-            tokenSeparators: [',', ' '],
-            placeholder: $(this).attr('placeholder')
+            placeholder: $(this).data('placeholder'),
+            allowClear: Boolean($(this).data('allow-clear')),
         });
     });
 });
