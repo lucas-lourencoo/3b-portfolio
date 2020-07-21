@@ -24,4 +24,13 @@ $(document).ready(function() {
             $(element).removeClass('is-invalid');
         }
     });
+
+    $('.cities').each(function() {
+        $(this).select2({
+            theme: 'bootstrap4',
+            tags: true,
+            tokenSeparators: [',', ' '],
+            placeholder: $(this).attr('placeholder')
+        });
+    });
 });
