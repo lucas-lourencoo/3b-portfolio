@@ -26,7 +26,7 @@ class CategoryController extends Controller
                 'categories.id',
                 'categories.name'
             ]);
-        
+
         $datatable = Datatables::of($categories);
         return $datatable->blacklist(['action'])->make(true);
     }
@@ -67,6 +67,24 @@ class CategoryController extends Controller
             $category->save();
 
             return redirect()->route('admin.categoria.gerenciar', ['result' => 0]);;
+        } catch (Exception $e) {
+            return redirect()->route('admin.categoria.gerenciar', ['result' => 1]);
+        }
+    }
+
+    public function excluir($id)
+    {
+        try {
+            $categories = DB::table('products')
+                ->where('category', $id)
+                ->get()
+                ->first();
+            if (!$categories) {
+                DB::table('categories')->delete($id);
+                return redirect()->route('admin.categoria.gerenciar', ['result' => 2]);
+            } else {
+                return redirect()->route('admin.categoria.gerenciar', ['result' => 3]);
+            }
         } catch (Exception $e) {
             return redirect()->route('admin.categoria.gerenciar', ['result' => 1]);
         }

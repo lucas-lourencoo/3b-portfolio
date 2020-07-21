@@ -65,8 +65,8 @@ class SalespeopleController extends Controller
             return redirect()->route('admin.vendedor.gerenciar', ['result' => 1]);
         }
     }
-    
-    public function update($id,Request $request)
+
+    public function update($id, Request $request)
     {
         try {
             $salespeople = Salespeople::find($id);
@@ -107,5 +107,15 @@ class SalespeopleController extends Controller
             'regionals' => $regionals,
             'update' => true
         ]);
+    }
+
+    public function excluir($id)
+    {
+        try {
+            DB::table('salespeoples')->delete($id);
+            return redirect()->route('admin.vendedor.gerenciar', ['result' => 2]);
+        } catch (Exception $e) {
+            return redirect()->route('admin.vendedor.gerenciar', ['result' => 1]);
+        }
     }
 }

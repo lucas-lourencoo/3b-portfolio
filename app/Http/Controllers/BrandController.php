@@ -62,4 +62,22 @@ class BrandController extends Controller
             'update' => true
         ]);
     }
+
+    public function excluir($id)
+    {
+        try {
+            $brands = DB::table('products')
+                ->where('brand', $id)
+                ->get()
+                ->first();
+            if (!$brands) {
+                DB::table('brands')->delete($id);
+                return redirect()->route('admin.marca.gerenciar', ['result' => 2]);
+            } else {
+                return redirect()->route('admin.marca.gerenciar', ['result' => 3]);
+            }
+        } catch (Exception $e) {
+            return redirect()->route('admin.marca.gerenciar', ['result' => 1]);
+        }
+    }
 }

@@ -28,16 +28,21 @@
                         |
                         Gerenciar</h3>
 
-                    <div class="col-mb-3">
-                        @if (Request::get('result') != null && Request::get('result') == 0)
-                        <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Marca cadastrada
-                            com sucesso!
+                        <div class="col-mb-3">
+                            @if (Request::get('result') != null && Request::get('result') == 0)
+                            <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Marca cadastrada
+                                com sucesso!
+                            </div>
+                            @elseif(Request::get('result') != null && Request::get('result') == 1)
+                            <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
+                                Marca, tente novamente!</div>
+                            @elseif(Request::get('result') != null && Request::get('result') == 2)
+                                <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i> Marca excluída!</div>
+                            @elseif(Request::get('result') != null && Request::get('result') == 3)
+                                <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Impossível exluir, Marca
+                                    em uso!</div>
+                            @endif
                         </div>
-                        @elseif(Request::get('result') != null && Request::get('result') == 1)
-                        <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
-                            marca, tente novamente!</div>
-                        @endif
-                    </div>
 
                     <div class="row justify-content-center">
                         <div class="col-lg-12">
@@ -130,7 +135,7 @@
                     "data": "action",
                     "render": function(data, type, row, meta) {
                         return '<a href="../../admin/marca/editar/' + row.id +
-                            '" class="btn btn btn-b3" title="Editar"> <i class="fa fa-edit"></i></a> <a href="' + '/excluir/' + row.id + '" id="person-' +
+                            '" class="btn btn btn-b3" title="Editar"> <i class="fa fa-edit"></i></a> <a href="' + '../../admin/marca/excluir/' + row.id + '" id="person-' +
                             row.id +
                             '" class="btn btn-danger" data-toggle="confirmation" data-btn-ok-label="Sim" data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="" data-btn-cancel-label="Não" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="" data-title="Tem certeza que deseja excluir o cadastro de ' +
                             row.name +

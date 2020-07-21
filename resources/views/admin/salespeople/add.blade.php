@@ -36,6 +36,8 @@
                         @elseif(Request::get('result') != null && Request::get('result') == 1)
                         <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
                             vendedor, tente novamente!</div>
+                        @elseif(Request::get('result') != null && Request::get('result') == 2)
+                        <div class="alert alert-success"><i class="fas fa-lg fa-check-circle"></i>Vendedor excluído!</div>
                         @endif
                     </div>
 
@@ -241,7 +243,7 @@
                     "data": "action",
                     "render": function(data, type, row, meta) {
                         return '<a href="../../admin/vendedor/editar/' + row.id +
-                            '" class="btn btn btn-b3" title="Editar"> <i class="fa fa-edit"></i></a> <a href="' + '/excluir/' + row.id + '" id="person-' +
+                            '" class="btn btn btn-b3" title="Editar"> <i class="fa fa-edit"></i></a> <a href="' + '../../admin/vendedor/excluir/' + row.id + '" id="person-' +
                             row.id +
                             '" class="btn btn-danger" data-toggle="confirmation" data-btn-ok-label="Sim" data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="" data-btn-cancel-label="Não" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="" data-title="Tem certeza que deseja excluir o cadastro de ' +
                             row.name +

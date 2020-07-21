@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('listar', 'GroupController@list')->name('listar');
             Route::get('editar/{id}', 'GroupController@editar')->name('editar');
             Route::post('update/{id}', 'GroupController@update')->name('update');
+            Route::get('excluir/{id}', 'GroupController@excluir')->name('excluir');
         });
 
         //Categorias
@@ -31,6 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('add', 'CategoryController@insert')->name('add');
             Route::get('editar/{id}', 'CategoryController@editar')->name('editar');
             Route::post('update/{id}', 'CategoryController@update')->name('update');
+            Route::get('excluir/{id}', 'CategoryController@excluir')->name('excluir');
         });
 
         //Marcas
@@ -40,6 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('add', 'BrandController@insert')->name('add');
             Route::get('editar/{id}', 'BrandController@editar')->name('editar');
             Route::post('update/{id}', 'BrandController@update')->name('update');
+            Route::get('excluir/{id}', 'BrandController@excluir')->name('excluir');
         });
         
         //Vendedores
@@ -49,6 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('listar', 'SalespeopleController@list')->name('listar');
             Route::get('editar/{id}', 'SalespeopleController@editar')->name('editar');
             Route::post('update/{id}', 'SalespeopleController@update')->name('update');
+            Route::get('excluir/{id}', 'SalespeopleController@excluir')->name('excluir');
         });
 
         //Produtos
@@ -72,6 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('listar', 'RegionalsController@list')->name('listar');
             Route::get('editar/{id}', 'RegionalsController@editar')->name('editar');
             Route::post('update/{id}', 'RegionalsController@update')->name('update');
+            Route::get('excluir/{id}', 'RegionalsController@excluir')->name('excluir');
         });
     });
 });

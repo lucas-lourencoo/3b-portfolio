@@ -61,4 +61,23 @@ class GroupController extends Controller
             return redirect()->route('admin.grupo.gerenciar', ['result' => 1]);
         }
     }
+
+    public function excluir($id)
+    {
+        try {
+            $groups = DB::table('categories')
+                ->where('group_id', $id)
+                ->get()
+                ->first();
+
+            if (!$groups) {
+                DB::table('groups')->delete($id);
+                return redirect()->route('admin.grupo.gerenciar', ['result' => 2]);
+            } else {
+                return redirect()->route('admin.grupo.gerenciar', ['result' => 3]);
+            }
+        } catch (Exception $e) {
+            return redirect()->route('admin.grupo.gerenciar', ['result' => 1]);
+        }
+    }
 }
