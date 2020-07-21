@@ -133,7 +133,7 @@
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button type="button" class="btn btn-dark"><i
-                                                    class="fas fa-arrows-alt"></i></button>
+                                                    class="fas fa-mouse-pointer"></i></button>
                                         </div>
                                         <select class="data-single form-control" name="segment" placeholder="Selecione"
                                             data-allow-clear="1">
