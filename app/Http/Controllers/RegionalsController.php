@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\City;
 use App\Entities\Regional;
 use Illuminate\Http\Request;
 
@@ -35,8 +36,13 @@ class RegionalsController extends Controller
             ->get()
             ->first();
 
+        $cities = DB::table('cities')
+            ->where('regional', $id)
+            ->get();
+
         return view('admin.regional.add', [
             'regional' => $regional,
+            'cities' => $cities,
             'update' => true
         ]);
     }
@@ -51,6 +57,17 @@ class RegionalsController extends Controller
 
     private function saveCity($regional_id, Request $request)
     {
+        foreach ($request->cities as $city) {
+            DB::table('cities')->insert([
+                'name' => $city,
+                'regional' => $regional_id
+            ]);
+        }
+    }
+
+    private function updateCity($regional_id, Request $request)
+    {
+        DB::table('cities')->where('regional', $regional_id)->delete();
         foreach ($request->cities as $city) {
             DB::table('cities')->insert([
                 'name' => $city,
@@ -81,7 +98,7 @@ class RegionalsController extends Controller
             $regional = Regional::find($id);
             $regional->name = $request->input('name');
             $regional->save();
-            $this->saveCity($id, $request);
+            $this->updateCity($id, $request);
 
             return redirect()->route('admin.regional.gerenciar', ['result' => 0]);
         } catch (Exception $e) {
