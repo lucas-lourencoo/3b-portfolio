@@ -75,11 +75,12 @@ class ProductController extends Controller
             $product->save();
 
             //Salvar a bula
-            $this->save_bull($request->get('bull'), $product_id);
+            if($request->get('bull'))
+                $this->save_bull($request->get('bull'), $product_id);
 
             return redirect()->route('admin.produto.gerenciar', ['result' => 0]);
         } catch (Exception $e) {
-            return redirect()->route('admin.produto.gerenciar', ['result' => 1]);
+            return redirect()->route('admin.produto.gerenciar', ['result' => 1, 'e' => $e->getMessage()]);
         }
     }
 }

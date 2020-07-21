@@ -51,10 +51,12 @@ class RegionalsController extends Controller
 
     private function saveCity($regional_id, Request $request)
     {
-        DB::table('cities')->insert([
-            'name' => $request->cities,
-            'regional' => $regional_id
-        ]);
+        foreach ($request->cities as $city) {
+            DB::table('cities')->insert([
+                'name' => $city,
+                'regional' => $regional_id
+            ]);
+        }
     }
 
     public function insert(Request $request)
@@ -94,7 +96,13 @@ class RegionalsController extends Controller
                 ->where('regional', $id)
                 ->get()
                 ->first();
-            if (!$regionals) {
+
+            $regionals_city = DB::table('cities')
+                ->where('regional', $id)
+                ->get()
+                ->first();
+
+            if (!$regionals && !$regionals_city) {
                 DB::table('regionals')->delete($id);
                 return redirect()->route('admin.regional.gerenciar', ['result' => 2]);
             } else {

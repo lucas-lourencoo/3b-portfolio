@@ -35,7 +35,10 @@
                         </div>
                         @elseif(Request::get('result') != null && Request::get('result') == 1)
                         <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
-                            Produto, tente novamente!</div>
+                            Produto, tente novamente!
+                            <br/>
+                            <b>Erro interno:</b> {{ Request::get('e') }}
+                        </div>
                         @endif
                     </div>
 
