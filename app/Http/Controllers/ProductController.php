@@ -73,7 +73,7 @@ class ProductController extends Controller
                 $product->image2 = $this->add_img($image, $product_id);
             }
             $product->save();
-            
+
             //Salvar a bula
             $this->save_bull($request->get('bull'), $product_id);
 

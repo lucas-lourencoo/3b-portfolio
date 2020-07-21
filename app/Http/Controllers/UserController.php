@@ -17,14 +17,14 @@ class UserController extends Controller
         try {
             if (Auth::attempt($data, false)) {
                 return redirect()->route('admin.index');
-            }else{
+            } else {
                 return redirect()->route('login', ['r' => 1]);
             }
         } catch (\Exception $e) {
             return redirect()->route('login', ['r' => 2, 'error' => $e->getMessage()]);
         }
     }
-    
+
     public function login()
     {
         return view('admin.login');
@@ -34,7 +34,7 @@ class UserController extends Controller
     {
         return view('admin.index');
     }
-    
+
     public function logout()
     {
         Auth::logout();

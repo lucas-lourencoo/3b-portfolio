@@ -114,7 +114,7 @@ class SalespeopleController extends Controller
         try {
             $sale = Salespeople::find($id);
             Storage::delete('public/profile/' . $sale->photo);
-            
+
             DB::table('salespeoples')->delete($id);
             return redirect()->route('admin.vendedor.gerenciar', ['result' => 2]);
         } catch (Exception $e) {

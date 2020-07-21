@@ -49,7 +49,8 @@ class RegionalsController extends Controller
         return $datatable->blacklist(['action'])->make(true);
     }
 
-    private function saveCity($regional_id, Request $request){
+    private function saveCity($regional_id, Request $request)
+    {
         DB::table('cities')->insert([
             'name' => $request->cities,
             'regional' => $regional_id
@@ -85,7 +86,7 @@ class RegionalsController extends Controller
             return redirect()->route('admin.regional.gerenciar', ['result' => 1]);
         }
     }
-    
+
     public function excluir($id)
     {
         try {

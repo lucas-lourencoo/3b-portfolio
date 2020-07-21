@@ -33,7 +33,7 @@ class Controller extends BaseController
         $groups = DB::table('groups')->get();
         $categories = DB::table('categories')->get();
         $brands = DB::table('brands')->get();
-        
+
 
         return view('products', ['groups' => $groups, 'categories' => $categories, 'brands' => $brands]);
     }
