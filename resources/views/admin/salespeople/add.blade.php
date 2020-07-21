@@ -15,6 +15,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2_4.0.13/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bs4-theme-select2/select2-bootstrap4.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('plugins/DataTables-1.10.20/css/dataTables.bootstrap4.min.css') }}">
 
 </head>
 
@@ -212,6 +214,7 @@
     <script src="{{ asset('plugins/select2_4.0.13/js/select2.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('js/admin_seller.js') }}"></script>
+    
     <script>
         $('.table').DataTable({
             lengthMenu: [5, 10, 15, 25, 50, 100, 'Todas'],
