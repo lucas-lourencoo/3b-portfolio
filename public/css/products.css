@@ -424,12 +424,13 @@ select {
     border-radius: 50%;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.326);
     transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
 }
 
 .product-type span {
     transform: translateX(-30px);
-    overflow: hidden;
-    background-color: #008c69b5;
+    -webkit-transform: translateX(-30px);
+    background-color: #008c69;
     color: white;
     border-radius: 0px 30px 30px 0px;
     padding: 3px 7px 3px 15px;
@@ -443,7 +444,7 @@ select {
 
 .product-block:hover span {
     transform: translateX(0);
-    overflow: visible;
+    -webkit-transform: translateX(0);
     opacity: 1;
 }
 
@@ -461,7 +462,6 @@ select {
     transition: all .2s ease;
     -webkit-transition: all .2s ease;
     border: none;
-    border-radius: 0 0 10px 10px;
 }
 
 .product-block .btn-show i {
@@ -472,11 +472,11 @@ select {
 }
 
 .product-block:hover .product-img img {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1. 1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    transform: scale(1.1);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1. 05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .product-block .btn-show a {
@@ -489,10 +489,11 @@ select {
     align-items: center;
     background: #008c68;
     color: white;
-    font-weight: 600;
-    font-size: 18px;
-    border-radius: 0 0 10px 10px;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 0 0 30px 30px;
     transition: all 0.45s;
+    text-transform: uppercase;
 }
 
 .product-info {

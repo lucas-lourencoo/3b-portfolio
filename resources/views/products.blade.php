@@ -145,7 +145,7 @@
                                         </p>
                                     </div>
                                     <div class="btn-show">
-                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
+                                        <a href="#">Ver produto</a>
                                     </div>
                                 </div>
                             </div>
@@ -167,7 +167,7 @@
                                         </p>
                                     </div>
                                     <div class="btn-show">
-                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
+                                        <a href="#">Ver produto</a>
                                     </div>
                                 </div>
                             </div>
@@ -189,7 +189,7 @@
                                         </p>
                                     </div>
                                     <div class="btn-show">
-                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
+                                        <a href="#">Ver produto</a>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +212,7 @@
                                         </p>
                                     </div>
                                     <div class="btn-show">
-                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
+                                        <a href="#">Ver produto</a>
                                     </div>
                                 </div>
                             </div>
@@ -235,7 +235,7 @@
                                         </p>
                                     </div>
                                     <div class="btn-show">
-                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
+                                        <a href="#">Ver produto</a>
                                     </div>
                                 </div>
                             </div>
@@ -258,7 +258,7 @@
                                         </p>
                                     </div>
                                     <div class="btn-show">
-                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
+                                        <a href="#">Ver produto</a>
                                     </div>
                                 </div>
                             </div>
