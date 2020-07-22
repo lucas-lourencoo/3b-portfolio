@@ -392,11 +392,11 @@ select {
     transition: all .8s cubic-bezier(.300, 1.000, .220, 1.000);
 }
 
-.products-list .product-d {
+.product-d {
     padding: 0px 7px
 }
 
-.products-list .product-block {
+.product-block {
     margin: 5px 0px;
     height: 410px;
     width: 100%;
@@ -404,6 +404,50 @@ select {
     position: relative;
     -webkit-box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.146);
     box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.146);
+}
+
+.product-type {
+    border: none;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-type img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.326);
+    transition: all .3s ease-in;
+}
+
+.product-type span {
+    transform: translateX(-30px);
+    overflow: hidden;
+    background-color: #008c69b5;
+    color: white;
+    border-radius: 0px 30px 30px 0px;
+    padding: 3px 7px 3px 15px;
+    display: block;
+    transition: all .3s ease-in;
+    z-index: -1;
+    opacity: 0;
+    margin-left: -10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.326);
+}
+
+.product-block:hover span {
+    transform: translateX(0);
+    overflow: visible;
+    opacity: 1;
+}
+
+.product-block:hover img {
+    transform: scale(1.05);
 }
 
 .product-block .btn-show {
@@ -417,7 +461,6 @@ select {
     -webkit-transition: all .2s ease;
     border: none;
     border-radius: 0 0 10px 10px;
-    /*! box-shadow: 0px 0px 3px 4px rgba(27, 149, 8, 0.03); */
 }
 
 .product-block .btn-show i {
