@@ -123,7 +123,7 @@
                                         </p>
                                     </div>
                                     <div class="btn-show">
-                                        <a href="#"><i class="fas fa-arrow-circle-right"></i> Ver produto</a>
+                                        <a href="#">Ver produto</a>
                                     </div>
                                 </div>
                             </div>
@@ -243,7 +243,7 @@
                                 <div class="product-block">
                                     <div class="product-type">
                                         <img src="{{ asset('img/bird.png') }}" alt="Tipo do produto">
-                                        <span>Passarino</span>
+                                        <span>Avino</span>
 
                                     </div>
                                     <div class="product-img">
