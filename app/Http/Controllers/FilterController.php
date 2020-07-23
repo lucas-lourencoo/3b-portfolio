@@ -23,13 +23,27 @@ class FilterController extends Controller
         if ($request->animal)
             $query->whereIn('animals.name', $request->animal);
 
-        if($request->max_price)
+        if ($request->max_price)
             $query->whereBetween('products.price', [$request->min_price, $request->max_price]);
 
-        $produtos = $query->get('products.*');
+        if ($request->order) {
+            if ($request->order === 'asc')
+                $query->orderBy('products.price');
+            else
+                $query->orderByDesc('products.price');
+        }
 
-        //dd($produtos);
+        $querytotal = $query;
+        $queryprod = clone $querytotal;
 
-        return $produtos;
+        $newtotal = $querytotal->selectRaw('count(products.id) as total')->first();
+
+        $start = (intval($request->pageNumber) - 1) * intval($request->pageSize);
+        $products = $queryprod->distinct()->skip($start)->take($request->pageSize)->get('products.*');
+
+        if (isset($products[0]))
+            $products[0]->total = $newtotal->total;
+
+        return $products;
     }
 }
