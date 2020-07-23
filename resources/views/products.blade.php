@@ -50,7 +50,7 @@
                             </div>
                             <ul class="sidebar_categories collapse show" id="category">
                                 @foreach ($categories as $category)
-                                <li data-category="{{ $category->id }}"><a>{{ ucfirst($category->name) }}</a></li>
+                                <li data-category="{{ mb_strtolower($category->name, 'UTF-8') }}"><a>{{ ucfirst($category->name) }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -61,7 +61,7 @@
                             </div>
                             <ul class="sidebar_categories collapse show" id="brand">
                                 @foreach ($brands as $brand)
-                                <li data-brand="{{ $brand->id }}"><a>{{ ucfirst($brand->name) }}</a></li>
+                                <li data-brand="{{ mb_strtolower($brand->name, 'UTF-8') }}"><a>{{ ucfirst($brand->name) }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
