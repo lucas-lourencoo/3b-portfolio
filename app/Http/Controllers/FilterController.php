@@ -11,7 +11,8 @@ class FilterController extends Controller
     {
         $query = DB::table('products')
             ->join('categories', 'categories.id', '=', 'products.category')
-            ->join('brands', 'brands.id', '=', 'products.brand');
+            ->join('brands', 'brands.id', '=', 'products.brand')
+            ->join('animals', 'animals.product', '=', 'products.id');
 
         if ($request->category)
             $query->where('categories.name', $request->category);
@@ -20,7 +21,7 @@ class FilterController extends Controller
             $query->whereIn('brands.name', $request->brand);
 
         if ($request->animal)
-            $query->whereIn('products.animal', $request->animal);
+            $query->whereIn('animals.name', $request->animal);
 
         if($request->max_price)
             $query->whereBetween('products.price', [$request->min_price, $request->max_price]);

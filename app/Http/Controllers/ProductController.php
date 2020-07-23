@@ -47,6 +47,16 @@ class ProductController extends Controller
         ]);
     }
 
+    private function save_animal($animals, $product)
+    {
+        foreach ($animals as $animal) {
+            DB::table('animals')->insert([
+                'product' => $product,
+                'name' => $animal
+            ]);
+        }
+    }
+
     public function insert(Request $request)
     {
         try {
@@ -61,9 +71,8 @@ class ProductController extends Controller
             $product->segment = $request->get('segment');
             $product->brand = $request->get('brand');
             $product->category = $request->get('category');
-            $product->recommendation = $request->get('recommendation');
+            $product->recommendation = $request->get('recomend');
             $product->description = $request->get('description');
-            $product->animal = $request->get('animal');
 
             if ($request->hasFile('img1') && $request->file('img1')->isValid()) {
                 $image = $request->file('img1');
@@ -76,8 +85,12 @@ class ProductController extends Controller
             $product->save();
 
             //Salvar a bula
-            if($request->get('bull'))
+            if ($request->get('bull'))
                 $this->save_bull($request->get('bull'), $product_id);
+
+            //Salvar a bula
+            if ($request->get('animal'))
+                $this->save_animal($request->get('animal'), $product_id);
 
             return redirect()->route('admin.produto.gerenciar', ['result' => 0]);
         } catch (Exception $e) {

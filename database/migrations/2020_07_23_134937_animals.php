@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Cities extends Migration
+class Animals extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class Cities extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('animals', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('regional')->unsigned();
-            $table->foreign('regional')->references('id')->on('regionals');
+            $table->unsignedBigInteger('product');
+            $table->foreign('product')->references('id')->on('products');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class Cities extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('animals');
     }
 }

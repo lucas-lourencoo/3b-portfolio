@@ -23,7 +23,6 @@ class Products extends Migration
             $table->string('description');
             $table->string('recommendation')->nullable();
             $table->string('segment');
-            $table->string('animal')->nullable();
             $table->string('image');
             $table->string('image2')->nullable();
             $table->integer('brand')->unsigned();

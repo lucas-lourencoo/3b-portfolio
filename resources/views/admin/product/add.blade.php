@@ -153,7 +153,7 @@
                                             <button type="button" class="btn btn-dark"><i
                                                     class="fas fa-paw"></i></button>
                                         </div>
-                                        <select class="data-single form-control" name="animal" placeholder="Selecione"
+                                        <select class="data-single form-control" name="animal[]" multiple="multiple" placeholder="Selecione"
                                             data-allow-clear="1">
                                             <option value=""></option>
                                             <option value="Aves">Aves</option>
