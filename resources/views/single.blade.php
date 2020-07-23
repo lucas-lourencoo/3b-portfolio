@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>3B - Nome do produto</title>
+    <title>3B - {{ $product->name }}</title>
 
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -31,7 +31,7 @@
                 <ol>
                     <li><a href="/" title="Voltar ao início do site">Início</a></li>
                     <li><a href="/produtos" title="Voltar a pagina de produtos">Produtos</a></li>
-                    <li>{{ $category->name }}</li>
+                    <li>{{ $product->category }}</li>
                 </ol>
             </div>
         </section>
@@ -39,7 +39,7 @@
         <div class="container single-container">
             <h3>
                 <hr>
-                <span>{{ $brand->name }} |</span> {{ $product->name }}
+                <span>{{ $product->brand }} |</span> {{ $product->name }}
                 <hr>
             </h3>
             <div class="row align-items-center">

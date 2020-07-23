@@ -38,13 +38,23 @@ class Controller extends BaseController
         return view('products', ['groups' => $groups, 'categories' => $categories, 'brands' => $brands]);
     }
 
-    public function single()
+    public function single($id)
     {
         $groups = DB::table('groups')->get();
         $categories = DB::table('categories')->get();
-        $product = DB::table('products')->where('id', 5283)->get()->first();
-        $category = DB::table('categories')->where('id', $product->category)->get()->first();
-        $brand = DB::table('brands')->where('id', $product->brand)->get()->first();
+
+        //Buscando o produto e suas informações
+        $product = DB::table('products')
+            ->join('brands', 'brands.id', '=', 'products.brand')
+            ->join('categories', 'categories.id', '=', 'products.category')
+            ->where('products.id', $id)
+            ->get([
+                'products.*',
+                'brands.name as brand',
+                'categories.name as category'
+            ])
+            ->first();
+
         $salesman = DB::table('salespeoples')
             ->get()
             ->first();
@@ -53,8 +63,6 @@ class Controller extends BaseController
             'groups' => $groups,
             'categories' => $categories,
             'product' => $product,
-            'category' => $category,
-            'brand' => $brand,
             'salesman' => $salesman
         ]);
     }
