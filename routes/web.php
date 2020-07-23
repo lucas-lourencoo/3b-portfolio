@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Controller@index')->name('index');
 Route::get('/contato', 'Controller@contact');
-Route::get('/ver', 'Controller@single');
 Route::get('login', 'UserController@login')->name('login');
 Route::post('login', 'UserController@auth')->name('authenticate');
 Route::get('/ver/{id}', 'Controller@single')->name('single');
