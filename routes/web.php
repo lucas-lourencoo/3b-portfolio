@@ -4,10 +4,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Controller@index')->name('index');
 Route::get('/contato', 'Controller@contact');
-Route::get('/produtos', 'Controller@products');
 Route::get('/ver', 'Controller@single');
 Route::get('login', 'UserController@login')->name('login');
 Route::post('login', 'UserController@auth')->name('authenticate');
+
+Route::group(['prefix' => 'produtos', 'as' => 'produtos.'], function(){
+    Route::get('/', 'Controller@products');
+    Route::get('/filter', 'FilterController@filter');
+    Route::get('/{category}', 'Controller@products');
+    Route::get('/{category}/{brand}', 'Controller@products');
+    Route::get('/{category}/{brand}/{price}', 'Controller@products');
+    Route::get('/{category}/{brand}/{price}/{animal}', 'Controller@products');
+});
 
 /*--------------A PARTIR DESTE PONTO REQUER AUTENTICAÇÃO----------*/
 Route::group(['middleware' => 'auth'], function () {

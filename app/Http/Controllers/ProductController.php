@@ -63,6 +63,7 @@ class ProductController extends Controller
             $product->category = $request->get('category');
             $product->recommendation = $request->get('recommendation');
             $product->description = $request->get('description');
+            $product->animal = $request->get('animal');
 
             if ($request->hasFile('img1') && $request->file('img1')->isValid()) {
                 $image = $request->file('img1');
