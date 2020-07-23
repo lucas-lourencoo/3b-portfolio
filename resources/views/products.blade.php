@@ -279,6 +279,7 @@
     <script src="{{ asset('js/products.js') }}"></script>
     <script src="{{ asset('plugins/jquery.easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('plugins/ion.rangeSlider-2.3.1/js/ion.rangeSlider.min.js') }}"></script>
+    <script src="{{ asset('js/filter.js') }}"></script>
 
 
     <script>
@@ -298,18 +299,7 @@
                 i.addClass('fa-angle-down').removeClass('fa-angle-right');
             }
         });
-        /**
-         *      SLIDER PRICE
-         */
-        $("#range_price").ionRangeSlider({
-            skin: "round",
-            step: 5,
-            type: "double",
-            grid: true,
-            min: 1,
-            max: 800,
-            prefix: "R$ "
-        });
+       
 
     });
     </script>

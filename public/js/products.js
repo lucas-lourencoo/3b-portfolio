@@ -1,39 +1,6 @@
 !(function($) {
     "use strict";
 
-    var url = decodeURIComponent(window.location.pathname);
-    let search = new URLSearchParams(window.location.search);
-    search = search.get('q');
-    var rs = url.split('/produtos/');
-    rs = rs[1].split('/');
-    var order = "";
-    var min_price = "";
-    var max_price = "";
-
-
-    /* FILTERING OTHERS FILTERS... */
-    var categories = "";
-    var categories_url = "";
-    var brands = "";
-    console.log(rs);
-
-    rs.forEach(val => {
-        var type = val.split("!");
-        if (type[0] === "categoria") {
-            categories_url = type.join("!");
-            type.splice(0, 1);
-            categories = type;
-        }
-    });
-
-    $(document).ready(function() {
-        if (categories != "") {
-            categories.forEach(element => {
-                $(".sidebar_categories").find("[data-category='" + element + "']").children().addClass('active');
-            });
-            //add_button_clear('sizes');
-        }
-    });
 
     // Preloader
     $(window).on('load', function() {
