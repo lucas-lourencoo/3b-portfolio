@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Controller@index')->name('index');
 Route::get('/contato', 'Controller@contact');
-Route::get('/ver', 'Controller@single');
 Route::get('login', 'UserController@login')->name('login');
 Route::post('login', 'UserController@auth')->name('authenticate');
+Route::get('/ver/{id}', 'Controller@single')->name('single');
 
 Route::group(['prefix' => 'produtos', 'as' => 'produtos.'], function(){
     Route::get('/', 'Controller@products');
-    Route::get('/filter', 'FilterController@filter');
+    Route::get('/filter', 'FilterController@filter')->name('filtro');
     Route::get('/{category}', 'Controller@products');
     Route::get('/{category}/{brand}', 'Controller@products');
     Route::get('/{category}/{brand}/{price}', 'Controller@products');
