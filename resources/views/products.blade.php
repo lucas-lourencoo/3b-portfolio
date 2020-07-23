@@ -50,7 +50,8 @@
                             </div>
                             <ul class="sidebar_categories collapse show" id="category">
                                 @foreach ($categories as $category)
-                                <li data-category="{{ mb_strtolower($category->name, 'UTF-8') }}"><a>{{ ucfirst($category->name) }}</a></li>
+                                <li data-category="{{ mb_strtolower($category->name, 'UTF-8') }}">
+                                    <a>{{ ucfirst($category->name) }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -61,7 +62,8 @@
                             </div>
                             <ul class="sidebar_categories collapse show" id="brand">
                                 @foreach ($brands as $brand)
-                                <li data-brand="{{ mb_strtolower($brand->name, 'UTF-8') }}"><a>{{ ucfirst($brand->name) }}</a></li>
+                                <li data-brand="{{ mb_strtolower($brand->name, 'UTF-8') }}">
+                                    <a>{{ ucfirst($brand->name) }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -108,8 +110,22 @@
                             <div class="col-6 col-md-4 product-d">
                                 <div class="product-block">
                                     <div class="product-type">
-                                        <img src="{{ asset('img/dog.png') }}" alt="Tipo do produto">
-                                        <span>Domésticos</span>
+                                        <div class="type">
+                                            <img src="{{ asset('img/dog.png') }}" alt="Tipo do produto">
+                                            <span>Categoria</span>
+                                        </div>
+                                        <div class="type">
+                                            <img src="{{ asset('img/horse.png') }}" alt="Tipo do produto">
+                                            <span>Categoria</span>
+                                        </div>
+                                        <div class="type">
+                                            <img src="{{ asset('img/fish.png') }}" alt="Tipo do produto">
+                                            <span>Categoria</span>
+                                        </div>
+                                        <div class="type">
+                                            <img src="{{ asset('img/sheep.png') }}" alt="Tipo do produto">
+                                            <span>Categoria</span>
+                                        </div>
                                     </div>
                                     <div class="product-img">
                                         <img src="{{ asset('img/produto.jpg') }}" alt="">
@@ -127,141 +143,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-4 product-d">
-                                <div class="product-block">
-                                    <div class="product-type">
-                                        <img src="{{ asset('img/pig.png') }}" alt="Tipo do produto">
-                                        <span>Suíno</span>
-                                    </div>
-                                    <div class="product-img">
-                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="p-name">
-                                            Nome do produto
-                                        </h3>
-                                        <p class="p-price">
-                                            R$ 200,00
-                                        </p>
-                                    </div>
-                                    <div class="btn-show">
-                                        <a href="#">Ver produto</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 product-d">
-                                <div class="product-block">
-                                    <div class="product-type">
-                                        <img src="{{ asset('img/sheep.png') }}" alt="Tipo do produto">
-                                        <span>Ovelhino</span>
-                                    </div>
-                                    <div class="product-img">
-                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="p-name">
-                                            Nome do produto
-                                        </h3>
-                                        <p class="p-price">
-                                            R$ 200,00
-                                        </p>
-                                    </div>
-                                    <div class="btn-show">
-                                        <a href="#">Ver produto</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 product-d">
-                                <div class="product-block">
-                                    <div class="product-type">
-                                        <img src="{{ asset('img/fish.png') }}" alt="Tipo do produto">
-                                        <span>Peixino</span>
-                                    </div>
-                                    <div class="product-img">
-                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="p-name">
-                                            Nome do produto
-                                        </h3>
-                                        <p class="p-price">
-                                            R$ 200,00
-                                        </p>
-                                    </div>
-                                    <div class="btn-show">
-                                        <a href="#">Ver produto</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 product-d">
-                                <div class="product-block">
-                                    <div class="product-type">
-                                        <img src="{{ asset('img/cow.png') }}" alt="Tipo do produto">
-                                        <span>Vaquino</span>
 
-                                    </div>
-                                    <div class="product-img">
-                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="p-name">
-                                            Nome do produto
-                                        </h3>
-                                        <p class="p-price">
-                                            R$ 200,00
-                                        </p>
-                                    </div>
-                                    <div class="btn-show">
-                                        <a href="#">Ver produto</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 product-d">
-                                <div class="product-block">
-                                    <div class="product-type">
-                                        <img src="{{ asset('img/horse.png') }}" alt="Tipo do produto">
-                                        <span>Cavalino</span>
-
-                                    </div>
-                                    <div class="product-img">
-                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="p-name">
-                                            Nome do produto
-                                        </h3>
-                                        <p class="p-price">
-                                            R$ 200,00
-                                        </p>
-                                    </div>
-                                    <div class="btn-show">
-                                        <a href="#">Ver produto</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 product-d">
-                                <div class="product-block">
-                                    <div class="product-type">
-                                        <img src="{{ asset('img/bird.png') }}" alt="Tipo do produto">
-                                        <span>Avino</span>
-
-                                    </div>
-                                    <div class="product-img">
-                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="p-name">
-                                            Nome do produto
-                                        </h3>
-                                        <p class="p-price">
-                                            R$ 200,00
-                                        </p>
-                                    </div>
-                                    <div class="btn-show">
-                                        <a href="#">Ver produto</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -299,7 +181,7 @@
                 i.addClass('fa-angle-down').removeClass('fa-angle-right');
             }
         });
-       
+
 
     });
     </script>

@@ -378,6 +378,7 @@ select {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    padding-top: 50px;
 }
 
 .product-block .product-img img {
@@ -413,42 +414,55 @@ select {
     top: 5px;
     left: 5px;
     z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-flex;
 }
 
-.product-type img {
+.product-type .type {
+    margin-right: -20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+}
+
+.product-type .type img {
     height: 40px;
     width: 40px;
     border-radius: 50%;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.326);
-    transition: all .3s ease-in;
-    -webkit-transition: all .3s ease-in;
+    transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
 }
 
-.product-type span {
+.product-type .type span {
+    max-width: 0px;
     transform: translateX(-30px);
     -webkit-transform: translateX(-30px);
     background-color: #008c69;
     color: white;
     border-radius: 0px 30px 30px 0px;
     padding: 3px 7px 3px 15px;
-    display: block;
-    transition: all .3s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
     z-index: -1;
     opacity: 0;
     margin-left: -10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.326);
 }
 
-.product-block:hover span {
+.product-block .type:hover span {
+    max-width: 200px;
     transform: translateX(0);
     -webkit-transform: translateX(0);
     opacity: 1;
 }
 
-.product-block:hover img {
+.product-block .type.type:hover {
+    margin-right: 5px;
+}
+
+.product-block .type:hover img {
     transform: scale(1.05);
 }
 
