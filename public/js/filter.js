@@ -272,36 +272,26 @@ $(document).ready(function() {
         price = price.join('_');
     }
 
+    function getImageAnimal() {
+
+    }
+
 
     function setProducts(data) {
-        $('.grid-products').empty();
+        $('.product-grid').empty();
         if (Array.isArray(data) && data.length) {
             var path = 'https://' + window.location.host; //local image
             $.each(data, function(i, value) {
-                var favorite = value.favorite ? "active" : "";
-                var title = value.title.length > 23 ? value.title.substring(0, 23) + '. . .' : value.title;
+                var name = value.name.length > 23 ? value.name.substring(0, 23) + '. . .' : value.name;
+                var price = value.price.toFixed(2).replace('.', ',');
                 var image = $(window).width() < 700 ? "/storage/products/" + value.image.split('.')[0] + "." + value.image.split('.')[1] : "/storage/products/" + value.image.split('.')[0] + "." + value.image.split('.')[1];
-                var product = '<div class="col-6 col-md-4 product" data-prod="' + value.id + '">' +
-                    '<div class="content">' +
-                    '<div class="image-product">' +
-                    '<img src="' + path + image + '" alt="">' +
-                    '</div>' +
-                    '<div class="favorite ' + favorite + ' "></div>' +
-                    '<div class="product-info">' +
-                    '<div class="title-product">' +
-                    '<h6>' + title + '</h6>' +
-                    '</div>' +
-                    '<div class="product-price">' +
-                    'R$ ' + value.price.toFixed(2).replace('.', ',') +
-                    '<span></span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="show-more">' +
-                    '<a href="' + path + "/ver/" + value.id + '">Ver mais</a>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>';
-                $('.grid-products').append(product);
+                var product = '<div class="col-6 col-md-4 product-d">' +
+                    '<div class="product-block"><div class="product-type">' +
+                    '<div class="type"><img src="" alt="Animais">' +
+                    '<span>Categoria</span></div></div><div class="product-img"><img src="' + image + '" alt="">' +
+                    '</div><div class="product-info"><h3 class="p-name">' + name + '</h3><p class="p-price">R$ ' + price + '</p>' +
+                    '</div><div class="btn-show"><a href="#">Ver produto</a></div></div></div>';
+                $('.product-grid').append(product);
             });
         } else {
             add_notfound();
@@ -320,11 +310,11 @@ $(document).ready(function() {
     };
 
 
-    /*
+
     function send_modify() {
         var container = $('#page');
         container.pagination({
-            dataSource: '/produtos/filtro',
+            dataSource: '/produtos/filter',
             locator: 'items',
             totalNumberLocator: function(response) {
                 return response.length > 0 ? response[0]['total'] : 0;
@@ -336,15 +326,16 @@ $(document).ready(function() {
             },
             callback: function(data) {
                 topTop();
+                console.log(data);
                 setProducts(data);
             }
         });
         $('.loading').remove();
     }
 
-*/
+
     /* FIND PRODUCTS AND SHOW */
-    //send_modify();
+    send_modify();
 
 
     $(".clear_filter").click(function(e) {
