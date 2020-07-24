@@ -274,6 +274,7 @@ a.go-shop:hover {
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
+    background-position: center;
 }
 
 .main {

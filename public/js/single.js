@@ -33,6 +33,18 @@
         $('.nav-search').addClass('d-none');
         $('.bar-options , .logo, .mobile-nav-toggle').removeClass('d-none');
     });
+    //GO SEARCH
+    $('a#go').click(function(e) {
+        if ($('#search').val().trim().length > 0) {
+            $('.navbar form').submit();
+        } else {
+            e.preventDefault();
+        }
+    });
+    $('.nav-search form').submit(function(e) {
+        if ($('#search').val().trim().length == 0)
+            e.preventDefault();
+    });
 
 
     // Toggle .header-scrolled class to #header when page is scrolled

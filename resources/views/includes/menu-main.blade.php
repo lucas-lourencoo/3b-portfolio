@@ -11,23 +11,28 @@
                 <nav class="nav-menu nav-main d-none d-lg-block">
                     <ul>
                         @foreach ($groups as $group)
-                            <li class="drop-down"><a href="/produtos">{{ mb_strtoupper($group->name) }}</a>
-                                <ul>
-                                    @foreach ($categories as $category)
-                                        @if ($category->group_id === $group->id)
-                                            <li><a href="#">{{ ucfirst($category->name) }}</a></li>
-                                        @endif
-                                    @endforeach
-                                </ul>
-                            </li>
+                        <li class="drop-down"><a href="/produtos">{{ mb_strtoupper($group->name) }}</a>
+                            <ul>
+                                @foreach ($categories as $category)
+                                @if ($category->group_id === $group->id)
+                                <li><a href="#">{{ ucfirst($category->name) }}</a></li>
+                                @endif
+                                @endforeach
+                            </ul>
+                        </li>
                         @endforeach
                     </ul>
                 </nav>
                 <nav class="nav-search d-none">
                     <ul>
-                        <li class="active"><input type="text" placeholder="Faça sua busca..." class="form-control"></li>
-                        <li class="seach-options"><a href="#" id="close"><i class="fas fa-times"></i></a><a id="go"
-                                href="#"><i class="fas fa-search"></i></a></li>
+                        <form action="/produtos">
+                            <li class="active"><input type="text" name="q" id="search"
+                                    placeholder="Buscar por produtos..." class="form-control"></li>
+                            <li class="seach-options">
+                                <a href="#" id="close"><i class="fas fa-times"></i></a>
+                                <a href="#" id="go"><i class="fas fa-search"></i></a>
+                            </li>
+                        </form>
                     </ul>
                 </nav>
                 <!-- .nav-menu -->

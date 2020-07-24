@@ -27,6 +27,14 @@
         $('.nav-search').addClass('d-none');
         $('.bar-options , .logo, .mobile-nav-toggle').removeClass('d-none');
     });
+    //GO SEARCH
+    $('a#go').click(function(e) {
+        if ($('#search').val().trim().length > 0) {
+            $('.navbar form').submit();
+        } else {
+            e.preventDefault();
+        }
+    });
 
     // CAROUSEL MAIN
     $('.owl-banner').owlCarousel({

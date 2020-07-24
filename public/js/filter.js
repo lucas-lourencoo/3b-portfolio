@@ -1,3 +1,5 @@
+$('.product-grid').css('opacity', '0.5');
+
 $(document).ready(function() {
 
 
@@ -15,7 +17,7 @@ $(document).ready(function() {
     var brand = "";
     var order = "";
     var price = "";
-    var max_rs = "18";
+    var max_rs = "";
 
     // ARRAY WITH DATA SPLITED
     var brands = "";
@@ -25,57 +27,61 @@ $(document).ready(function() {
     var max_price = "";
 
     /*  SPLIT FILTERS */
-    var filter = url.split('/produtos/')[1].split('!');
+    var filter = url.replace('/produtos', '');
 
-    filter.forEach(val => {
-        type = val.split("=");
-        if (type[0] === "category") {
-            type.splice(0, 1);
-            categories = type[0].split('_');
-            category = categories.join("_");
-        } else if (type[0] === "animal") {
-            type.splice(0, 1);
-            animals = type[0].split('_');
-            animal = animals.join("_");
-        } else if (type[0] === "brand") {
-            type.splice(0, 1);
-            brands = type[0].split('_');
-            brand = brands.join("_");
-        } else if (type[0] === "price") {
-            type.splice(0, 1);
-            price = type[0].split('_');
-            min_price = typeof price[0] !== 'undefined' ? price[0] : false;
-            max_price = typeof price[1] !== 'undefined' ? price[1] : false;
-        } else if (type[0] === "ord") {
-            type.splice(0, 1);
-            order = type[0];
-            order == "asc" || order == "desc" || order == "def" ? $("#order-product").val(order) : false;
-        } else if (type[0] === "rs") {
-            type.splice(0, 1);
-            max_rs = type[0];
-            max_rs == "18" || max_rs == "24" ? $("#max-results").val(max_rs) : false;
+    if (filter.trim()) {
+        filter = url.split('!');
+
+        filter.forEach(val => {
+            type = val.split("=");
+            if (type[0] === "category") {
+                type.splice(0, 1);
+                categories = type[0].split('_');
+                category = categories.join("_");
+            } else if (type[0] === "animal") {
+                type.splice(0, 1);
+                animals = type[0].split('_');
+                animal = animals.join("_");
+            } else if (type[0] === "brand") {
+                type.splice(0, 1);
+                brands = type[0].split('_');
+                brand = brands.join("_");
+            } else if (type[0] === "price") {
+                type.splice(0, 1);
+                price = type[0].split('_');
+                min_price = typeof price[0] !== 'undefined' ? price[0] : false;
+                max_price = typeof price[1] !== 'undefined' ? price[1] : false;
+            } else if (type[0] === "ord") {
+                type.splice(0, 1);
+                order = type[0];
+                order == "asc" || order == "desc" || order == "def" ? $("#order-product").val(order) : false;
+            } else if (type[0] === "rs") {
+                type.splice(0, 1);
+                max_rs = type[0];
+                max_rs == "18" || max_rs == "24" ? $("#max-results").val(max_rs) : false;
+            }
+        });
+
+        /* SET ACTIVE */
+        if (Array.isArray(categories)) {
+            categories.forEach(element => {
+                $("#category").find("[data-category='" + element + "']").children().addClass('active');
+            });
+            add_button_clear('categories');
         }
-    });
-
-    if (Array.isArray(categories)) {
-        categories.forEach(element => {
-            $("#category").find("[data-category='" + element + "']").children().addClass('active');
-        });
-        add_button_clear('categories');
+        if (Array.isArray(brands)) {
+            brands.forEach(element => {
+                $(".sidebar_categories").find("[data-brand='" + element + "']").children().addClass('active');
+            });
+            add_button_clear('brands');
+        }
+        if (Array.isArray(animals)) {
+            animals.forEach(element => {
+                $(".sidebar_categories").find("[data-animal='" + element + "']").children().addClass('active');
+            });
+            add_button_clear('animals');
+        }
     }
-    if (Array.isArray(brands)) {
-        brands.forEach(element => {
-            $(".sidebar_categories").find("[data-brand='" + element + "']").children().addClass('active');
-        });
-        add_button_clear('brands');
-    }
-    if (Array.isArray(animals)) {
-        animals.forEach(element => {
-            $(".sidebar_categories").find("[data-animal='" + element + "']").children().addClass('active');
-        });
-        add_button_clear('animals');
-    }
-    $('.sidebar_section li.active a').append('<i class="fas fa-times fa-pull-right"></i>');
 
     //SHOW SEARCH ON ALERT
     if (search != null) {
@@ -88,8 +94,10 @@ $(document).ready(function() {
     $('.sidebar li').click(function(e) {
         var loading = '<div class="lds-ring"><div></div><div></div><div></div><div></div></div>';
         var div = $(this).parents();
-        $(div[1]).prepend(loading);
-        $('.sidebar_title , .sidebar_categories').addClass('opacity');
+        $(div[0]).css('opacity', '0.4');
+        console.log($(div[0]).children());
+        $(div[1]).append(loading);
+        console.log(div);
     });
 
 
@@ -172,7 +180,7 @@ $(document).ready(function() {
     });
 
     $('#max-results').change(function(e) {
-        max_rs = $(this).val();
+        max_rs = $(this).val() == 24 ? "24" : "";
         redirect();
     });
 
@@ -210,7 +218,7 @@ $(document).ready(function() {
     }
 
     function add_notfound() {
-        $('#page').remove();
+        $('#page, .order-container').remove();
         $('.grid-products').append('<div class="text-center w-100"><h3>Nenhum produto encontrado.</h3></div>');
     }
 
@@ -235,7 +243,7 @@ $(document).ready(function() {
         if (order.trim()) {
             order = "!ord=" + order;
         }
-        if (max_rs > 0) {
+        if (max_rs > 18) {
             max_rs = "!rs=" + max_rs;
         }
         if (price.trim()) {
@@ -276,7 +284,7 @@ $(document).ready(function() {
 
     }
 
-
+    /*  POPULATE PRODUCTS */
     function setProducts(data) {
         $('.product-grid').empty();
         if (Array.isArray(data) && data.length) {
@@ -320,16 +328,17 @@ $(document).ready(function() {
                 return response.length > 0 ? response[0]['total'] : 0;
             },
             className: 'paginationjs-theme-blue paginationjs-big',
-            pageSize: max_rs,
+            pageSize: max_rs == "" ? 18 : 24,
             ajax: {
                 data: data_filter
             },
             callback: function(data) {
                 topTop();
-                setProducts(data);
+                //setProducts(data);
             }
         });
         $('.loading').remove();
+        $('.product-grid').css('opacity', '1');
     }
 
     /* FIND PRODUCTS AND SHOW */
