@@ -107,14 +107,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row product-grid">
-
-
-                        </div>
-                        <div class="row justify-content-center">
-                            <div id="page">
-                            </div>
-                        </div>
+                        <div class="container"><div class="row d-none search-d"></div></div>
+                        <div class="row product-grid"></div>
+                        <div class="row justify-content-center"><div id="page"></div></div>
                     </div>
                 </div>
             </div>

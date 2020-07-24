@@ -531,6 +531,39 @@ select {
 
 
 /*
+* ALERT SEARCH
+*/
+
+.alert-search {
+    display: flex;
+    align-items: center;
+    background-color: #006b77;
+    color: white;
+    border-radius: 50px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.alert-search i.fa-search {
+    margin-right: 7px;
+}
+
+.alert-search button {
+    margin-left: auto;
+    order: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    height: 21px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    border: none;
+    color: #006b77;
+}
+
+
+/*
 * ION SLIDER
 */
 

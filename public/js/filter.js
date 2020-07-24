@@ -79,8 +79,8 @@ $(document).ready(function() {
 
     //SHOW SEARCH ON ALERT
     if (search != null) {
-        $('.products_iso .alert').parent().removeClass('d-none');
-        $('.products_iso .alert span').text(search);
+        $('.search-d').removeClass('d-none').append('<div class="alert alert-search col" role="alert"><i class="fas fa-search"></i> Você buscou por "<span></span>"<button class="remove-search"><i class="fas fa-times"></i></button></div>');
+        $('.search-d .alert span').text(search);
         $('#search').val(search);
     }
 
@@ -177,7 +177,7 @@ $(document).ready(function() {
     });
 
     /* FILTER PRICE */
-    $('.filter_button').click(function(e) {
+    $('.filter-price').click(function(e) {
         remove_click(this);
         var value = $('#range_price');
         price = value.data('from') + "_" + value.data('to');
@@ -244,7 +244,7 @@ $(document).ready(function() {
 
         search = search != null ? "?q=" + search : "";
 
-        var url = window.location.origin + "/produtos/" + category + animal + brand;
+        var url = window.location.origin + "/produtos/" + category + animal + brand + price + order + max_rs + search;
         window.location.replace(url);
     }
 
@@ -280,7 +280,7 @@ $(document).ready(function() {
     function setProducts(data) {
         $('.product-grid').empty();
         if (Array.isArray(data) && data.length) {
-            var path = 'https://' + window.location.host; //local image
+            var path = 'https://' + window.location.host; //local root
             $.each(data, function(i, value) {
                 var name = value.name.length > 23 ? value.name.substring(0, 23) + '. . .' : value.name;
                 var price = value.price.toFixed(2).replace('.', ',');
@@ -298,7 +298,7 @@ $(document).ready(function() {
         }
     }
 
-
+    /*  INIT DATA FILTERS */
     var data_filter = {
         "order": order,
         "min_price": min_price,
@@ -310,7 +310,7 @@ $(document).ready(function() {
     };
 
 
-
+    /* SEND MODIFICATIONS AND REFRESH PRODUCTS */
     function send_modify() {
         var container = $('#page');
         container.pagination({
@@ -326,17 +326,14 @@ $(document).ready(function() {
             },
             callback: function(data) {
                 topTop();
-                console.log(data);
                 setProducts(data);
             }
         });
         $('.loading').remove();
     }
 
-
     /* FIND PRODUCTS AND SHOW */
     send_modify();
-
 
     $(".clear_filter").click(function(e) {
         var data = $(this).data('remove');
