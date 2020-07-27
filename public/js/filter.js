@@ -280,8 +280,13 @@ $(document).ready(function() {
         price = price.join('_');
     }
 
-    function getImageAnimal() {
+    function getImageAnimal(array) {
+        var path = 'https://' + window.location.host; //local root
+        array.forEach(e => {
+            var animals = '<div class="type"><img src="' + path + '/img/' + e.name.toLowerCase() + '.png" alt="Animais"><span></span></div>';
+        });
 
+        var block = '<div class="product-type">' + animals + '</div>'
     }
 
     /*  POPULATE PRODUCTS */
@@ -294,9 +299,7 @@ $(document).ready(function() {
                 var price = value.price.toFixed(2).replace('.', ',');
                 var image = $(window).width() < 700 ? "/storage/products/" + value.image.split('.')[0] + "." + value.image.split('.')[1] : "/storage/products/" + value.image.split('.')[0] + "." + value.image.split('.')[1];
                 var product = '<div class="col-6 col-md-4 product-d">' +
-                    '<div class="product-block"><div class="product-type">' +
-                    '<div class="type"><img src="" alt="Animais">' +
-                    '<span>Categoria</span></div></div><div class="product-img"><img src="' + image + '" alt="">' +
+                    '<div class="product-block">' + getImageAnimal(value.animal) + '<div class="product-img"><img src="' + image + '" alt="">' +
                     '</div><div class="product-info"><h3 class="p-name">' + name + '</h3><p class="p-price">R$ ' + price + '</p>' +
                     '</div><div class="btn-show"><a href="#">Ver produto</a></div></div></div>';
                 $('.product-grid').append(product);
