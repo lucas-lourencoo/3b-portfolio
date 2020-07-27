@@ -122,42 +122,7 @@
                             </div>
                         </div>
                         <div class="row product-grid">
-                            <div class="col-6 col-md-4 product-d">
-                                <div class="product-block">
-                                    <div class="product-type">
-                                        <div class="type">
-                                            <img src="{{ asset('img/dog.png') }}" alt="Tipo do produto">
-                                            <span>Categoria</span>
-                                        </div>
-                                        <div class="type">
-                                            <img src="{{ asset('img/horse.png') }}" alt="Tipo do produto">
-                                            <span>Categoria</span>
-                                        </div>
-                                        <div class="type">
-                                            <img src="{{ asset('img/fish.png') }}" alt="Tipo do produto">
-                                            <span>Categoria</span>
-                                        </div>
-                                        <div class="type">
-                                            <img src="{{ asset('img/sheep.png') }}" alt="Tipo do produto">
-                                            <span>Categoria</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-img">
-                                        <img src="{{ asset('img/produto.jpg') }}" alt="">
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="p-name">
-                                            Nome do produto
-                                        </h3>
-                                        <p class="p-price">
-                                            R$ 200,00
-                                        </p>
-                                    </div>
-                                    <div class="btn-show">
-                                        <a href="#">Ver produto</a>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                         <div class="row justify-content-center">
                             <div id="page"></div>
