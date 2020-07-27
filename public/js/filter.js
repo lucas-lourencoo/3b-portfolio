@@ -281,12 +281,12 @@ $(document).ready(function() {
     }
 
     function getImageAnimal(array) {
-        var path = 'https://' + window.location.host; //local root
+        var path = 'http://' + window.location.host; //local root
+        var animals = "";
         array.forEach(e => {
-            var animals = '<div class="type"><img src="' + path + '/img/' + e.name.toLowerCase() + '.png" alt="Animais"><span></span></div>';
+            animals += '<div class="type"><img src="' + path + '/img/' + e.name.toLowerCase() + '.png" alt="Animais"><span>' + e.name + '</span></div>';
         });
-
-        var block = '<div class="product-type">' + animals + '</div>'
+        return '<div class="product-type">' + animals + '</div>'
     }
 
     /*  POPULATE PRODUCTS */
@@ -337,8 +337,7 @@ $(document).ready(function() {
             },
             callback: function(data) {
                 topTop();
-                console.log(data);
-                //setProducts(data);
+                setProducts(data);
             }
         });
         $('.loading').remove();
