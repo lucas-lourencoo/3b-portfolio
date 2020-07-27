@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/fontawesome-5.13.0/css/all.min.css') }}">
     <link rel="icon" type="imagem/png" href="{{ asset('img/icon.png') }}" />
 
+    <link rel="icon" type="imagem/png" href="{{ asset('img/logo.png') }}" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 
