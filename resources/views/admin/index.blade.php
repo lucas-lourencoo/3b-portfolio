@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_native.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_style.css') }}">
 
+    <link rel="icon" type="imagem/png" href="{{ asset('img/logo.png') }}" />
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

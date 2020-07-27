@@ -17,6 +17,7 @@
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <link href="{{ asset('css/contact.css') }}" rel="stylesheet">
+    <link rel="icon" type="imagem/png" href="{{ asset('img/logo.png') }}" />
 
 </head>
 

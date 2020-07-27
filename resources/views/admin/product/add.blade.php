@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2_4.0.13/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bs4-theme-select2/select2-bootstrap4.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/summernote-0.8.18/summernote.css') }}">
+    <link rel="icon" type="imagem/png" href="{{ asset('img/logo.png') }}" />
 
 </head>
 
