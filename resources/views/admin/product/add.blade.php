@@ -159,6 +159,7 @@
                                             <option value=""></option>
                                             <option value="Aves">Aves</option>
                                             <option value="Bovino">Bovino</option>
+                                            <option value="Domésticos">Domésticos</option>
                                             <option value="Equino">Equino</option>
                                             <option value="Ovino">Ovino</option>
                                             <option value="Peixes">Peixes</option>

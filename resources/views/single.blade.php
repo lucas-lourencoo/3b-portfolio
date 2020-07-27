@@ -54,10 +54,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row h-100">
-                <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
-                    data-autoplay="true"></a>
-            </div>
         </div>
         <div class="seller-container">
             <div class="card">
@@ -73,7 +69,7 @@
                     <div class="social">
                         <div class="social-icons">
                             <a href="#" class="btn-phone"><i class="fas fa-phone"></i> {{ $salesman->celphone }}</a>
-                            <a href="#" class="btn-whats"><i class="fab fa-whatsapp"></i>Ir para chat</a>
+                            <a href="https://api.whatsapp.com/send?phone={{ $salesman->celphone }}&text=Olá, gostaria de comprar o produto {{ $product->name }}!" class="btn-whats"><i class="fab fa-whatsapp"></i>Ir para chat</a>
                         </div>
                     </div>
                 </div>
