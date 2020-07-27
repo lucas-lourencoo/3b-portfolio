@@ -334,6 +334,7 @@ $(document).ready(function() {
             },
             callback: function(data) {
                 topTop();
+                console.log(data);
                 //setProducts(data);
             }
         });
