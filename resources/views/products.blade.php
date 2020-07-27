@@ -92,7 +92,7 @@
                                 <label for="order-product">Ordenar por</label>
                                 <div class="select-wrapper">
                                     <select id="order-product" class="select-order-product">
-                                        <option value="def">Padrão</option> 
+                                        <option value="">Padrão</option> 
                                         <option value="desc">Menor preço</option>
                                         <option value="asc">Maior preço</option>
                                     </select>

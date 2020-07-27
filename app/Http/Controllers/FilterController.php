@@ -11,35 +11,47 @@ class FilterController extends Controller
     {
         $query = DB::table('products')
             ->join('categories', 'categories.id', '=', 'products.category')
-            ->join('brands', 'brands.id', '=', 'products.brand')
-            ->join('animals', 'animals.product', '=', 'products.id');
+            ->join('brands', 'brands.id', '=', 'products.brand');
 
-        if ($request->category)
-            $query->where('categories.name', $request->category);
+        if ($request->animals)
+            $query->join('animals', 'animals.product', '=', 'products.id')
+                ->whereIn('animals.name', $request->animals);
 
-        if ($request->brand)
-            $query->whereIn('brands.name', $request->brand);
+        if ($request->categories)
+            $query->whereIn('categories.name', $request->categories);
 
-        if ($request->animal)
-            $query->whereIn('animals.name', $request->animal);
+        if ($request->brands)
+            $query->whereIn('brands.name', $request->brands);
 
         if ($request->max_price)
             $query->whereBetween('products.price', [$request->min_price, $request->max_price]);
 
-        if ($request->order) {
-            if ($request->order === 'asc')
-                $query->orderBy('products.price');
-            else
-                $query->orderByDesc('products.price');
-        }
 
         $querytotal = $query;
         $queryprod = clone $querytotal;
 
+        if ($request->order) {
+            if ($request->order === 'asc')
+                $queryprod->orderByDesc('products.price');
+            else
+                $queryprod->orderBy('products.price');
+        }
+
         $newtotal = $querytotal->selectRaw('count(products.id) as total')->first();
 
         $start = (intval($request->pageNumber) - 1) * intval($request->pageSize);
-        $products = $queryprod->distinct()->skip($start)->take($request->pageSize)->get('products.*');
+        $products = $queryprod
+            ->skip($start)
+            ->take($request->pageSize)
+            ->distinct()
+            ->get([
+                'products.*'
+            ]);
+
+        foreach ($products as $product) {
+            $animal = DB::table('animals')->where('product', $product->id)->get('name');
+            $product->animal = $animal;
+        }
 
         if (isset($products[0]))
             $products[0]->total = $newtotal->total;
