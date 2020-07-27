@@ -298,7 +298,7 @@ $(document).ready(function() {
                     '<div class="type"><img src="" alt="Animais">' +
                     '<span>Categoria</span></div></div><div class="product-img"><img src="' + image + '" alt="">' +
                     '</div><div class="product-info"><h3 class="p-name">' + name + '</h3><p class="p-price">R$ ' + price + '</p>' +
-                    '</div><div class="btn-show"><a href="#">Ver produto</a></div></div></div>';
+                    '</div><div class="btn-show"><a href="ver/' + value.id + '">Ver produto</a></div></div></div>';
                 $('.product-grid').append(product);
             });
         } else {
