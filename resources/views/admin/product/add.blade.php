@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2_4.0.13/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bs4-theme-select2/select2-bootstrap4.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/summernote-0.8.18/summernote.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('plugins/DataTables-1.10.20/css/dataTables.bootstrap4.min.css') }}">
     <link rel="icon" type="imagem/png" href="{{ asset('img/logo.png') }}" />
 
 </head>
@@ -37,14 +39,28 @@
                         @elseif(Request::get('result') != null && Request::get('result') == 1)
                         <div class="alert alert-danger"><i class="fas fa-lg fa-times-circle"></i> Erro ao cadastrar
                             Produto, tente novamente!
-                            <br/>
+                            <br />
                             <b>Erro interno:</b> {{ Request::get('e') }}
                         </div>
                         @endif
                     </div>
 
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th width="17%">Ação</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+
+
                     <form action="{{ route('admin.produto.add') }}" method="post" enctype="multipart/form-data">
-                        @csrf   
+                        @csrf
                         <div class="row row-form justify-content-center">
 
                             <div class="col-xl-3 col-lg-4">
@@ -109,9 +125,9 @@
                                         </div>
                                         <select class="data-single form-control" name="category" placeholder="Selecione"
                                             data-allow-clear="1">
-                                            <option value=""></option>                                                
+                                            <option value=""></option>
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>                                                
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -127,7 +143,7 @@
                                             data-allow-clear="1">
                                             <option value=""></option>
                                             @foreach ($brands as $brand)
-                                                <option value="{{ $brand->id }}">{{ $brand->name }}</option>                                                
+                                            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -154,8 +170,8 @@
                                             <button type="button" class="btn btn-dark"><i
                                                     class="fas fa-paw"></i></button>
                                         </div>
-                                        <select class="data-single form-control" name="animal[]" multiple="multiple" placeholder="Selecione"
-                                            data-allow-clear="1">
+                                        <select class="data-single form-control" name="animal[]" multiple="multiple"
+                                            placeholder="Selecione" data-allow-clear="1">
                                             <option value=""></option>
                                             <option value="Aves">Aves</option>
                                             <option value="Bovino">Bovino</option>
@@ -258,12 +274,45 @@
 
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/admin_native.js') }}"></script>
-    
+
     <script src="{{ asset('plugins/select2_4.0.13/js/select2.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('plugins/summernote-0.8.18/summernote.js') }}"></script>
     <script src="{{ asset('plugins/summernote-0.8.18/summernote-pt-BR.js') }}"></script>
+    <script src="{{ asset('plugins/DataTables-1.10.20/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/DataTables-1.10.20/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('js/admin_product.js') }}"></script>
+
+    <script>
+    $('.table').DataTable({
+        lengthMenu: [5, 10, 15, 25, 50, 100, 'Todas'],
+        responsive: true,
+        processing: true,
+        serverSide: true,
+        "iDisplayLength": 5,
+        "language": {
+            "url": "/js/datatable_ptbr.json"
+        },
+        ajax: "{!! route('admin.produto.listar') !!}",
+        columns: [{
+                data: 'name',
+                name: 'name'
+            },
+            {
+                "data": "action",
+                "render": function(data, type, row, meta) {
+                    return '<a href="../../admin/grupo/editar/' + row.id +
+                        '" class="btn btn btn-b3" title="Editar"> <i class="fa fa-edit"></i></a> <a href="' +
+                        '../../admin/grupo/excluir/' + row.id + '" id="person-' +
+                        row.id +
+                        '" class="btn btn-danger" data-toggle="confirmation" data-btn-ok-label="Sim" data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="" data-btn-cancel-label="Não" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="" data-title="Tem certeza que deseja excluir o cadastro de ' +
+                        row.name +
+                        '?" data-content="Esta ação não poderá ser desfeita." title="Excluir"> <i class="fa fa-trash"></i></a>';
+                }
+            }
+        ],
+    });
+    </script>
 
 </body>
 
