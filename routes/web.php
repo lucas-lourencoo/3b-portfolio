@@ -67,7 +67,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::group(['prefix' => 'produto', 'as' => 'produto.'], function () {
             Route::get('gerenciar', 'ProductController@index')->name('gerenciar');
             Route::post('add', 'ProductController@insert')->name('add');
-            Route::get('editar', 'ProductController@update')->name('editar');
+            Route::get('listar', 'ProductController@list')->name('listar');
+            Route::get('editar/{id}', 'ProductController@editar')->name('editar');
+            Route::post('update/{id}', 'ProductController@update')->name('update');
+            Route::get('excluir/{id}', 'ProductController@excluir')->name('excluir');
         });
 
         //Usuários

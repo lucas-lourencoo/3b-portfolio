@@ -9,6 +9,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends Controller
 {
@@ -18,7 +19,61 @@ class ProductController extends Controller
         $groups = DB::table('groups')->get();
         $brands = DB::table('brands')->get();
 
-        return view('admin.product.add', ['categories' => $categories, 'groups' => $groups, 'brands' => $brands]);
+        return view('admin.product.add', [
+            'categories' => $categories,
+            'groups' => $groups,
+            'brands' => $brands,
+            'update' => false
+        ]);
+    }
+
+    public function editar($id)
+    {
+        $categories = DB::table('categories')->get();
+        $groups = DB::table('groups')->get();
+        $brands = DB::table('brands')->get();
+        $product = DB::table('products')
+            ->join('brands', 'brands.id', '=', 'products.brand')
+            ->join('categories', 'categories.id', '=', 'products.category')
+            ->where('products.id', $id)
+            ->get([
+                'products.*',
+                'brands.name as brand',
+                'categories.name as category'
+            ])
+            ->first();
+        $bull = DB::table('bulls')
+            ->where('product_id', $product->id)
+            ->get()
+            ->first();
+        $animals = DB::table('animals')
+            ->where('product', $product->id)
+            ->get();
+
+        return view('admin.product.add', [
+            'update' => true,
+            'categories' => $categories,
+            'groups' => $groups,
+            'brands' => $brands,
+            'product' => $product,
+            'bull' => $bull,
+            'animals' => $animals
+        ]);
+    }
+
+    public function list()
+    {
+        $products = DB::table('products')
+            ->join('brands', 'brands.id', '=', 'products.brand')
+            ->join('categories', 'categories.id', '=', 'products.category')
+            ->get([
+                'products.*',
+                'brands.name as brand',
+                'categories.name as category'
+            ]);
+        $datatable = DataTables::of($products);
+
+        return $datatable->blacklist(['action'])->make(true);
     }
 
     private function add_img($image, $product_id)
@@ -53,6 +108,17 @@ class ProductController extends Controller
             DB::table('animals')->insert([
                 'product' => $product,
                 'name' => $animal
+            ]);
+        }
+    }
+
+    private function update_animal($animals, $product)
+    {
+        DB::table('animals')->where('product', $product)->delete();
+        foreach ($animals as $animal) {
+            DB::table('animals')->insert([
+                'name' => $animal,
+                'product' => $product
             ]);
         }
     }
@@ -95,6 +161,63 @@ class ProductController extends Controller
             return redirect()->route('admin.produto.gerenciar', ['result' => 0]);
         } catch (Exception $e) {
             return redirect()->route('admin.produto.gerenciar', ['result' => 1, 'e' => $e->getMessage()]);
+        }
+    }
+    
+    public function update($id, Request $request)
+    {
+        try {
+            $product = Product::find($id);
+            $product_id = $product->id;
+            $product->name = $request->input('name');
+            $product->code = $request->input('code');
+            $product->price = number_format(\floatval($request->input('price')), 2, '.', '');
+            $product->gross_weight = $request->input('gross_weight');
+            $product->weight = $request->input('weight');
+            $product->segment = $request->get('segment');
+            $product->brand = $request->get('brand');
+            $product->category = $request->get('category');
+            $product->recommendation = $request->get('recomend');
+            $product->description = $request->get('description');
+
+            if ($request->hasFile('img1') && $request->file('img1')->isValid()) {
+                $image = $request->file('img1');
+                $product->image = $this->add_img($image, $product_id);
+            }
+            if ($request->hasFile('img2') && $request->file('img2')->isValid()) {
+                $image = $request->file('img2');
+                $product->image2 = $this->add_img($image, $product_id);
+            }
+            $product->save();
+
+            //Salvar a bula
+            if ($request->get('bull'))
+                $this->save_bull($request->get('bull'), $product_id);
+
+            //Salvar a bula
+            if ($request->get('animal'))
+                $this->update_animal($request->get('animal'), $product_id);
+
+            return redirect()->route('admin.produto.gerenciar', ['result' => 0]);
+        } catch (Exception $e) {
+            return redirect()->route('admin.produto.gerenciar', ['result' => 1, 'e' => $e->getMessage()]);
+        }
+    }
+
+    public function excluir($id)
+    {
+        try {
+            $product = Product::find($id);
+            Storage::delete('public/profile/' . $product->image);
+            
+            if($product->image2)
+                Storage::delete('public/profile/' . $product->image2);
+            
+            DB::table('animals')->where('product', $id)->delete();
+            DB::table('products')->delete($id);
+            return redirect()->route('admin.produto.gerenciar', ['result' => 2]);
+        } catch (Exception $e) {
+            return redirect()->route('admin.produto.gerenciar', ['result' => 1]);
         }
     }
 }
