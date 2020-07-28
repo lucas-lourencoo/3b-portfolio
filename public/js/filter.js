@@ -293,7 +293,7 @@ $(document).ready(function() {
     function setProducts(data) {
         $('.product-grid').empty();
         if (Array.isArray(data) && data.length) {
-            var path = 'https://' + window.location.host; //local root
+            var path = 'http://' + window.location.host; //local root
             $.each(data, function(i, value) {
                 var name = value.name.length > 23 ? value.name.substring(0, 23) + '. . .' : value.name;
                 var price = value.price.toFixed(2).replace('.', ',');
@@ -301,7 +301,7 @@ $(document).ready(function() {
                 var product = '<div class="col-6 col-md-4 product-d">' +
                     '<div class="product-block">' + getImageAnimal(value.animal) + '<div class="product-img"><img src="' + image + '" alt="">' +
                     '</div><div class="product-info"><h3 class="p-name">' + name + '</h3><p class="p-price">R$ ' + price + '</p>' +
-                    '</div><div class="btn-show"><a href="ver/' + value.id + '">Ver produto</a></div></div></div>';
+                    '</div><div class="btn-show"><a href="' + path + '/ver/' + value.id + '">Ver produto</a></div></div></div>';
                 $('.product-grid').append(product);
             });
         } else {
