@@ -131,6 +131,7 @@ h6 {
 
 .seller-container {
     padding: 20px 0px;
+    margin: 50px auto;
 }
 
 .single-container h3 {
@@ -524,6 +525,46 @@ h6 {
 .back-to-top i:hover {
     background: #009a4f;
     color: #fff;
+}
+
+
+/*--------------------------------------------------------------
+# Descriptions
+--------------------------------------------------------------*/
+
+.descriptions img {
+    height: 150px;
+    margin: 20px 50px;
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.descriptions {
+    background-color: #006b77;
+    padding: 20px 0px;
+    color: white;
+    border-top: 6px solid #ffc100;
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.243);
+}
+
+.descriptions h3 {
+    font-weight: 900;
+    font-size: 40px;
+    color: white;
+}
+
+@keyframes floating {
+    from {
+        transform: translate(0, 0px);
+    }
+    65% {
+        transform: translate(0, 15px);
+    }
+    to {
+        transform: translate(0, -0px);
+    }
 }
 
 
