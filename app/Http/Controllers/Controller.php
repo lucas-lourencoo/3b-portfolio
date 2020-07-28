@@ -34,7 +34,6 @@ class Controller extends BaseController
         $categories = DB::table('categories')->get();
         $brands = DB::table('brands')->get();
 
-
         return view('products', ['groups' => $groups, 'categories' => $categories, 'brands' => $brands]);
     }
 
