@@ -56,6 +56,14 @@
             </div>
         </div>
         <div class="seller-container">
+            <div class="container select-city">
+                <h3 class="col-6 col-md-9"><strong>Ficou interessado? Nos diga de qual cidade você é: </strong></h3>
+                <select class="form-control col-6 col-md-3 city" name="city"
+                    placeholder="Selecione" data-allow-clear="1">
+                    
+                </select>
+            </div>
+
             <div class="card">
                 <div class="cover-bg"></div>
                 <div class="user-info-wrap">
@@ -88,6 +96,15 @@
     <script src="{{ asset('plugins/venobox/venobox.min.js') }}"></script>
     <script src="{{ asset('js/single.js') }}"></script>
     <script src="{{ asset('plugins/jquery.easing/jquery.easing.min.js') }}"></script>
+    <script>
+        $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/MS/municipios", function(resultado) {
+            let inst = resultado
+            //$(".cities").empty();
+            for (let i in inst) {
+                $(".city").append("<option value='" + inst[i].nome + "'>" + inst[i].nome + "</option>");
+            }
+        })
+    </script>
 
 </body>
 

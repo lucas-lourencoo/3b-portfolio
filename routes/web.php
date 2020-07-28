@@ -7,6 +7,7 @@ Route::get('/contato', 'Controller@contact');
 Route::get('login', 'UserController@login')->name('login');
 Route::post('login', 'UserController@auth')->name('authenticate');
 Route::get('/ver/{id}', 'Controller@single')->name('single');
+Route::get('salespeople/{city}', 'Controller@salespeople')->name('sales');
 
 Route::group(['prefix' => 'produtos', 'as' => 'produtos.'], function(){
     Route::get('/', 'Controller@products');

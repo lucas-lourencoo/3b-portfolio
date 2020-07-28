@@ -38,6 +38,18 @@ class Controller extends BaseController
         return view('products', ['groups' => $groups, 'categories' => $categories, 'brands' => $brands]);
     }
 
+    public function salespeople($city)
+    {
+        $sales = DB::table('cities')
+            ->join('regionals', 'cities.regional', '=', 'regionals.id')
+            ->join('salespeoples', 'regionals.id', '=', 'salespeoples.regional')
+            ->where('cities.name', $city)
+            ->limit(2)
+            ->get('salespeoples.*');
+        
+        return $sales;
+    }
+
     public function single($id)
     {
         $groups = DB::table('groups')->get();
