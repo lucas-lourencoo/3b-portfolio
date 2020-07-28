@@ -16,6 +16,48 @@
         });
     });
 
+    $('.city').each(function() {
+        $(this).select2({
+            theme: 'bootstrap4',
+            placeholder: $(this).data('placeholder'),
+        });
+    });
+
+    $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/MS/municipios", function(resultado) {
+        let inst = resultado
+        for (let i in inst) {
+            $(".seller-container select").append("<option value='" + inst[i].nome + "'>" + inst[i].nome + "</option>");
+        }
+    });
+
+    $('.city').change(function(e) {
+        if ($(this).val().trim()) {
+            $('.loading-seller').empty().append('<div class="lds-ring side"><div></div><div></div><div></div><div></div></div><p>Quase lá! Estamos buscando um vendedor para você!</p>');
+            selectSeller($(this).val());
+        } else {
+            $('.sellers-results').empty();
+        }
+    });
+
+    function selectSeller(city) {
+        $.ajax({
+            url: "/salespeople/" + city,
+            success: function(seller) {
+                seller.length > 0 ? showSeller(seller) : $('.loading-seller').empty().append('<p>Não encontramos nenhum vendedor para sua região :/</p>');
+            }
+        });
+    }
+
+    function showSeller(seller) {
+        var block = "";
+        var path = window.location.protocol + '//' + window.location.host + '/storage/profile/';
+        seller.forEach(sel => {
+            block += '<div class="card"><div class="cover-bg"></div><div class="user-info-wrap"><div class="user-photo" style="background-image: url(' + path + sel.photo + ')"></div><div class="user-info"><div class="user-name">' + sel.name + '</div><div class="user-title">Vendedor</div></div></div><div class="user-bio"><div class="social"><div class="social-icons"><a href="#" cl  ass="btn-phone"><i class="fas fa-phone"></i><span>' + sel.celphone + '</span></a><a href="https://api.whatsapp.com/send?phone=' + sel.celphone.replace(/[-() ]/g, "") + '&text=Olá, gostaria de comprar o produto "' + $('.single-container h3').text().trim() + '"!" class="btn-whats"><i class="fab fa-whatsapp"></i>Ir para chat</a></div></div></div></div>';
+        });
+        $('.loading-seller').empty();
+        $('.sellers-results').empty().append(block);
+    }
+
     // OPEN SEARCH
     $('#search-open').click(function(e) {
         e.preventDefault();

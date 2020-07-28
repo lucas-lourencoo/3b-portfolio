@@ -121,7 +121,6 @@
                                         </div>
                                         <select class="form-control cities " multiple name="cities[]"
                                             placeholder="Selecione" data-allow-clear="1">
-
                                         </select>
                                     </div>
                                 </div>

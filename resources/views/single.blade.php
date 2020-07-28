@@ -15,9 +15,12 @@
     <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('plugins/fontawesome-5.13.0/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('plugins/venobox/venobox.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2_4.0.13/css/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bs4-theme-select2/select2-bootstrap4.min.css') }}">
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <link href="{{ asset('css/single.css') }}" rel="stylesheet">
+
     <link rel="icon" type="imagem/png" href="{{ asset('img/logo.png') }}" />
 
 </head>
@@ -55,35 +58,18 @@
                 </div>
             </div>
         </div>
-        <div class="seller-container">
-            <div class="container select-city">
-                <h3 class="col-6 col-md-9"><strong>Ficou interessado? Nos diga de qual cidade você é: </strong></h3>
-                <select class="form-control col-6 col-md-3 city" name="city"
-                    placeholder="Selecione" data-allow-clear="1">
-                    
+        <div class="seller-container container">
+            <h3 class="text-center">Ficou interessado? Nos diga de qual cidade você é: </h3>
+            <div class="form-group d-flex justify-content-center">
+                <select name="city" class="city" data-placeholder="Selecione sua cidade" data-allow-clear="1">
+                    <option value=""></option>
                 </select>
             </div>
 
-            <div class="card">
-                <div class="cover-bg"></div>
-                <div class="user-info-wrap">
-                    <div class="user-photo"></div>
-                    <div class="user-info">
-                        <div class="user-name">{{ $salesman->name }}</div>
-                        <div class="user-title">Vendedor</div>
-                    </div>
-                </div>
-                <div class="user-bio">
-                    <div class="social">
-                        <div class="social-icons">
-                            <a href="#" class="btn-phone"><i class="fas fa-phone"></i> {{ $salesman->celphone }}</a>
-                            <a href="https://api.whatsapp.com/send?phone={{ $salesman->celphone }}&text=Olá, gostaria de comprar o produto {{ $product->name }}!" class="btn-whats"><i class="fab fa-whatsapp"></i>Ir para chat</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="loading-seller text-center"></div>
+            <div class="row sellers-results"></div>
         </div>
-    </div>
+    </div>  
 
     @include('includes/footer')
 
@@ -94,17 +80,10 @@
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('plugins/venobox/venobox.min.js') }}"></script>
+    <script src="{{ asset('plugins/select2_4.0.13/js/select2.min.js') }}"></script>
     <script src="{{ asset('js/single.js') }}"></script>
     <script src="{{ asset('plugins/jquery.easing/jquery.easing.min.js') }}"></script>
-    <script>
-        $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/MS/municipios", function(resultado) {
-            let inst = resultado
-            //$(".cities").empty();
-            for (let i in inst) {
-                $(".city").append("<option value='" + inst[i].nome + "'>" + inst[i].nome + "</option>");
-            }
-        })
-    </script>
+
 
 </body>
 
