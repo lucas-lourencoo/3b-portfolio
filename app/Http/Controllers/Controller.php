@@ -34,7 +34,7 @@ class Controller extends BaseController
         $categories = DB::table('categories')->get();
         $brands = DB::table('brands')->get();
         $animals = DB::table('animals')
-            ->groupBy('name')
+            ->distinct()
             ->get('name');
 
         return view('products', [
