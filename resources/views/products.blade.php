@@ -71,6 +71,18 @@
                         </div>
                         <div class="sidebar_section">
                             <div class="sidebar_title">
+                                <a data-toggle="collapse" href="#animal" role="button" aria-expanded="false"
+                                    aria-controls="animal"><i class="fas fa-angle-down"></i>Cat. Animal</a>
+                            </div>
+                            <ul class="sidebar_categories collapse show" id="animal">
+                                @foreach ($animals as $animal)
+                                <li data-animal="{{ mb_strtolower($animal->name, 'UTF-8') }}">
+                                    <a>{{ ucfirst($animal->name) }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div class="sidebar_section">
+                            <div class="sidebar_title">
                                 <a data-toggle="collapse" href="#price" role="button" aria-expanded="false"
                                     aria-controls="price">Filtrar por preço</a>
                             </div>

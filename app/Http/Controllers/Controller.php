@@ -33,8 +33,16 @@ class Controller extends BaseController
         $groups = DB::table('groups')->get();
         $categories = DB::table('categories')->get();
         $brands = DB::table('brands')->get();
+        $animals = DB::table('animals')
+            ->groupBy('name')
+            ->get('name');
 
-        return view('products', ['groups' => $groups, 'categories' => $categories, 'brands' => $brands]);
+        return view('products', [
+            'groups' => $groups, 
+            'categories' => $categories, 
+            'brands' => $brands,
+            'animals' => $animals
+        ]);
     }
 
     public function salespeople($city)
