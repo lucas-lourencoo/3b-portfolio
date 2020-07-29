@@ -833,6 +833,7 @@ select {
         font-size: calc((50vw) / 11.5);
     }
     .product-block .btn-show a {
+        border-bottom: 2px solid #008c68;
         border-radius: 0 0 20px 20px;
         height: calc((50vw - 14px) / 4);
         font-size: calc((50vw) / 15.972);
