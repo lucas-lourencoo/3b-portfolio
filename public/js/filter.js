@@ -320,7 +320,6 @@ $(document).ready(function() {
         "search": search
     };
 
-
     /* SEND MODIFICATIONS AND REFRESH PRODUCTS */
     function send_modify() {
         var container = $('#page');
