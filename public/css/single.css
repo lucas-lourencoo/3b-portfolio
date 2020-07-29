@@ -550,6 +550,7 @@ h6 {
 .descriptions {
     background-image: linear-gradient(to right bottom, #006b77, #006b77, #006b77, #006b77, #006b77, #016974, #026672, #03646f, #055f69, #075a64, #09565e, #0a5159);
     padding: 20px 0px;
+    margin-top: 60px;
     color: white;
     border-top: 6px solid #ffc100;
     box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.243);
@@ -635,6 +636,9 @@ h6 {
 }
 
 @media (max-width: 991px) {
+    .descriptions {
+        margin-top: 80px;
+    }
     .main {
         margin-top: 70px;
     }
@@ -650,11 +654,22 @@ h6 {
 }
 
 @media (max-width: 576px) {
+    .descriptions {
+        padding-bottom: 30px;
+    }
+    .descriptions h3 {
+        font-size: 27px;
+    }
+    .descriptions img {
+        margin: 20px auto;
+    }
     .single-info {
         margin-top: 50px;
     }
-    .single-container h3 {
+    .single-container h3,
+    .seller-container h3 {
         font-size: 27px;
+        padding: 0px 10px;
     }
     .single-info .block-info {
         padding: 40px 20px 30px 30px;

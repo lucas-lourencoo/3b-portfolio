@@ -17,6 +17,7 @@
     <link href="{{ asset('plugins/venobox/venobox.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2_4.0.13/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bs4-theme-select2/select2-bootstrap4.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/summernote-0.8.18/summernote.css') }}">
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <link href="{{ asset('css/single.css') }}" rel="stylesheet">
@@ -73,7 +74,7 @@
                     </div>
                     <div>
                         <h3>Bula</h3>
-                        <p>Bula</p>
+                        <p class="summernote">Bula</p>
                     </div>
                 </div>
             </div>
@@ -85,6 +86,8 @@
                     <option value=""></option>
                 </select>
             </div>
+        </div>
+        <div class="container">
             <div class="loading-seller text-center"></div>
             <div class="row sellers-results"></div>
         </div>
@@ -100,9 +103,15 @@
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('plugins/venobox/venobox.min.js') }}"></script>
     <script src="{{ asset('plugins/select2_4.0.13/js/select2.min.js') }}"></script>
-    <script src="{{ asset('js/single.js') }}"></script>
+    <script src="{{ asset('plugins/summernote-0.8.18/summernote.js') }}"></script>
+    <script src="{{ asset('plugins/summernote-0.8.18/summernote-pt-BR.js') }}"></script>
     <script src="{{ asset('plugins/jquery.easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('js/single.js') }}"></script>
 
+    <script>
+    $('.summernote').summernote('code', `imprimir aqui a bula`);
+    $('.summernote').summernote('destroy');
+    </script>
 
 </body>
 
