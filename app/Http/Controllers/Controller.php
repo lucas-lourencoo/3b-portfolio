@@ -38,8 +38,8 @@ class Controller extends BaseController
             ->get('name');
 
         return view('products', [
-            'groups' => $groups, 
-            'categories' => $categories, 
+            'groups' => $groups,
+            'categories' => $categories,
             'brands' => $brands,
             'animals' => $animals
         ]);
@@ -53,7 +53,7 @@ class Controller extends BaseController
             ->where('cities.name', $city)
             ->limit(2)
             ->get('salespeoples.*');
-        
+
         return $sales;
     }
 
@@ -74,15 +74,10 @@ class Controller extends BaseController
             ])
             ->first();
 
-        $salesman = DB::table('salespeoples')
-            ->get()
-            ->first();
-
         return view('single', [
             'groups' => $groups,
             'categories' => $categories,
-            'product' => $product,
-            'salesman' => $salesman
+            'product' => $product
         ]);
     }
 }

@@ -42,10 +42,7 @@ class ProductController extends Controller
                 'categories.name as category'
             ])
             ->first();
-        $bull = DB::table('bulls')
-            ->where('product_id', $product->id)
-            ->get()
-            ->first();
+
         $animals = DB::table('animals')
             ->where('product', $product->id)
             ->get();
@@ -56,7 +53,6 @@ class ProductController extends Controller
             'groups' => $groups,
             'brands' => $brands,
             'product' => $product,
-            'bull' => $bull,
             'animals' => $animals
         ]);
     }
@@ -94,14 +90,6 @@ class ProductController extends Controller
         return $nameFile;
     }
 
-    private function save_bull($bull, $product)
-    {
-        DB::table('bulls')->insert([
-            'product_id' => $product,
-            'description' => $bull
-        ]);
-    }
-
     private function save_animal($animals, $product)
     {
         foreach ($animals as $animal) {
@@ -136,6 +124,7 @@ class ProductController extends Controller
             $product->weight = $request->input('weight');
             $product->segment = $request->get('segment');
             $product->brand = $request->get('brand');
+            $product->bull = $request->get('bull');
             $product->category = $request->get('category');
             $product->recommendation = $request->get('recomend');
             $product->description = $request->get('description');
@@ -150,11 +139,7 @@ class ProductController extends Controller
             }
             $product->save();
 
-            //Salvar a bula
-            if ($request->get('bull'))
-                $this->save_bull($request->get('bull'), $product_id);
-
-            //Salvar a bula
+            //Salvar o animal
             if ($request->get('animal'))
                 $this->save_animal($request->get('animal'), $product_id);
 
@@ -163,7 +148,7 @@ class ProductController extends Controller
             return redirect()->route('admin.produto.gerenciar', ['result' => 1, 'e' => $e->getMessage()]);
         }
     }
-    
+
     public function update($id, Request $request)
     {
         try {
@@ -176,9 +161,18 @@ class ProductController extends Controller
             $product->weight = $request->input('weight');
             $product->segment = $request->get('segment');
             $product->brand = $request->get('brand');
+            $product->bull = $request->get('bull');
             $product->category = $request->get('category');
             $product->recommendation = $request->get('recomend');
             $product->description = $request->get('description');
+
+            Storage::delete('public/large/' . $product->image);
+            Storage::delete('public/products/' . $product->image);
+
+            if ($product->image2) {
+                Storage::delete('public/large/' . $product->image2);
+                Storage::delete('public/products/' . $product->image2);
+            }
 
             if ($request->hasFile('img1') && $request->file('img1')->isValid()) {
                 $image = $request->file('img1');
@@ -190,11 +184,7 @@ class ProductController extends Controller
             }
             $product->save();
 
-            //Salvar a bula
-            if ($request->get('bull'))
-                $this->save_bull($request->get('bull'), $product_id);
-
-            //Salvar a bula
+            //Salvar os animais
             if ($request->get('animal'))
                 $this->update_animal($request->get('animal'), $product_id);
 
@@ -208,11 +198,15 @@ class ProductController extends Controller
     {
         try {
             $product = Product::find($id);
-            Storage::delete('public/profile/' . $product->image);
-            
-            if($product->image2)
-                Storage::delete('public/profile/' . $product->image2);
-            
+
+            Storage::delete('public/large/' . $product->image);
+            Storage::delete('public/products/' . $product->image);
+
+            if ($product->image2) {
+                Storage::delete('public/large/' . $product->image2);
+                Storage::delete('public/products/' . $product->image2);
+            }
+
             DB::table('animals')->where('product', $id)->delete();
             DB::table('products')->delete($id);
             return redirect()->route('admin.produto.gerenciar', ['result' => 2]);
