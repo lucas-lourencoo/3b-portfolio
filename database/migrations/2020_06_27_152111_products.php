@@ -22,6 +22,7 @@ class Products extends Migration
             $table->float('weight');
             $table->string('description');
             $table->string('recommendation')->nullable();
+            $table->string('bull', 2000)->nullable();
             $table->string('segment');
             $table->string('image');
             $table->string('image2')->nullable();

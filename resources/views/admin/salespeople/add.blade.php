@@ -68,7 +68,8 @@
                                 @csrf
                                 <div class="box-profile form-group">
                                     <div class="box">
-                                        <div class="js--image-preview"></div>
+                                        <div class="js--image-preview js--no-default"
+                                        style="background-image:url({{ asset('storage/profile/'.$salesman->photo) }})"></div>
                                     </div>
                                     <div class="upload-options">
                                         <label>
@@ -118,14 +119,18 @@
                                             data-allow-clear="1">
                                             <option value=""></option>
                                             @foreach ($regionals as $regional)
-                                                <option value="{{ $regional->id }}">{{ $regional->name }}</option>                                                
+                                                @if($regional->id === $salesman->regional)
+                                                    <option selected value="{{ $regional->id }}">{{ $regional->name }}</option>                                                
+                                                @else
+                                                    <option value="{{ $regional->id }}">{{ $regional->name }}</option>                                                
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="btn-group mt-5">
-                                        <button class="btn btn-b3" type="submit">CADASTRAR</button>
+                                        <button class="btn btn-b3" type="submit">ATUALIZAR</button>
                                     </div>
                                 </div>
                             </form>

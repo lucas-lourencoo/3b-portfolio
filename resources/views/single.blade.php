@@ -66,15 +66,17 @@
                 <div class="container">
                     <div>
                         <h3>Recomendação</h3>
-                        <p>recom</p>
+                        <p>{{ $product->recommendation }}</p>
                     </div>
                     <div>
                         <h3>Descrição</h3>
-                        <p>desc</p>
+                        <p>{{ $product->description }}</p>
                     </div>
                     <div>
-                        <h3>Bula</h3>
-                        <p class="summernote">Bula</p>
+                        @if($product->bull)
+                            <h3>Bula</h3>
+                            <p class="summernote">Bula</p>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -109,8 +111,8 @@
     <script src="{{ asset('js/single.js') }}"></script>
 
     <script>
-    $('.summernote').summernote('code', `imprimir aqui a bula`);
-    $('.summernote').summernote('destroy');
+        $('.summernote').summernote('code', `${$product->bull}`);
+        $('.summernote').summernote('destroy');
     </script>
 
 </body>

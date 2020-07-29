@@ -167,8 +167,13 @@
                                             <select class="data-single form-control" name="segment" placeholder="Selecione"
                                                 data-allow-clear="1">
                                                 <option value=""></option>
-                                                <option value="1">Agricultura</option>
-                                                <option value="2">Pecuária</option>
+                                                    @if($product->segment === 1)
+                                                        <option selected value="1">Agricultura</option>
+                                                        <option value="2">Pecuária</option>
+                                                    @else
+                                                        <option value="1">Agricultura</option>
+                                                        <option selected value="2">Pecuária</option>
+                                                    @endif
                                             </select>
                                         </div>
                                     </div>
@@ -222,7 +227,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="bull">Bula <span>(opcional)</span></label>
-                                        <textarea name="bull" id="summernote">{{ $bull->description ?? '' }}</textarea>
+                                        <textarea name="bull" id="summernote">{{ $product->bull ?? '' }}</textarea>
                                     </div>
                                 </div>
                             </div>

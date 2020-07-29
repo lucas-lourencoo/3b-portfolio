@@ -74,7 +74,8 @@ class SalespeopleController extends Controller
             $salespeople->celphone = $request->input('celphone');
             $salespeople->email = $request->input('email');
             $salespeople->regional = $request->input('regional');
-
+            
+            Storage::delete('public/profile/' . $salespeople->photo);
             if ($request->hasFile('profile') && $request->file('profile')->isValid()) {
                 $image = $request->file('profile');
                 $rand = strval(mt_rand());
@@ -86,6 +87,7 @@ class SalespeopleController extends Controller
 
                 $salespeople->photo = $nameFile;
             }
+
             $salespeople->save();
 
             return redirect()->route('admin.vendedor.gerenciar', ['result' => 0]);
