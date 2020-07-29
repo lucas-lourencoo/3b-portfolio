@@ -16,8 +16,11 @@ class Controller extends BaseController
     {
         $groups = DB::table('groups')->get();
         $categories = DB::table('categories')->get();
+        $destaques = DB::table('products')
+            ->whereIn('id', [9991, 7701, 9025, 1099])
+            ->get();
 
-        return view('index', ['groups' => $groups, 'categories' => $categories]);
+        return view('index', ['groups' => $groups, 'categories' => $categories, 'destaques' => $destaques]);
     }
 
     public function contact()

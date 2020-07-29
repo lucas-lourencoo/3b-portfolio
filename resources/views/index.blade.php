@@ -51,54 +51,59 @@
                 <div class="row no-gutters clients-wrap clearfix">
                     <div class="col-xs-4 col-lg-2">
                         <div class="client-logo">
-                            <a href="#"><img  class="p-5" src="{{ asset('img/bayer.png') }}" alt="bayer"></a>
+                            <a href="/produtos/!brand=bayer"><img  class="p-5" src="{{ asset('img/bayer.png') }}" alt="bayer"></a>
                         </div>
                     </div>
                     <div class="col-xs-4 col-lg-2">
                         <div class="client-logo">
-                            <a href="#"><img src="{{ asset('img/rosembusch.png') }}" alt="rosembusch"></a>
+                            <a href="/produtos/!brand=rosembusch"><img src="{{ asset('img/rosembusch.png') }}" alt="rosembusch"></a>
                         </div>
                     </div>
                     <div class="col-xs-4 col-lg-2">
                         <div class="client-logo">
-                            <a href="#"><img src="{{ asset('img/imeve.png') }}" alt="imeve"></a>
+                            <a href="/produtos/!brand=imeve"><img src="{{ asset('img/imeve.png') }}" alt="imeve"></a>
                         </div>
                     </div>
                     <div class="col-xs-4 col-lg-2">
                         <div class="client-logo">
-                            <a href="#"><img src="{{ asset('img/rogama.png') }}" alt="rogama"></a>
+                            <a href="/produtos/!brand=rogama"><img src="{{ asset('img/rogama.png') }}" alt="rogama"></a>
                         </div>
                     </div>
                     <div class="col-xs-4 col-lg-2">
                         <div class="client-logo">
-                            <a href="#"><img src="{{ asset('img/vithal.png') }}" alt="vithal"></a>
+                            <a href="/produtos/!brand=vithal"><img src="{{ asset('img/vithal.png') }}" alt="vithal"></a>
                         </div>
                     </div>
                     <div class="col-xs-4 col-lg-2">
                         <div class="client-logo">
-                            <a href="#"><img src="{{ asset('img/ucbvet.png') }}" alt="ucbvet"></a>
+                            <a href="/produtos/!brand=ucbvet"><img src="{{ asset('img/ucbvet.png') }}" alt="ucbvet"></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container highlights-container text-center">
-            <hr>
-            <h3 class="highlights">Destaques</h3>
-            <hr>
-            <div class="owl-carousel owl-products">
-                <div class="item">
-                    <div class="img-car">
-                        <img src="{{ asset('img/produto.jpg') }}" alt="">
-                    </div>
-                    <div class="info-car">
-                        <p>Nome do produto</p>
-                        <span>R$ 200</span>
-                        <a href="#" class="go-shop"><i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
+        @if($destaques)
+            <div class="container highlights-container text-center">
+                <hr>
+                <h3 class="highlights">Destaques</h3>
+                <hr>
+                <div class="owl-carousel owl-products">
+                    
+                        @foreach ($destaques as $item)
+                            <div class="item">
+                                <div class="img-car">
+                                    <img src="{{ asset('storage/products/' . $item->image) }}" alt="">
+                                </div>
+                                <div class="info-car">
+                                    <p>{{ $item->name }}</p>
+                                    <span>{{ 'R$ ' . number_format($item->price, 2, ',', ' ') }}</span>
+                                    <a href="{{ route('single', ['id' => $item->id]) }}" class="go-shop"><i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        @endforeach
                 </div>
             </div>
-        </div>
+        @endif
 
     </div>
 
