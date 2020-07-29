@@ -138,7 +138,7 @@
                                 <div>
                                     <img src="{{ asset('img/not-found.png') }}" alt="">
                                     <h3>Nenhum produto encontrado.</h3>
-                                    <p>Clique aqui para voltar ao filtro anterior ou <a href="/produtos">redefina</a> para visualizar normalmente
+                                    <p>Clique voltar ao filtro anterior ou <a href="/produtos">redefina</a> para visualizar normalmente
                                     </p>
                                 </div>
                             </div>
