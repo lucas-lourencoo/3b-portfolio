@@ -29,8 +29,8 @@
                             <li class="active"><input type="text" name="q" id="search"
                                     placeholder="Buscar por produtos..." class="form-control"></li>
                             <li class="seach-options">
-                                <a href="#" id="close"><i class="fas fa-times"></i></a>
-                                <a href="#" id="go"><i class="fas fa-search"></i></a>
+                                <a id="close"><i class="fas fa-times"></i></a>
+                                <a id="go"><i class="fas fa-search"></i></a>
                             </li>
                         </form>
                     </ul>
