@@ -10,8 +10,7 @@ class FilterController extends Controller
     public function filter(Request $request)
     {
         if($request->search){
-            $products = $this->getSearch($request->search);
-            return $products;
+            return $this->getSearch($request->search);
         }
 
         $query = DB::table('products')
@@ -69,11 +68,9 @@ class FilterController extends Controller
         $products = DB::table('products')
             ->join('categories', 'categories.id', '=', 'products.category')
             ->join('brands', 'brands.id', '=', 'products.brand')
-            ->join('animals', 'animals.product', '=', 'products.id')
             ->where('products.name', 'like', '%' . $search . '%')
             ->orWhere('brands.name', 'like', '%' . $search . '%')
             ->orWhere('categories.name', 'like', '%' . $search . '%')
-            ->orWhere('animals.name', 'like', '%' . $search . '%')
             ->distinct()
             ->get('products.*');
 
