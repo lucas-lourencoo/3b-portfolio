@@ -9,6 +9,11 @@ class FilterController extends Controller
 {
     public function filter(Request $request)
     {
+        if($request->search){
+            $products = $this->getSearch($request->search);
+            return $products;
+        }
+
         $query = DB::table('products')
             ->join('categories', 'categories.id', '=', 'products.category')
             ->join('brands', 'brands.id', '=', 'products.brand');
@@ -55,6 +60,22 @@ class FilterController extends Controller
 
         if (isset($products[0]))
             $products[0]->total = $newtotal->total;
+
+        return $products;
+    }
+
+    private function getSearch($search)
+    {
+        $products = DB::table('products')
+            ->join('categories', 'categories.id', '=', 'products.category')
+            ->join('brands', 'brands.id', '=', 'products.brand')
+            ->join('animals', 'animals.product', '=', 'products.id')
+            ->where('products.name', 'like', '%' . $search . '%')
+            ->orWhere('brands.name', 'like', '%' . $search . '%')
+            ->orWhere('categories.name', 'like', '%' . $search . '%')
+            ->orWhere('animals.name', 'like', '%' . $search . '%')
+            ->distinct()
+            ->get('products.*');
 
         return $products;
     }
