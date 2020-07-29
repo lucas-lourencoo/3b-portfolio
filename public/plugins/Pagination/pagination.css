@@ -24,8 +24,7 @@
 
 .paginationjs .paginationjs-pages li {
     float: left;
-    border: 1px solid #aaaaaa;
-    border-right: none;
+    border: 1px solid #006b77;
     list-style: none;
 }
 
@@ -65,20 +64,20 @@
 }
 
 .paginationjs .paginationjs-pages li:first-child {
-    border-radius: 3px 0 0 3px;
+    border-radius: 50%;
 }
 
 .paginationjs .paginationjs-pages li:first-child>a {
-    border-radius: 3px 0 0 3px;
+    border-radius: 50%;
 }
 
 .paginationjs .paginationjs-pages li:last-child {
     border-right: 1px solid #aaaaaa;
-    border-radius: 0 3px 3px 0;
+    border-radius: 50%;
 }
 
 .paginationjs .paginationjs-pages li:last-child>a {
-    border-radius: 0 3px 3px 0;
+    border-radius: 50%;
 }
 
 .paginationjs .paginationjs-go-input {
@@ -240,6 +239,8 @@
 .paginationjs.paginationjs-theme-blue .paginationjs-pages li.active>a {
     background: #006b77;
     color: #fff;
+    border-radius: 50%;
+    margin: 0px 5px;
 }
 
 .paginationjs.paginationjs-theme-blue .paginationjs-pages li.disabled>a:hover {
