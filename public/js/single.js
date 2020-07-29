@@ -78,7 +78,7 @@
     //GO SEARCH
     $('a#go').click(function(e) {
         if ($('#search').val().trim().length > 0) {
-            $('.navbar form').submit();
+            $('.nav-search form').submit();
         } else {
             e.preventDefault();
         }
