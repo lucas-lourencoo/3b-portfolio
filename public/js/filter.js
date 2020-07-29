@@ -293,11 +293,11 @@ $(document).ready(function() {
     function setProducts(data) {
         $('.product-grid').empty();
         if (Array.isArray(data) && data.length) {
-            var path = 'http://' + window.location.host; //local root
+            var path = window.location.protocol + '//' + window.location.hostname
             $.each(data, function(i, value) {
                 var name = value.name.length > 23 ? value.name.substring(0, 23) + '. . .' : value.name;
                 var price = value.price.toFixed(2).replace('.', ',');
-                var image = $(window).width() < 700 ? "storage/products/" + value.image.split('.')[0] + "." + value.image.split('.')[1] : "/storage/products/" + value.image.split('.')[0] + "." + value.image.split('.')[1];
+                var image = "/storage/products/" + value.image;
                 var product = '<div class="col-6 col-md-4 product-d">' +
                     '<div class="product-block">' + getImageAnimal(value.animal) + '<div class="product-img"><img src="' + image + '" alt="">' +
                     '</div><div class="product-info"><h3 class="p-name">' + name + '</h3><p class="p-price">R$ ' + price + '</p>' +
