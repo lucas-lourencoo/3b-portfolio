@@ -9,7 +9,7 @@ class FilterController extends Controller
 {
     public function filter(Request $request)
     {
-        if($request->search){
+        if ($request->search) {
             return $this->getSearch($request->search);
         }
 
@@ -73,6 +73,11 @@ class FilterController extends Controller
             ->orWhere('categories.name', 'like', '%' . $search . '%')
             ->distinct()
             ->get('products.*');
+
+        foreach ($products as $product) {
+            $animal = DB::table('animals')->where('product', $product->id)->get('name');
+            $product->animal = $animal;
+        }
 
         return $products;
     }
