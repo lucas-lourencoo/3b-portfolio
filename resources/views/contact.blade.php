@@ -40,7 +40,7 @@
                 <div class="col-md-6 info-d">
                     <h3 class="text-center">Informações</h3>
                     <div class="info-contact">
-                        <p>Você pode nos encontrar na Rua Manoel Martins, 11 - Centro de Campo Grande - MS</p>
+                        <p>Você pode nos encontrar na Rua Treze de Maio, 1191 - Centro de Campo Grande - MS</p>
                     </div>
                 </div>
                 <div class="col-md-6 social-d">
