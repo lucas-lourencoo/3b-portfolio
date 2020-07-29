@@ -119,7 +119,11 @@
                                             data-allow-clear="1">
                                             <option value=""></option>
                                             @foreach ($regionals as $regional)
-                                                <option value="{{ $regional->id }}">{{ $regional->name }}</option>                                                
+                                                @if($regional->id === $salesman->regional)
+                                                    <option selected value="{{ $regional->id }}">{{ $regional->name }}</option>                                                
+                                                @else
+                                                    <option value="{{ $regional->id }}">{{ $regional->name }}</option>                                                
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div>
