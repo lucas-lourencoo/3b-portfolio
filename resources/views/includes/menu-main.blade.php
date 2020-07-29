@@ -15,7 +15,7 @@
                             <ul>
                                 @foreach ($categories as $category)
                                 @if ($category->group_id === $group->id)
-                                <li><a href="#">{{ ucfirst($category->name) }}</a></li>
+                                    <li><a href="/produtos/!category={{ mb_strtolower($category->name) }}">{{ ucfirst($category->name) }}</a></li>
                                 @endif
                                 @endforeach
                             </ul>
