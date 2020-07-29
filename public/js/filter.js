@@ -293,7 +293,7 @@ $(document).ready(function() {
     function setProducts(data) {
         if (Array.isArray(data) && data.length) {
             $('.product-grid').empty();
-            var path = window.location.protocol + '//' + window.location.hostname
+            var path = window.location.protocol + '//' + window.location.hostname + ':8000';
             $.each(data, function(i, value) {
                 var name = value.name.length > 23 ? value.name.substring(0, 23) + '. . .' : value.name;
                 var price = value.price.toFixed(2).replace('.', ',');
