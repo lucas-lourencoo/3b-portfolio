@@ -75,7 +75,7 @@
                     <div>
                         @if($product->bull)
                             <h3>Bula</h3>
-                            <p class="summernote">Bula</p>
+                            <p class="summernote"></p>
                         @endif
                     </div>
                 </div>
@@ -111,7 +111,7 @@
     <script src="{{ asset('js/single.js') }}"></script>
 
     <script>
-        $('.summernote').summernote('code', `${$product->bull}`);
+        $('.summernote').summernote('code', '{{ $product->bull }}');
         $('.summernote').summernote('destroy');
     </script>
 
