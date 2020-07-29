@@ -104,7 +104,7 @@
                                 <label for="order-product">Ordenar por</label>
                                 <div class="select-wrapper">
                                     <select id="order-product" class="select-order-product">
-                                        <option value="">Padrão</option> 
+                                        <option value="">Padrão</option>
                                         <option value="desc">Menor preço</option>
                                         <option value="asc">Maior preço</option>
                                     </select>
@@ -134,7 +134,15 @@
                             </div>
                         </div>
                         <div class="row product-grid">
-
+                            <div class="not-found d-none">
+                                <div>
+                                    <img src="{{ asset('img/not-found.png') }}" alt="">
+                                    <h3>Nenhum produto encontrado.</h3>
+                                    <p>Clique aqui para voltar ao <a href="#" onclick="window.history.back()">ao filtro
+                                            anterior</a> ou <a href="/produtos">redefina</a> para visualizar normalmente
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                         <div class="row justify-content-center">
                             <div id="page"></div>

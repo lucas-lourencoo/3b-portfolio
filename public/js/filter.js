@@ -219,7 +219,7 @@ $(document).ready(function() {
 
     function add_notfound() {
         $('#page, .order-container').remove();
-        $('.grid-products').append('<div class="text-center w-100"><h3>Nenhum produto encontrado.</h3></div>');
+        $('.not-found').removeClass('d-none');
     }
 
     function topTop() {
@@ -291,8 +291,8 @@ $(document).ready(function() {
 
     /*  POPULATE PRODUCTS */
     function setProducts(data) {
-        $('.product-grid').empty();
         if (Array.isArray(data) && data.length) {
+            $('.product-grid').empty();
             var path = window.location.protocol + '//' + window.location.hostname
             $.each(data, function(i, value) {
                 var name = value.name.length > 23 ? value.name.substring(0, 23) + '. . .' : value.name;
