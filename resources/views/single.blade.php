@@ -63,23 +63,28 @@
             <div class="row descriptions">
                 <img src="{{ asset('img/box.png') }}" alt="">
                 <div class="container">
-                    <h3>Recomendação</h3>
-                    <p>recom</p>
-                    <h3>Descrição</h3>
-                    <p>desc</p>
-                    <h3>Bula</h3>
-                    <p>Bula</p>
+                    <div>
+                        <h3>Recomendação</h3>
+                        <p>recom</p>
+                    </div>
+                    <div>
+                        <h3>Descrição</h3>
+                        <p>desc</p>
+                    </div>
+                    <div>
+                        <h3>Bula</h3>
+                        <p>Bula</p>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="seller-container container">
             <h3 class="text-center">Ficou interessado? Selecione sua cidade para te indicarmos um vendedor</h3>
-            <div class="form-group d-flex justify-content-center">
+            <div class="form-group-lg d-flex justify-content-center">
                 <select name="city" class="city" data-placeholder="Selecione sua cidade" data-allow-clear="1">
                     <option value=""></option>
                 </select>
             </div>
-
             <div class="loading-seller text-center"></div>
             <div class="row sellers-results"></div>
         </div>

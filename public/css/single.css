@@ -134,12 +134,17 @@ h6 {
     margin: 50px auto;
 }
 
-.single-container h3 {
+.single-container h3,
+.seller-container h3 {
     text-align: center;
-    margin: 100px 0px;
+    margin: 30px 0px;
     font-weight: 900;
     font-size: 40px;
     color: #006b77;
+}
+
+.single-container h3 {
+    margin: 100px 0px;
 }
 
 .single-container h3 span {
@@ -187,7 +192,7 @@ h6 {
     width: 80%;
     height: auto;
     padding: 50px;
-    background-image: linear-gradient(to right bottom, #006b77, #00747a, #007e79, #008775, #008f6f, #00926b, #009666, #009961, #009961, #009961, #009961, #009961);
+    background-image: linear-gradient(to right top, #006b77, #046a75, #076974, #0b6872, #0e6771);
     border-radius: 100px 0 100px 50px;
     box-shadow: -15px -15px 15px -7px rgba(0, 0, 0, 0.118);
     border-right: 10px solid #ffc100;
@@ -382,9 +387,10 @@ h6 {
 */
 
 .loading-seller p {
-    font-weight: 600;
     color: #006b77;
-    font-size: 17px;
+    font-size: 20px;
+    letter-spacing: -0.058em;
+    font-weight: 700;
     margin-top: 35px;
 }
 
@@ -542,11 +548,15 @@ h6 {
 }
 
 .descriptions {
-    background-color: #006b77;
+    background-image: linear-gradient(to right bottom, #006b77, #006b77, #006b77, #006b77, #006b77, #016974, #026672, #03646f, #055f69, #075a64, #09565e, #0a5159);
     padding: 20px 0px;
     color: white;
     border-top: 6px solid #ffc100;
     box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.243);
+}
+
+.descriptions .container div {
+    margin-top: 20px;
 }
 
 .descriptions h3 {
